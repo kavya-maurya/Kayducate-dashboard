@@ -1,0 +1,187 @@
+/* --- 1. Global System Tokens --- */
+:root {
+  /* 90% Clean Slate (Notion/Resend Vibe) */
+  --bg-app: #F8F9FA;
+  --bg-glass: rgba(255, 255, 255, 0.7);
+  --bg-glass-hover: rgba(255, 255, 255, 0.85);
+  --border-glass: rgba(234, 236, 240, 0.7);
+  
+  /* Text System */
+  --text-primary: #1A1D20;
+  --text-secondary: #64748B;
+  
+  /* 10% Lavender System (Stripe Vibe) */
+  --lavender-primary: #A78BFA;
+  --lavender-medium: #C4B5FD;
+  --lavender-light: #EDE9FE;
+  --lavender-text: #5B21B6;
+  --lavender-glow: rgba(167, 139, 250, 0.2);
+
+  /* Structure */
+  --radius-extreme: 24px;
+  --radius-pill: 12px;
+  
+  /* Soft Layered Shadows */
+  --shadow-subtle: 0 4px 6px -1px rgba(0, 0, 0, 0.01), 0 2px 4px -1px rgba(0, 0, 0, 0.01);
+  --shadow-glass: 0 12px 32px -4px rgba(167, 139, 250, 0.08), 0 4px 12px -2px rgba(0, 0, 0, 0.02);
+}
+
+/* --- 2. Core Resets --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--bg-app);
+  color: var(--text-primary);
+  min-height: 100vh;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  padding: 1.5rem;
+}
+
+/* --- 3. Responsive Header Component --- */
+.nav-header {
+  background: var(--bg-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-extreme);
+  padding: 1.25rem 2rem;
+  box-shadow: var(--shadow-glass);
+  
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  max-width: 1200px;
+  margin: 0 auto 2rem auto;
+}
+
+.nav-header h2 {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+/* --- 4. Responsive Navigation Row --- */
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  list-style: none;
+}
+
+/* Universal anchor handling (Works with standard href or routerLink attributes) */
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: 0.95rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: var(--radius-pill);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-flex;
+  align-items: center;
+}
+
+.nav-links a:hover {
+  color: var(--text-primary);
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+/* Dedicated Highlight for the Login CTA */
+.nav-links .cta-login, 
+.nav-links a[href*="login"], 
+.nav-links a[routerLink*="login"] {
+  background-color: var(--lavender-light);
+  color: var(--lavender-text);
+  font-weight: 600;
+  margin-left: auto; /* Pushes login to the far right on desktop */
+}
+
+.nav-links .cta-login:hover,
+.nav-links a[href*="login"]:hover,
+.nav-links a[routerLink*="login"]:hover {
+  background-color: var(--lavender-medium);
+  box-shadow: 0 0 0 4px var(--lavender-glow);
+  color: var(--lavender-text);
+}
+
+/* Clean Divider Rule Replacement */
+.divider {
+  border: none;
+  height: 1px;
+  background-color: var(--border-glass);
+  width: 100%;
+}
+
+/* --- 5. Responsive Grid / Content Demo --- */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.card {
+  background: var(--bg-glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-extreme);
+  padding: 2rem;
+  box-shadow: var(--shadow-glass);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  background: var(--bg-glass-hover);
+  box-shadow: 0 20px 38px -4px rgba(167, 139, 250, 0.12), 0 4px 16px -2px rgba(0, 0, 0, 0.03);
+}
+
+/* --- 6. Smart Media Queries (Mobile Responsiveness) --- */
+@media (min-width: 768px) {
+  body {
+    padding: 3rem 2rem;
+  }
+  
+  .nav-header {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0;
+  }
+  
+  .nav-header h2 {
+    margin-bottom: 0;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .nav-links {
+    width: 100%;
+  }
+  
+  .nav-links a {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .nav-links .cta-login,
+  .nav-links a[href*="login"],
+  .nav-links a[routerLink*="login"] {
+    margin-left: 0; /* Stack uniformly on tiny mobile screens */
+    margin-top: 0.5rem;
+  }
+}

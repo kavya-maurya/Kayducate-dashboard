@@ -1,0 +1,263 @@
+<div class="login-page">
+
+    <div class="login-container">
+
+        <!-- LEFT PANEL -->
+
+        <div class="left-panel">
+
+            <div class="overlay"></div>
+
+            <div class="left-content">
+
+                <div class="logo">
+
+                    <i class="fa-solid fa-graduation-cap"></i>
+
+                    <h1>Kayducate</h1>
+
+                </div>
+
+                <span class="badge">
+
+                    🚀 Smart Learning Platform
+
+                </span>
+
+                <h2>
+
+                    Learn.
+                    <span>Track.</span>
+                    Grow.
+
+                </h2>
+
+                <p>
+
+                    Manage courses, attendance, assignments,
+                    progress and daily learning from one modern
+                    dashboard.
+
+                </p>
+
+                <img src="assets/images/login.svg">
+
+                <div class="features">
+
+                    <div>
+
+                        <h3>5000+</h3>
+
+                        <span>Students</span>
+
+                    </div>
+
+                    <div>
+
+                        <h3>120+</h3>
+
+                        <span>Courses</span>
+
+                    </div>
+
+                    <div>
+
+                        <h3>95%</h3>
+
+                        <span>Success</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- RIGHT PANEL -->
+
+        <div class="right-panel">
+
+            <div class="login-card">
+
+                <h2>
+
+                    Welcome Back 
+
+                </h2>
+<!-- 
+                <p>
+
+                    Login to continue your learning journey.
+
+                </p> -->
+
+                <form
+                [formGroup]="myForm"
+                (ngSubmit)="onSubmit(myForm)">
+
+                    <!-- Name -->
+
+                    <div class="input-box">
+
+                        <label>
+
+                            Full Name
+
+                        </label>
+
+                        <div class="input-field">
+
+                            <i class="fa-solid fa-user"></i>
+
+                            <input
+                            type="text"
+                            formControlName="name"
+                            placeholder="Enter your name">
+
+                        </div>
+
+                        <small
+                        *ngIf="myForm.get('name')?.invalid &&
+                        myForm.get('name')?.touched">
+
+                            Name is required
+
+                        </small>
+
+                    </div>
+
+                    <!-- Email -->
+
+                    <div class="input-box">
+
+                        <label>
+
+                            Email
+
+                        </label>
+
+                        <div class="input-field">
+
+                            <i class="fa-solid fa-envelope"></i>
+
+                            <input
+                            type="email"
+                            formControlName="email"
+                            placeholder="Enter your email">
+
+                        </div>
+
+                        <small
+                        *ngIf="myForm.get('email')?.invalid &&
+                        myForm.get('email')?.touched">
+
+                            Enter a valid email
+
+                        </small>
+
+                    </div>
+
+                    <!-- Password -->
+
+                    <div class="input-box">
+
+                        <label>
+
+                            Password
+
+                        </label>
+
+                        <div class="input-field">
+
+                            <i class="fa-solid fa-lock"></i>
+
+                            <input
+                            type="password"
+                            formControlName="password"
+                            placeholder="Enter password">
+
+                            <i class="fa-solid fa-eye"></i>
+
+                        </div>
+
+                        <small
+                        *ngIf="myForm.get('password')?.invalid &&
+                        myForm.get('password')?.touched">
+
+                            Password must be at least 6 characters.
+
+                        </small>
+
+                    </div>
+
+                    <div class="options">
+
+                        <label>
+
+                            <input type="checkbox">
+
+                            Remember Me
+
+                        </label>
+
+                        <a routerLink="/forgot-password">
+
+                            Forgot Password?
+
+                        </a>
+
+                    </div>
+
+                    <button
+                    class="login-btn"
+                    type="submit"
+                    [disabled]="myForm.invalid">
+
+                        Login
+
+                    </button>
+
+                </form>
+
+                <div class="divider">
+
+                    <span>OR</span>
+
+                </div>
+<!-- 
+                <button class="social-btn">
+
+                    <i class="fa-brands fa-google"></i>
+
+                    Continue with Google
+
+                </button>
+
+                <button class="social-btn">
+
+                    <i class="fa-brands fa-microsoft"></i>
+
+                    Continue with Microsoft
+
+                </button> -->
+
+                <p class="register">
+
+                    Don't have an account?
+
+                    <a routerLink="/register">
+
+                        Register
+
+                    </a>
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

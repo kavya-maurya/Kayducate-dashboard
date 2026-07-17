@@ -1,0 +1,148 @@
+
+<section class="contact-section">
+
+    <div class="contact-heading">
+
+        <h1>Contact Kayducate</h1>
+
+        <p>
+            We'd love to hear from you. Reach out for admissions, courses, technical support, or any queries related to Kayducate.
+        </p>
+
+    </div>
+
+    <div class="contact-container">
+
+        <!-- Contact Information -->
+
+        <div class="contact-box">
+
+            <h2>Get In Touch</h2>
+
+            <div class="contact-item">
+
+                <i class="fa-solid fa-location-dot"></i>
+
+                <div>
+                    <h3>Address</h3>
+                    <p>Chandigarh, India</p>
+                </div>
+
+            </div>
+
+            <div class="contact-item">
+
+                <i class="fa-solid fa-phone"></i>
+
+                <div>
+                    <h3>Phone</h3>
+                    <p>+91 98765 43210</p>
+                </div>
+
+            </div>
+
+            <div class="contact-item">
+
+                <i class="fa-solid fa-envelope"></i>
+
+                <div>
+                    <h3>Email</h3>
+                    <p>support@kayducate.com</p>
+                </div>
+
+            </div>
+
+            <div class="contact-item">
+
+                <i class="fa-solid fa-clock"></i>
+
+                <div>
+                    <h3>Working Hours</h3>
+                    <p>Monday - Saturday | 9:00 AM - 6:00 PM</p>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Contact Form -->
+
+        <div class="contact-box">
+
+            <h2>Send Us a Message</h2>
+
+            <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)">
+
+                <input
+                    type="text"
+                    placeholder="Enter Your Name"
+                    name="name"
+                    ngModel
+                    #name="ngModel"
+                    required>
+
+                <div *ngIf="!name?.valid && (name?.dirty || name?.touched)" class="error">
+                    Please enter your name.
+                </div>
+
+                <input
+                    type="email"
+                    placeholder="Enter Your Email"
+                    name="email"
+                    ngModel
+                    #email="ngModel"
+                    required
+                    email>
+
+                <div *ngIf="!email?.valid && (email?.dirty || email?.touched)" class="error">
+                    Please enter a valid email address.
+                </div>
+                 <input
+                    type="phone"
+                    placeholder="Enter Your phone no."
+                    name="phone"
+                    ngModel
+                    #phone="ngModel"
+                    required
+                  >
+
+                <div *ngIf="!phone?.valid && (phone?.dirty || phone?.touched)" class="error">
+                    Please enter a valid phone no.
+                </div>
+
+                <input
+                    type="text"
+                    placeholder="Subject"
+                    name="subject"
+                    ngModel
+                    #subject="ngModel"
+                    minlength="5"
+                    required>
+
+                <div *ngIf="!subject?.valid && (subject?.dirty || subject?.touched)" class="error">
+                    Subject should contain at least 5 characters.
+                </div>
+
+                <textarea
+                    placeholder="Write your message..."
+                    name="message"
+                    ngModel
+                    #message="ngModel"
+                    required>
+                </textarea>
+
+                <div *ngIf="!message?.valid && (message?.dirty || message?.touched)" class="error">
+                    Please enter your message.
+                </div>
+
+                <button [disabled]="!contactForm.valid">
+                    Send Message
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>

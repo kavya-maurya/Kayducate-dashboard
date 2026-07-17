@@ -1,0 +1,988 @@
+/* ==========================================================
+   KAYDUCATE PROFILE PAGE
+   PART 1
+   Premium Theme - Linear × Duolingo × GitHub
+========================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI",sans-serif;
+}
+
+body{
+
+    background:#FCFBFF;
+    color:#222;
+
+}
+
+.profile-page{
+
+    width:min(1450px,95%);
+    margin:40px auto 70px;
+
+}
+
+/* ==========================================================
+   HERO
+========================================================== */
+
+.hero{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    margin-bottom:45px;
+
+}
+
+.badge{
+
+    display:inline-block;
+
+    padding:10px 18px;
+
+    background:#F4F1FF;
+
+    color:#8B6EF7;
+
+    border-radius:30px;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    margin-bottom:18px;
+
+}
+
+.hero h1{
+
+    font-size:52px;
+
+    margin-bottom:18px;
+
+    line-height:1.1;
+
+}
+
+.hero p{
+
+    max-width:600px;
+
+    color:#666;
+
+    font-size:18px;
+
+    line-height:1.8;
+
+}
+
+.hero button{
+
+    border:none;
+
+    padding:16px 34px;
+
+    border-radius:18px;
+
+    background:#B8A4F7;
+
+    color:white;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+}
+
+.hero button:hover{
+
+    background:#9F87F5;
+
+    transform:translateY(-4px);
+
+    box-shadow:0 18px 35px rgba(184,164,247,.22);
+
+}
+
+/* ==========================================================
+   PROFILE GRID
+========================================================== */
+
+.profile-grid{
+
+    display:grid;
+
+    grid-template-columns:340px 1fr;
+
+    gap:30px;
+
+    margin-bottom:40px;
+
+}
+
+/* ==========================================================
+   PROFILE CARD
+========================================================== */
+
+.profile-card{
+
+    background:rgba(255,255,255,.58);
+
+    backdrop-filter:blur(30px);
+
+    border:1px solid rgba(184,164,247,.18);
+
+    border-radius:30px;
+
+    padding:35px;
+
+    text-align:center;
+
+    box-shadow:0 20px 45px rgba(184,164,247,.10);
+
+    transition:.35s;
+
+}
+
+.profile-card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:0 30px 60px rgba(184,164,247,.18);
+
+}
+
+.profile-card img{
+
+    width:140px;
+
+    height:140px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    margin-bottom:22px;
+
+    border:6px solid #F4F1FF;
+
+}
+
+.profile-card h2{
+
+    font-size:30px;
+
+    margin-bottom:10px;
+
+}
+
+.profile-card p{
+
+    color:#777;
+
+    margin-bottom:25px;
+
+}
+
+.level{
+
+    display:inline-block;
+
+    padding:10px 22px;
+
+    background:#F4F1FF;
+
+    color:#8B6EF7;
+
+    border-radius:30px;
+
+    font-weight:600;
+
+    margin-bottom:15px;
+
+}
+
+.xp{
+
+    font-size:20px;
+
+    font-weight:700;
+
+    color:#B8A4F7;
+
+}
+
+/* ==========================================================
+   STATS
+========================================================== */
+
+.stats-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:25px;
+
+}
+
+.stat{
+
+    background:rgba(255,255,255,.58);
+
+    backdrop-filter:blur(30px);
+
+    border:1px solid rgba(184,164,247,.18);
+
+    border-radius:24px;
+
+    padding:28px;
+
+    text-align:center;
+
+    transition:.35s;
+
+    box-shadow:0 18px 40px rgba(184,164,247,.10);
+
+}
+
+.stat:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:0 28px 50px rgba(184,164,247,.16);
+
+}
+
+.stat h2{
+
+    font-size:42px;
+
+    color:#B8A4F7;
+
+    margin-bottom:10px;
+
+}
+
+.stat p{
+
+    color:#777;
+
+}
+
+/* ==========================================================
+   DASHBOARD
+========================================================== */
+
+.dashboard{
+
+    display:grid;
+
+    grid-template-columns:380px 1fr;
+
+    gap:30px;
+
+}
+
+.left-column{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:25px;
+
+}
+
+.right-column{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:25px;
+
+}
+
+/* ==========================================================
+   GLASS CARD
+========================================================== */
+
+.glass-card{
+
+    background:rgba(255,255,255,.58);
+
+    backdrop-filter:blur(30px);
+
+    border:1px solid rgba(184,164,247,.18);
+
+    border-radius:28px;
+
+    padding:30px;
+
+    box-shadow:0 20px 45px rgba(184,164,247,.10);
+
+    transition:.35s;
+
+}
+
+.glass-card:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:0 30px 55px rgba(184,164,247,.16);
+
+}
+
+.glass-card h2{
+
+    font-size:26px;
+
+    margin-bottom:24px;
+
+}
+
+.glass-card p{
+
+    color:#777;
+
+    line-height:1.8;
+
+}
+
+/* ==========================================================
+   PROGRESS RING
+========================================================== */
+
+.progress-circle{
+
+    width:220px;
+
+    height:220px;
+
+    margin:25px auto;
+
+    border-radius:50%;
+
+    background:
+
+    radial-gradient(circle,#fff 60%,transparent 61%),
+
+    conic-gradient(#B8A4F7 82%,#ECE8FF 0);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    box-shadow:0 18px 40px rgba(184,164,247,.12);
+
+}
+
+.progress-circle h2{
+
+    font-size:46px;
+
+    color:#8B6EF7;
+
+    margin-bottom:6px;
+
+}
+
+.progress-circle span{
+
+    color:#777;
+
+}
+
+/* ==========================================================
+   STREAK
+========================================================== */
+
+.glass-card h1{
+
+    font-size:48px;
+
+    color:#B8A4F7;
+
+    margin-bottom:15px;
+
+}
+
+/* ==========================================================
+   SKILLS
+========================================================== */
+
+.skills{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:12px;
+
+}
+
+.skills span{
+
+    padding:12px 18px;
+
+    background:#F4F1FF;
+
+    color:#8B6EF7;
+
+    border-radius:30px;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.skills span:hover{
+
+    background:#B8A4F7;
+
+    color:white;
+
+    transform:translateY(-3px);
+
+}
+
+/* ==========================================================
+   ACTIVITY HEATMAP
+========================================================== */
+
+.heatmap{
+
+    display:grid;
+
+    grid-template-columns:repeat(12,1fr);
+
+    gap:8px;
+
+    margin-top:20px;
+
+}
+
+.heatmap div{
+
+    aspect-ratio:1;
+
+    border-radius:8px;
+
+    background:#ECE8FF;
+
+    transition:.3s;
+
+    cursor:pointer;
+
+}
+
+/* Different activity levels */
+
+.heatmap div:nth-child(3n){
+
+    background:#E2D8FF;
+
+}
+
+.heatmap div:nth-child(5n){
+
+    background:#D2C1FF;
+
+}
+
+.heatmap div:nth-child(7n){
+
+    background:#B8A4F7;
+
+}
+
+.heatmap div:hover{
+
+    transform:scale(1.15);
+
+    background:#9F87F5;
+
+}
+
+/* ==========================================================
+   PERSONAL INFORMATION
+========================================================== */
+
+.info-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:24px;
+
+    margin-top:10px;
+
+}
+
+.info-grid div{
+
+    background:#F9F8FF;
+
+    border:1px solid rgba(184,164,247,.15);
+
+    border-radius:18px;
+
+    padding:18px;
+
+    transition:.3s;
+
+}
+
+.info-grid div:hover{
+
+    transform:translateY(-4px);
+
+    border-color:#B8A4F7;
+
+    box-shadow:0 10px 25px rgba(184,164,247,.10);
+
+}
+
+.info-grid label{
+
+    display:block;
+
+    color:#888;
+
+    font-size:13px;
+
+    margin-bottom:8px;
+
+    font-weight:600;
+
+    text-transform:uppercase;
+
+    letter-spacing:.5px;
+
+}
+
+.info-grid p{
+
+    color:#222;
+
+    font-size:16px;
+
+    font-weight:600;
+
+}
+
+/* ==========================================================
+   ACHIEVEMENTS
+========================================================== */
+
+.achievement-list{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:18px;
+
+}
+
+.achievement-list div{
+
+    padding:18px;
+
+    border-radius:18px;
+
+    background:#F4F1FF;
+
+    color:#6F58E8;
+
+    font-weight:600;
+
+    transition:.3s;
+
+    border:1px solid transparent;
+
+}
+
+.achievement-list div:hover{
+
+    background:#B8A4F7;
+
+    color:#fff;
+
+    transform:translateY(-4px);
+
+    border-color:#9F87F5;
+
+}
+
+/* ==========================================================
+   GOALS
+========================================================== */
+
+.glass-card ul{
+
+    list-style:none;
+
+}
+
+.glass-card ul li{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    padding:16px 0;
+
+    border-bottom:1px solid rgba(184,164,247,.12);
+
+    color:#666;
+
+}
+
+.glass-card ul li:last-child{
+
+    border-bottom:none;
+
+}
+
+.glass-card ul li::before{
+
+    content:"✓";
+
+    width:28px;
+
+    height:28px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:#F4F1FF;
+
+    color:#8B6EF7;
+
+    font-weight:bold;
+
+}
+
+/* ==========================================================
+   ANIMATIONS
+========================================================== */
+
+.profile-card,
+.stat,
+.glass-card{
+
+    animation:fadeUp .7s ease;
+
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(25px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+@keyframes pulse{
+
+    0%{
+
+        box-shadow:0 0 0 0 rgba(184,164,247,.35);
+
+    }
+
+    70%{
+
+        box-shadow:0 0 0 18px rgba(184,164,247,0);
+
+    }
+
+    100%{
+
+        box-shadow:0 0 0 0 rgba(184,164,247,0);
+
+    }
+
+}
+
+.profile-card img{
+
+    animation:pulse 3s infinite;
+
+}
+
+/* ==========================================================
+   SCROLLBAR
+========================================================== */
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#F4F1FF;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#CBBDFB;
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#B8A4F7;
+
+}
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media(max-width:1200px){
+
+.profile-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+.dashboard{
+
+    grid-template-columns:1fr;
+
+}
+
+.left-column{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+@media(max-width:992px){
+
+.hero{
+
+    flex-direction:column;
+
+    align-items:flex-start;
+
+    gap:24px;
+
+}
+
+.hero h1{
+
+    font-size:42px;
+
+}
+
+.hero p{
+
+    font-size:16px;
+
+}
+
+.stats-grid{
+
+    grid-template-columns:repeat(2,1fr);
+
+}
+
+.left-column{
+
+    grid-template-columns:1fr;
+
+}
+
+.progress-circle{
+
+    width:190px;
+
+    height:190px;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.profile-page{
+
+    width:94%;
+
+}
+
+.stats-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+.info-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+.achievement-list{
+
+    grid-template-columns:1fr;
+
+}
+
+.progress-circle{
+
+    width:170px;
+
+    height:170px;
+
+}
+
+.progress-circle h2{
+
+    font-size:36px;
+
+}
+
+.hero h1{
+
+    font-size:34px;
+
+}
+
+.profile-card{
+
+    padding:28px;
+
+}
+
+.glass-card{
+
+    padding:24px;
+
+}
+
+.heatmap{
+
+    grid-template-columns:repeat(8,1fr);
+
+}
+
+}
+
+@media(max-width:480px){
+
+.hero button{
+
+    width:100%;
+
+}
+
+.badge{
+
+    font-size:12px;
+
+}
+
+.profile-card img{
+
+    width:110px;
+
+    height:110px;
+
+}
+
+.profile-card h2{
+
+    font-size:24px;
+
+}
+
+.glass-card h2{
+
+    font-size:22px;
+
+}
+
+.glass-card h1{
+
+    font-size:38px;
+
+}
+
+.skills{
+
+    gap:10px;
+
+}
+
+.skills span{
+
+    font-size:13px;
+
+    padding:10px 14px;
+
+}
+
+.heatmap{
+
+    gap:6px;
+
+}
+
+.heatmap div{
+
+    border-radius:6px;
+
+}
+
+}
