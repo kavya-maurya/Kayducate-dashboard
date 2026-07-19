@@ -12,12 +12,12 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   export class Register implements OnInit {
 
   registerForm!: FormGroup;
-  fb: any;
+  isLoading=false;
+  isSuccess=false;
 
-  constructor(private http: HttpClient){
-        
-      }
+  
 
+  constructor(private fb: FormBuilder, private http:HttpClient) {}
 
   ngOnInit(): void {
 
@@ -50,23 +50,22 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
   onSubmit(): void {
 
-    if (this.registerForm.invalid) {
+    
 
-      this.registerForm.markAllAsTouched();
-      return;
-
-    }
-
-    console.log("Registration Successful!");
+   
 
     console.log(this.registerForm.value);
 
-    // Future API Call
-    // this.http.post('YOUR_API_URL', this.registerForm.value).subscribe(res => {
-    //   console.log(res);
-    // });
+    this.isLoading=true;
+    this.http.post('https://studententry-api.onrender.com/API/auth/register', this.registerForm.value).subscribe(res => {
+      console.log(res);
+      this.registerForm.reset();
+      this.isLoading=false;
+      this.isSuccess=true;
+    });
 
-    this.registerForm.reset();
+    
+    
 
   }
 

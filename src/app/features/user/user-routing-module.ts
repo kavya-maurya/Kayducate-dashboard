@@ -4,16 +4,17 @@ import { DashboardComponent} from './dashboard/dashboard';
 import { Profile} from './profile/profile';
 import { Courses } from './courses/courses';
 import { Attendance } from './attendance/attendance';
-import { DailyTask } from './daily-task/daily-task';
+import { Task } from './task/task';
+
 
 
 const routes: Routes = [
 
-  {
-    path: '',
-    redirectTo: 'dashboard',
-    pathMatch: 'full'
-  },
+  // {
+  //   path: '',
+  //   redirectTo: 'dashboard',
+  //   pathMatch: 'full'
+  // },
 
   {
     path: 'dashboard',
@@ -36,8 +37,8 @@ const routes: Routes = [
   },
    {
     path: 'task',
-    component:DailyTask
-  },
+    component:Task
+   }
 
 
  

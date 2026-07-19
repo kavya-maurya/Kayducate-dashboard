@@ -58,12 +58,16 @@
                 <p>
 
                     Create your Kayducate account.
-
+                    
+                    <span *ngIf="isSuccess" class="success-message">
+  Registration successful!
+  
+</span>
                 </p>
+                    
 
                 <form
-                    [formGroup]="registerForm"
-                    (ngSubmit)="onSubmit()">
+                    [formGroup]="registerForm"(ngSubmit)="onSubmit()">
 
                     <!-- Name -->
 
@@ -150,10 +154,11 @@
                         type="submit"
                         class="login-btn"
                         [disabled]="registerForm.invalid">
+                        <span *ngIf="!isLoading">Create Account</span>
+                        
+                        <span *ngIf="isLoading">Loading ...</span>
 
-                        Create Account
-
-                    </button>
+                   </button>
 
                 </form>
 

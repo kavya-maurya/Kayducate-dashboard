@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { AppRoutingModule } from "../../../app-routing-module";
+
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.html',
   styleUrls: ['./dashboard.css'],
-  imports: [AppRoutingModule]
+ 
 })
 export class DashboardComponent {
 

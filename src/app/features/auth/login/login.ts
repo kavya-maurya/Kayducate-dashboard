@@ -9,27 +9,30 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrl: './login.css',
 })
 export class Login implements OnInit {
-  myForm: FormGroup;
-loginForm: any;
-  fb: any;
+  loginForm!: FormGroup;
+  isLoading=false;
+  isSuccess=false;
 
-  constructor(private http: HttpClient){
-        
-      }
+  
+
+  constructor(private fb: FormBuilder, private http:HttpClient) {}
 
   ngOnInit() {
-    this.myForm = this.fb.group({
-      name: ['', Validators.required],
+    this.loginForm = this.fb.group({
+     
       email: ['', [Validators.required, Validators.email]],
-      message: ['', [Validators.required, Validators.minLength(15)]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
     });
   }
 
   onSubmit(form: FormGroup) {
-    console.log('Valid?', form.valid); // true or false
-    console.log('Name', form.value.name);
-    console.log('Email', form.value.email);
-    console.log('Message', form.value.message);
+      this.isLoading=true;
+     this.http.post('https://studententry-api.onrender.com/API/auth/login', this.loginForm.value).subscribe(res => {
+      console.log(res);
+      this.loginForm.reset();
+       this.isLoading=false;
+      this.isSuccess=true;
+    });
   }
 
 }

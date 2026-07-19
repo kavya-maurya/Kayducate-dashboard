@@ -27,6 +27,7 @@ import { HttpClientModule } from '@angular/common/http';
     UserLayout,
     Navbar,
     Sidebar,
+   
 
   ],
   imports: [BrowserModule, AppRoutingModule, LoadingBarRouterModule, FormsModule,ReactiveFormsModule,HttpClientModule],

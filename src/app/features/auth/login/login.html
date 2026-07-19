@@ -91,42 +91,15 @@
                     Login to continue your learning journey.
 
                 </p> -->
-
-                <form
-                [formGroup]="myForm"
-                (ngSubmit)="onSubmit(myForm)">
+                 <span *ngIf="isSuccess" class="success-message">
+  login successful!
+  </span>
+            
+                <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm)">
 
                     <!-- Name -->
 
-                    <div class="input-box">
-
-                        <label>
-
-                            Full Name
-
-                        </label>
-
-                        <div class="input-field">
-
-                            <i class="fa-solid fa-user"></i>
-
-                            <input
-                            type="text"
-                            formControlName="name"
-                            placeholder="Enter your name">
-
-                        </div>
-
-                        <small
-                        *ngIf="myForm.get('name')?.invalid &&
-                        myForm.get('name')?.touched">
-
-                            Name is required
-
-                        </small>
-
-                    </div>
-
+                   
                     <!-- Email -->
 
                     <div class="input-box">
@@ -149,8 +122,8 @@
                         </div>
 
                         <small
-                        *ngIf="myForm.get('email')?.invalid &&
-                        myForm.get('email')?.touched">
+                        *ngIf="loginForm.get('email')?.invalid &&
+                        loginForm.get('email')?.touched">
 
                             Enter a valid email
 
@@ -182,8 +155,8 @@
                         </div>
 
                         <small
-                        *ngIf="myForm.get('password')?.invalid &&
-                        myForm.get('password')?.touched">
+                        *ngIf="loginForm.get('password')?.invalid &&
+                        loginForm.get('password')?.touched">
 
                             Password must be at least 6 characters.
 
@@ -212,9 +185,11 @@
                     <button
                     class="login-btn"
                     type="submit"
-                    [disabled]="myForm.invalid">
-
-                        Login
+                    [disabled]="loginForm.invalid">
+                    <span *ngIf="!isLoading">Login</span>
+                        
+                        <span *ngIf="isLoading">Loading ...</span>
+                        
 
                     </button>
 
