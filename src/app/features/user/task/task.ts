@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
+
 @Component({
   selector: 'app-task',
   standalone: false,
@@ -24,7 +25,7 @@ searchText: string = '';
 
   editIndex: number | null = null;
 
-filteredTasks: any;
+tasks: any[] = [];
 
   constructor(
     private fb: FormBuilder,
@@ -67,8 +68,18 @@ filteredTasks: any;
       
 
     });
+    
 
   }
+  get filteredTasks() {
+
+  return this.tasks.filter(task =>
+    task.title.toLowerCase().includes(this.searchText.toLowerCase()) ||
+    task.subject.toLowerCase().includes(this.searchText.toLowerCase())
+  );
+
+}
+
 
   saveTask(): void {
     const storedUser = localStorage.getItem('user');
@@ -90,18 +101,62 @@ filteredTasks: any;
     console.log(this.taskForm.value);
 
     this.isLoading = true;
+if (this.editIndex === null) {
 
     this.http.post(
-      'https://studententry-api.onrender.com/api/tasks',payload ).subscribe({next: (res) => {
+      'https://studententry-api.onrender.com/api/tasks',payload ).subscribe({
 
-        console.log(res);
+  next: (res: any) => {
 
-        this.taskForm.reset();
+    console.log(res);
 
-        this.isLoading = false;
-        this.isSuccess = true;
+    this.tasks.push(res.task);
 
-      },
+    this.taskForm.reset();
+
+    this.isLoading = false;
+
+    this.isSuccess = true;
+
+  },
+
+  error: (err) => {
+
+    console.log(err);
+
+    this.isLoading = false;
+
+  },
+  
+    }
+    
+      )}
+
+    else {
+
+  const id = this.filteredTasks[this.editIndex]._id;
+
+  this.http.put(
+    `https://studententry-api.onrender.com/api/tasks/${id}`,
+    payload
+  ).subscribe({
+
+    next: (res: any) => {
+
+      const id = this.filteredTasks[this.editIndex]._id;
+
+this.tasks = this.tasks.map(task =>
+  task._id === id ? res.task : task
+);
+
+      this.editIndex = null;
+
+      this.taskForm.reset();
+
+      this.isLoading = false;
+
+    },
+
 
       error: (err) => {
 
@@ -113,17 +168,55 @@ filteredTasks: any;
 
     });
 
-  }
+    }
+  
+}
+editTask(index: number): void {
 
-  clearForm(): void {
+  const task = this.filteredTasks[index];
+
+  this.editIndex = index;
+
+  this.taskForm.patchValue({
+
+    title: task.title,
+    description: task.description,
+    subject: task.subject,
+    priority: task.priority,
+    status: task.status,
+    dueDate: task.dueDate?.substring(0, 10)
+
+  });
+
+}
+deleteTask(index: number): void {
+
+  const task = this.filteredTasks[index];
+
+  this.http.delete(
+    `https://studententry-api.onrender.com/api/tasks/${task._id}`
+  ).subscribe({
+
+    next: () => {
+
+      this.tasks = this.tasks.filter(t => t._id !== task._id);
+
+    },
+
+    error: (err) => {
+
+      console.log(err);
+
+    }
+
+  });
+
+}
+ clearForm(): void {
 
     this.taskForm.reset();
 
+    this.editIndex = null;
+
   }
-  editTask(index: number) {
-
-}
-deleteTask(index: number) {
-
-}
 }

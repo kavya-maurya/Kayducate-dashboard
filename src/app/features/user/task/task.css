@@ -874,3 +874,71 @@ padding:14px 16px;
 }
 
 }
+
+.table-section{
+    margin:40px 0;
+}
+
+.table-card{
+    background:#fff;
+    border-radius:20px;
+    padding:25px;
+    overflow-x:auto;
+    box-shadow:0 10px 30px rgba(0,0,0,.05);
+}
+
+.table-header{
+    margin-bottom:20px;
+}
+
+.table-header h2{
+    font-size:22px;
+    font-weight:700;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th{
+    background:#f6f2ff;
+    padding:16px;
+    text-align:left;
+    font-weight:600;
+}
+
+td{
+    padding:16px;
+    border-bottom:1px solid #eee;
+}
+
+tr:hover{
+    background:#faf8ff;
+}
+
+.no-data{
+    text-align:center;
+    padding:30px;
+    color:#888;
+}
+
+.edit,
+.delete{
+    width:38px;
+    height:38px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    margin-right:8px;
+}
+
+.edit{
+    background:#ede8ff;
+    color:#6d5ef5;
+}
+
+.delete{
+    background:#ffe8e8;
+    color:#e53935;
+}

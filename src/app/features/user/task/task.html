@@ -264,8 +264,121 @@
 
     </section>
 
-    <!-- ================= TASK LIST ================= -->
+    <!-- ================= TASK TABLE ================= -->
 
+<section class="table-section">
+
+    <div class="table-card">
+
+        <div class="table-header">
+
+            <h2>Task Records</h2>
+
+        </div>
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>#</th>
+                    <th>Title</th>
+                    <th>Subject</th>
+                    <th>Priority</th>
+                    <th>Status</th>
+                    <th>Due Date</th>
+                    <th>Actions</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr *ngFor="let task of filteredTasks; let i = index">
+
+                    <td>{{ i + 1 }}</td>
+
+                    <td>{{ task.title }}</td>
+
+                    <td>{{ task.subject }}</td>
+
+                    <td>
+
+                        <span
+                            class="priority"
+                            [ngClass]="{
+                                'high-priority': task.priority === 'High',
+                                'medium-priority': task.priority === 'Medium',
+                                'low-priority': task.priority === 'Low'
+                            }">
+
+                            {{ task.priority }}
+
+                        </span>
+
+                    </td>
+
+                    <td>
+
+                        <span
+                            class="status"
+                            [ngClass]="{
+                                'pending': task.status === 'Pending',
+                                'completed': task.status === 'Completed'
+                            }">
+
+                            {{ task.status }}
+
+                        </span>
+
+                    </td>
+
+                    <td>{{ task.dueDate | date:'dd MMM yyyy' }}</td>
+
+                    <td>
+
+                        <button
+                            class="edit"
+                            (click)="editTask(i)">
+
+                            <i class="fa-solid fa-pen">edit</i>
+
+                        </button>
+
+                        <button
+                            class="delete"
+                            (click)="deleteTask(i)">
+
+                            <i class="fa-solid fa-trash">del</i>
+
+                        </button>
+
+                    </td>
+
+                </tr>
+
+                <tr *ngIf="filteredTasks.length === 0">
+
+                    <td colspan="7" class="no-data">
+
+                        No tasks found.
+
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+    <!-- ================= TASK LIST ================= -->
+<!-- 
     <section class="task-grid">
 
         <div
@@ -360,4 +473,4 @@
 
     </section>
 
-</div>
+</div> -->
