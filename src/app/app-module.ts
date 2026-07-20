@@ -14,7 +14,8 @@ import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
 import { Sidebar } from './layouts/user-layout/sidebar/sidebar';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { AuthInterceptor} from './interceptor/auth-interceptor';
 
 
 @NgModule({
@@ -31,7 +32,11 @@ import { HttpClientModule } from '@angular/common/http';
 
   ],
   imports: [BrowserModule, AppRoutingModule, LoadingBarRouterModule, FormsModule,ReactiveFormsModule,HttpClientModule],
-  providers: [provideBrowserGlobalErrorListeners()],
+  providers: [provideBrowserGlobalErrorListeners(),  {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }],
   bootstrap: [App],
 })
 export class AppModule {}

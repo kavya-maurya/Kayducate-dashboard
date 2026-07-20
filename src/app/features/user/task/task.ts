@@ -71,6 +71,14 @@ filteredTasks: any;
   }
 
   saveTask(): void {
+    const storedUser = localStorage.getItem('user');
+  const user = storedUser ? JSON.parse(storedUser) : null;
+
+  // Create payload with student id
+  const payload = {
+    ...this.taskForm.value,
+    student: user?.user?._id
+  };
 
     if (this.taskForm.invalid) {
 
@@ -84,7 +92,7 @@ filteredTasks: any;
     this.isLoading = true;
 
     this.http.post(
-      'https://studententry-api.onrender.com/api/tasks',this.taskForm.value ).subscribe({next: (res) => {
+      'https://studententry-api.onrender.com/api/tasks',payload ).subscribe({next: (res) => {
 
         console.log(res);
 
