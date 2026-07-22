@@ -1,0 +1,352 @@
+<div class="admin-dashboard">
+
+    <!-- ========================= -->
+    <!-- Dashboard Header -->
+    <!-- ========================= -->
+
+    <section class="dashboard-header">
+
+        <div class="header-content">
+
+            <span class="page-label">
+                Dashboard
+            </span>
+
+            <h1>
+                Welcome back, Kavya 👋
+            </h1>
+
+            <p>
+                Here's a quick overview of your students, attendance,
+                courses and daily activities.
+            </p>
+
+        </div>
+
+        <div class="header-actions">
+
+            <button class="secondary-btn">
+
+                <i class="fa-regular fa-calendar"></i>
+
+                July 2026
+
+            </button>
+
+            <button class="primary-btn" routerLink="/admin/students" routerLinkActive="active">
+                
+      <span>Add Students</span>
+        
+
+                
+
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- ========================= -->
+    <!-- Statistics -->
+    <!-- ========================= -->
+
+    <section class="stats-grid">
+
+        <article class="stat-card">
+
+            <div class="card-top">
+
+                <span>Total Students</span>
+
+                <i class="fa-solid fa-user-graduate"></i>
+
+            </div>
+
+            <h2>642</h2>
+
+            <div class="card-bottom">
+
+                <span class="trend positive">
+
+                    ↑ 12%
+
+                </span>
+
+                <small>vs last month</small>
+
+            </div>
+
+        </article>
+
+        <article class="stat-card">
+
+            <div class="card-top">
+
+                <span>Courses</span>
+
+                <i class="fa-solid fa-book-open"></i>
+
+            </div>
+
+            <h2>16</h2>
+
+            <div class="card-bottom">
+
+                <span class="trend positive">
+
+                    ↑ 3
+
+                </span>
+
+                <small>active courses</small>
+
+            </div>
+
+        </article>
+
+        <article class="stat-card">
+
+            <div class="card-top">
+
+                <span>Attendance</span>
+
+                <i class="fa-solid fa-calendar-check"></i>
+
+            </div>
+
+            <h2>94%</h2>
+
+            <div class="card-bottom">
+
+                <span class="trend positive">
+
+                    ↑ 2%
+
+                </span>
+
+                <small>weekly average</small>
+
+            </div>
+
+        </article>
+
+        <article class="stat-card">
+
+            <div class="card-top">
+
+                <span>Pending Tasks</span>
+
+                <i class="fa-solid fa-list-check"></i>
+
+            </div>
+
+            <h2>12</h2>
+
+            <div class="card-bottom">
+
+                <span class="trend negative">
+
+                    5 Due Today
+
+                </span>
+
+            </div>
+
+        </article>
+
+    </section>
+
+    <!-- ========================= -->
+    <!-- Dashboard Content -->
+    <!-- ========================= -->
+
+    <section class="dashboard-grid">
+
+        <!-- LEFT COLUMN -->
+
+        <div class="left-column">
+
+            <!-- Attendance -->
+
+            <section class="dashboard-card">
+
+                <div class="card-header">
+
+                    <h3>Attendance Overview</h3>
+
+                    <button>View Report</button>
+
+                </div>
+
+                <div class="chart-placeholder">
+
+                    Attendance Chart
+
+                </div>
+
+            </section>
+
+            <!-- Quick Actions -->
+
+            <section class="dashboard-card">
+
+                <div class="card-header">
+
+                    <h3>Quick Actions</h3>
+
+                </div>
+
+                <div class="quick-actions">
+                      <button routerLink="/admin/students" routerLinkActive="active">
+
+                        
+
+                        <span>Add Students</span>
+
+                    </button>
+
+                    
+
+                    <button routerLink="/admin/courses" routerLinkActive="active">
+
+                        
+
+                        <span>Create Course</span>
+
+                    </button>
+
+                    <button routerLink="/admin/attendance" routerLinkActive="active">
+
+                        <span>Attendance</span>
+
+                    </button>
+
+                    <button routerLink="/admin/tasks" routerLinkActive="active">
+
+                       
+
+                        <span>Create Task</span>
+
+                    </button>
+
+                </div>
+
+            </section>
+
+        </div>
+
+        <!-- RIGHT COLUMN -->
+
+        <div class="right-column">
+
+            <!-- Activity -->
+
+            <section class="dashboard-card">
+
+                <div class="card-header">
+
+                    <h3>Recent Activity</h3>
+
+                </div>
+
+                <ul class="activity-list">
+
+                    <li>
+
+                        <span class="activity-dot success"></span>
+
+                        <div>
+
+                            <h4>Student Registered</h4>
+
+                            <small>2 minutes ago</small>
+
+                        </div>
+
+                    </li>
+
+                    <li>
+
+                        <span class="activity-dot purple"></span>
+
+                        <div>
+
+                            <h4>Attendance Updated</h4>
+
+                            <small>20 minutes ago</small>
+
+                        </div>
+
+                    </li>
+
+                    <li>
+
+                        <span class="activity-dot warning"></span>
+
+                        <div>
+
+                            <h4>Course Published</h4>
+
+                            <small>Yesterday</small>
+
+                        </div>
+
+                    </li>
+
+                </ul>
+
+            </section>
+
+            <!-- Tasks -->
+
+            <section class="dashboard-card">
+
+                <div class="card-header">
+
+                    <h3>Upcoming Tasks</h3>
+
+                </div>
+
+                <ul class="task-list">
+
+                    <li>
+
+                        <span>Review Attendance</span>
+
+                        <small>Today</small>
+
+                    </li>
+
+                    <li>
+
+                        <span>Publish Course</span>
+
+                        <small>Tomorrow</small>
+
+                    </li>
+
+                    <li>
+
+                        <span>Approve Students</span>
+
+                        <small>Friday</small>
+
+                    </li>
+
+                    <li>
+
+                        <span>Update Reports</span>
+
+                        <small>Next Week</small>
+
+                    </li>
+
+                </ul>
+
+            </section>
+
+        </div>
+
+    </section>
+
+</div>

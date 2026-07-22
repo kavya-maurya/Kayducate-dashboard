@@ -1,0 +1,1140 @@
+/* ==========================================================
+   KAYDUCATE ADMIN
+   TASKS PAGE
+   PART 1
+========================================================== */
+
+.admin-tasks{
+    display:flex;
+    flex-direction:column;
+    gap:28px;
+    width:100%;
+}
+
+/* ==========================================================
+   PAGE HEADER
+========================================================== */
+
+.page-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:24px;
+    flex-wrap:wrap;
+}
+
+.header-content{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.page-label{
+    display:inline-flex;
+    align-items:center;
+    width:max-content;
+    padding:5px 12px;
+    background:#EEF2FF;
+    color:#635BFF;
+    font-size:12px;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:.6px;
+}
+
+.header-content h1{
+    margin:0;
+    font-size:30px;
+    font-weight:700;
+    color:#111827;
+    line-height:1.3;
+}
+
+.header-content p{
+    margin:0;
+    max-width:650px;
+    font-size:14px;
+    color:#6B7280;
+    line-height:1.7;
+}
+
+.header-actions{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    flex-wrap:wrap;
+}
+
+/* ==========================================================
+   BUTTONS
+========================================================== */
+
+.primary-btn,
+.secondary-btn{
+    height:44px;
+    padding:0 20px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    border:1px solid transparent;
+    cursor:pointer;
+    font-size:14px;
+    font-weight:600;
+    transition:.25s;
+}
+
+.primary-btn{
+    background:#635BFF;
+    color:#fff;
+}
+
+.primary-btn:hover{
+    background:#564EF0;
+}
+
+.secondary-btn{
+    background:#fff;
+    border-color:#D1D5DB;
+    color:#374151;
+}
+
+.secondary-btn:hover{
+    background:#F8FAFC;
+}
+
+/* ==========================================================
+   TOOLBAR
+========================================================== */
+
+.toolbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+    padding:18px 22px;
+    background:#fff;
+    border:1px solid #E5E7EB;
+}
+
+.toolbar-right{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    flex-wrap:wrap;
+}
+
+/* ==========================================================
+   SEARCH
+========================================================== */
+
+.search-box{
+    width:360px;
+    max-width:100%;
+    height:46px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:0 16px;
+    border:1px solid #D1D5DB;
+    background:#fff;
+    transition:.25s;
+}
+
+.search-box:hover{
+    border-color:#9CA3AF;
+}
+
+.search-box:focus-within{
+    border-color:#635BFF;
+}
+
+.search-box i{
+    color:#9CA3AF;
+    font-size:14px;
+}
+
+.search-box input{
+    flex:1;
+    border:none;
+    outline:none;
+    background:transparent;
+    font-size:14px;
+    color:#111827;
+}
+
+.search-box input::placeholder{
+    color:#9CA3AF;
+}
+
+/* ==========================================================
+   FILTERS
+========================================================== */
+
+.toolbar select{
+    min-width:170px;
+    height:46px;
+    padding:0 14px;
+    border:1px solid #D1D5DB;
+    background:#fff;
+    font-size:14px;
+    color:#374151;
+    outline:none;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.toolbar select:hover{
+    border-color:#9CA3AF;
+}
+
+.toolbar select:focus{
+    border-color:#635BFF;
+}
+
+/* ==========================================================
+   TOTAL TASKS
+========================================================== */
+
+.task-count{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    min-width:120px;
+    height:42px;
+    padding:0 16px;
+    background:#F3F4F6;
+    font-size:13px;
+    font-weight:600;
+    color:#4B5563;
+}
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media(max-width:992px){
+
+.page-header{
+    flex-direction:column;
+}
+
+.header-actions{
+    width:100%;
+}
+
+}
+
+@media(max-width:768px){
+
+.toolbar{
+    flex-direction:column;
+    align-items:stretch;
+}
+
+.search-box{
+    width:100%;
+}
+
+.toolbar-right{
+    width:100%;
+    flex-direction:column;
+    align-items:stretch;
+}
+
+.toolbar select,
+.task-count,
+.primary-btn,
+.secondary-btn{
+    width:100%;
+}
+
+}
+
+@media(max-width:576px){
+
+.header-content h1{
+    font-size:24px;
+}
+
+.header-content p{
+    font-size:13px;
+}
+
+}
+/* ==========================================================
+   TASK TABLE
+   PART 2
+========================================================== */
+
+.table-card{
+    background:#FFFFFF;
+    border:1px solid #E5E7EB;
+    overflow-x:auto;
+}
+
+.table-card table{
+    width:100%;
+    min-width:950px;
+    border-collapse:collapse;
+}
+
+.table-card thead{
+    background:#F8FAFC;
+}
+
+.table-card th{
+    padding:18px 22px;
+    text-align:left;
+    font-size:13px;
+    font-weight:600;
+    color:#6B7280;
+    text-transform:uppercase;
+    letter-spacing:.5px;
+    border-bottom:1px solid #E5E7EB;
+}
+
+.table-card td{
+    padding:18px 22px;
+    border-bottom:1px solid #EEF2F7;
+    vertical-align:middle;
+    font-size:14px;
+    color:#374151;
+}
+
+.table-card tbody tr{
+    transition:.25s ease;
+}
+
+.table-card tbody tr:hover{
+    background:#FAFBFD;
+}
+
+.table-card tbody tr:last-child td{
+    border-bottom:none;
+}
+
+/* ==========================================================
+   TASK INFO
+========================================================== */
+
+.task-info{
+    display:flex;
+    align-items:center;
+    gap:14px;
+}
+
+.task-icon{
+    width:44px;
+    height:44px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#EEF2FF;
+    color:#635BFF;
+    flex-shrink:0;
+}
+
+.task-info h4{
+    margin:0;
+    font-size:14px;
+    font-weight:600;
+    color:#111827;
+}
+
+.task-info small{
+    display:block;
+    margin-top:4px;
+    color:#9CA3AF;
+    font-size:12px;
+    line-height:1.5;
+}
+
+/* ==========================================================
+   PRIORITY BADGES
+========================================================== */
+
+.priority{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-width:90px;
+    height:30px;
+    padding:0 14px;
+    font-size:12px;
+    font-weight:600;
+}
+
+.priority.low{
+    background:#ECFDF3;
+    color:#15803D;
+}
+
+.priority.medium{
+    background:#FEF3C7;
+    color:#B45309;
+}
+
+.priority.high{
+    background:#FEE2E2;
+    color:#DC2626;
+}
+
+/* ==========================================================
+   STATUS BADGES
+========================================================== */
+
+.status{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-width:110px;
+    height:30px;
+    padding:0 14px;
+    font-size:12px;
+    font-weight:600;
+}
+
+.status.pending{
+    background:#F3F4F6;
+    color:#6B7280;
+}
+
+.status.in-progress{
+    background:#DBEAFE;
+    color:#2563EB;
+}
+
+.status.completed{
+    background:#DCFCE7;
+    color:#15803D;
+}
+
+/* ==========================================================
+   ACTION BUTTONS
+========================================================== */
+
+.action-buttons{
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.action-buttons button{
+    width:38px;
+    height:38px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border:1px solid #E5E7EB;
+    background:#FFFFFF;
+    color:#6B7280;
+    cursor:pointer;
+    transition:.25s ease;
+}
+
+.action-buttons button:hover{
+    border-color:#635BFF;
+    color:#635BFF;
+    background:#F8FAFF;
+}
+
+.action-buttons button:last-child:hover{
+    border-color:#EF4444;
+    color:#EF4444;
+    background:#FEF2F2;
+}
+
+/* ==========================================================
+   EMPTY STATE
+========================================================== */
+
+.empty-state{
+    padding:70px 20px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+}
+
+.empty-state i{
+    font-size:46px;
+    color:#CBD5E1;
+    margin-bottom:18px;
+}
+
+.empty-state h3{
+    margin:0;
+    font-size:22px;
+    color:#111827;
+}
+
+.empty-state p{
+    margin:14px 0 26px;
+    max-width:420px;
+    font-size:14px;
+    color:#6B7280;
+    line-height:1.7;
+}
+
+/* ==========================================================
+   SCROLLBAR
+========================================================== */
+
+.table-card::-webkit-scrollbar{
+    height:8px;
+}
+
+.table-card::-webkit-scrollbar-track{
+    background:#F3F4F6;
+}
+
+.table-card::-webkit-scrollbar-thumb{
+    background:#CBD5E1;
+}
+
+.table-card::-webkit-scrollbar-thumb:hover{
+    background:#94A3B8;
+}
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media(max-width:768px){
+
+.table-card th,
+.table-card td{
+    padding:16px;
+}
+
+.task-icon{
+    width:40px;
+    height:40px;
+}
+
+.task-info h4{
+    font-size:13px;
+}
+
+.action-buttons button{
+    width:34px;
+    height:34px;
+}
+
+.priority,
+.status{
+    min-width:80px;
+    font-size:11px;
+}
+
+}
+/* ==========================================================
+   TASK MODAL
+========================================================== */
+
+.task-modal{
+    position:fixed;
+    inset:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:30px;
+    background:rgba(15,23,42,.45);
+    backdrop-filter:blur(6px);
+    z-index:1000;
+    overflow:auto;
+}
+
+/* ==========================================================
+   MODAL CARD
+========================================================== */
+
+.modal-card{
+    width:100%;
+    max-width:760px;
+    background:#FFFFFF;
+    border:1px solid #E5E7EB;
+    animation:modalOpen .25s ease;
+}
+
+@keyframes modalOpen{
+
+    from{
+        opacity:0;
+        transform:translateY(18px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+/* ==========================================================
+   MODAL HEADER
+========================================================== */
+
+.modal-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:22px 28px;
+    border-bottom:1px solid #E5E7EB;
+}
+
+.modal-header h2{
+    margin:0;
+    font-size:22px;
+    font-weight:600;
+    color:#111827;
+}
+
+.close-btn{
+    width:42px;
+    height:42px;
+    border:1px solid #E5E7EB;
+    background:#FFFFFF;
+    color:#6B7280;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.close-btn:hover{
+    background:#F8FAFC;
+    color:#111827;
+}
+
+/* ==========================================================
+   FORM
+========================================================== */
+
+.modal-card form{
+    padding:28px;
+}
+
+.form-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:22px;
+}
+
+.form-group{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+
+.full-width{
+    grid-column:1/-1;
+}
+
+.form-group label{
+    font-size:13px;
+    font-weight:600;
+    color:#374151;
+}
+
+/* ==========================================================
+   INPUTS
+========================================================== */
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+
+    width:100%;
+    padding:13px 14px;
+
+    border:1px solid #D1D5DB;
+
+    background:#FFFFFF;
+
+    font-size:14px;
+
+    color:#111827;
+
+    outline:none;
+
+    transition:.25s;
+
+    box-sizing:border-box;
+
+}
+
+.form-group textarea{
+
+    resize:vertical;
+
+    min-height:120px;
+
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder{
+
+    color:#9CA3AF;
+
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{
+
+    border-color:#635BFF;
+
+}
+
+/* ==========================================================
+   VALIDATION
+========================================================== */
+
+input.ng-invalid.ng-touched,
+select.ng-invalid.ng-touched,
+textarea.ng-invalid.ng-touched{
+
+    border-color:#EF4444;
+
+}
+
+input.ng-valid.ng-touched,
+select.ng-valid.ng-touched,
+textarea.ng-valid.ng-touched{
+
+    border-color:#10B981;
+
+}
+
+/* ==========================================================
+   FORM FOOTER
+========================================================== */
+
+.form-footer{
+
+    display:flex;
+    justify-content:flex-end;
+    gap:14px;
+
+    margin-top:30px;
+
+    padding-top:22px;
+
+    border-top:1px solid #E5E7EB;
+
+}
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media(max-width:768px){
+
+.task-modal{
+
+    padding:18px;
+
+    align-items:flex-start;
+
+}
+
+.modal-card{
+
+    margin:20px 0;
+
+}
+
+.modal-header{
+
+    padding:18px;
+
+}
+
+.modal-card form{
+
+    padding:18px;
+
+}
+
+.form-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+.form-footer{
+
+    flex-direction:column-reverse;
+
+}
+
+.form-footer button{
+
+    width:100%;
+
+}
+
+}
+/* ==========================================================
+   FINAL POLISH
+========================================================== */
+
+*{
+    box-sizing:border-box;
+}
+
+/* ==========================================================
+   TRANSITIONS
+========================================================== */
+
+.table-card,
+.modal-card,
+.primary-btn,
+.secondary-btn,
+.search-box,
+.action-buttons button,
+.close-btn,
+.form-group input,
+.form-group select,
+.form-group textarea{
+
+    transition:
+    background .25s ease,
+    color .25s ease,
+    border-color .25s ease,
+    box-shadow .25s ease,
+    transform .25s ease;
+
+}
+
+/* ==========================================================
+   CARD HOVER
+========================================================== */
+
+.table-card:hover{
+
+    box-shadow:0 10px 24px rgba(15,23,42,.05);
+
+}
+
+.modal-card{
+
+    box-shadow:0 24px 60px rgba(15,23,42,.18);
+
+}
+
+/* ==========================================================
+   BUTTON STATES
+========================================================== */
+
+.primary-btn:hover{
+
+    transform:translateY(-1px);
+
+}
+
+.secondary-btn:hover,
+.action-buttons button:hover,
+.close-btn:hover{
+
+    transform:translateY(-1px);
+
+}
+
+button:active{
+
+    transform:scale(.98);
+
+}
+
+/* ==========================================================
+   TABLE EFFECTS
+========================================================== */
+
+tbody tr{
+
+    transition:background .25s ease;
+
+}
+
+tbody tr:hover{
+
+    background:#FAFBFC;
+
+}
+
+.task-info{
+
+    transition:transform .25s ease;
+
+}
+
+tbody tr:hover .task-info{
+
+    transform:translateX(4px);
+
+}
+
+/* ==========================================================
+   INPUT EFFECTS
+========================================================== */
+
+.form-group input:hover,
+.form-group select:hover,
+.form-group textarea:hover{
+
+    border-color:#9CA3AF;
+
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{
+
+    box-shadow:0 0 0 3px rgba(99,91,255,.12);
+
+}
+
+/* ==========================================================
+   DISABLED
+========================================================== */
+
+input:disabled,
+select:disabled,
+textarea:disabled{
+
+    background:#F3F4F6;
+    color:#9CA3AF;
+    cursor:not-allowed;
+
+}
+
+/* ==========================================================
+   SCROLLBAR
+========================================================== */
+
+::-webkit-scrollbar{
+
+    width:8px;
+    height:8px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#F3F4F6;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#CBD5E1;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#94A3B8;
+
+}
+
+/* ==========================================================
+   TEXT SELECTION
+========================================================== */
+
+::selection{
+
+    background:#635BFF;
+    color:#FFFFFF;
+
+}
+
+/* ==========================================================
+   PAGE LOAD
+========================================================== */
+
+.page-header{
+
+    animation:fadeUp .35s ease;
+
+}
+
+.toolbar{
+
+    animation:fadeUp .5s ease;
+
+}
+
+.table-card{
+
+    animation:fadeUp .65s ease;
+
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+        transform:translateY(18px);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ==========================================================
+   MODAL ANIMATION
+========================================================== */
+
+.task-modal{
+
+    animation:fadeIn .2s ease;
+
+}
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+    }
+
+    to{
+
+        opacity:1;
+
+    }
+
+}
+
+/* ==========================================================
+   LARGE DESKTOP
+========================================================== */
+
+@media(min-width:1600px){
+
+.admin-tasks{
+
+    max-width:1600px;
+    margin:auto;
+
+}
+
+}
+
+/* ==========================================================
+   TABLET
+========================================================== */
+
+@media(max-width:992px){
+
+.admin-tasks{
+
+    gap:22px;
+
+}
+
+}
+
+/* ==========================================================
+   MOBILE
+========================================================== */
+
+@media(max-width:768px){
+
+.page-header{
+
+    gap:18px;
+
+}
+
+.toolbar{
+
+    padding:18px;
+
+}
+
+.table-card th,
+.table-card td{
+
+    white-space:nowrap;
+
+}
+
+.modal-header h2{
+
+    font-size:20px;
+
+}
+
+}
+
+/* ==========================================================
+   SMALL MOBILE
+========================================================== */
+
+@media(max-width:480px){
+
+.page-label{
+
+    font-size:11px;
+
+}
+
+.header-content h1{
+
+    font-size:22px;
+
+}
+
+.header-content p{
+
+    font-size:13px;
+
+}
+
+.task-info{
+
+    gap:10px;
+
+}
+
+.task-icon{
+
+    width:36px;
+    height:36px;
+    font-size:13px;
+
+}
+
+.action-buttons{
+
+    gap:6px;
+
+}
+
+.action-buttons button{
+
+    width:32px;
+    height:32px;
+
+}
+
+.primary-btn,
+.secondary-btn{
+
+    height:42px;
+    font-size:13px;
+
+}
+
+}

@@ -1,0 +1,447 @@
+<div class="admin-students">
+
+    <!-- ========================= -->
+    <!-- PAGE HEADER -->
+    <!-- ========================= -->
+
+    <section class="page-header">
+
+        <div class="header-content">
+
+            <span class="page-label">
+                Students
+            </span>
+
+            <h1>Student Management</h1>
+
+            <p>
+                Manage student information, enrollment and academic records.
+            </p>
+
+        </div>
+
+        <div class="header-actions">
+
+            <button
+                class="secondary-btn"
+                type="button">
+
+                <i class="fa-solid fa-download"></i>
+
+                Export
+
+            </button>
+
+            <button
+                class="primary-btn"
+                type="button"
+                (click)="openModal()">
+
+                <i class="fa-solid fa-plus"></i>
+
+                Add Student
+
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- ========================= -->
+    <!-- TOOLBAR -->
+    <!-- ========================= -->
+
+    <section class="toolbar">
+
+        <div class="search-box">
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <input
+                type="text"
+                placeholder="Search students...">
+
+        </div>
+
+        <div class="toolbar-right">
+
+            <select>
+
+                <option>All Courses</option>
+                <option>BCA</option>
+                <option>BBA</option>
+                <option>B.Com</option>
+                <option>MCA</option>
+
+            </select>
+
+            <span class="student-count">
+
+                Total : 642
+
+            </span>
+
+        </div>
+
+    </section>
+
+    <!-- ========================= -->
+    <!-- STUDENTS TABLE -->
+    <!-- ========================= -->
+
+    <section class="table-card">
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>Student</th>
+
+                    <th>Email</th>
+
+                    <th>Course</th>
+
+                    <th>Semester</th>
+
+                    <th>Attendance</th>
+
+                    <th>Status</th>
+
+                    <th>Action</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr>
+
+                    <td>
+
+                        <div class="student-info">
+
+                            <div class="avatar">
+                                K
+                            </div>
+
+                            <div>
+
+                                <h4>Kavya Maurya</h4>
+
+                                <small>Roll : 6129</small>
+
+                            </div>
+
+                        </div>
+
+                    </td>
+
+                    <td>
+
+                        kavya@email.com
+
+                    </td>
+
+                    <td>
+
+                        BCA
+
+                    </td>
+
+                    <td>
+
+                        4
+
+                    </td>
+
+                    <td>
+
+                        95%
+
+                    </td>
+
+                    <td>
+
+                        <span class="status active">
+
+                            Active
+
+                        </span>
+
+                    </td>
+
+                    <td>
+
+                        <div class="action-buttons">
+
+                            <button>
+
+                                <i class="fa-regular fa-pen-to-square"></i>
+
+                            </button>
+
+                            <button>
+
+                                <i class="fa-regular fa-trash-can"></i>
+
+                            </button>
+
+                        </div>
+
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+</div>
+
+<!-- ===================================================== -->
+<!-- ADD / EDIT STUDENT MODAL -->
+<!-- ===================================================== -->
+
+<div
+class="student-modal"
+*ngIf="showModal">
+
+    <div class="modal-card">
+
+        <!-- Header -->
+
+        <div class="modal-header">
+
+            <h2>
+
+                {{ isEditMode ? 'Edit Student' : 'Add Student' }}
+
+            </h2>
+
+            <button
+                type="button"
+                class="close-btn"
+                (click)="closeModal()">
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+        </div>
+
+        <!-- FORM -->
+
+        <form
+            [formGroup]="studentForm" (ngSubmit)="saveStudent()">
+
+            <div class="form-grid">
+
+                <!-- Name --><h1>Student Information</h1>
+
+                <div class="form-group">
+
+                    <label>
+
+                        Full Name *
+
+                    </label>
+
+                    <input
+                        type="text"
+                        formControlName="name">
+
+                </div>
+
+                <!-- Email -->
+
+                <div class="form-group">
+
+                    <label>
+
+                        Email *
+
+                    </label>
+
+                    <input
+                        type="email"
+                        formControlName="email">
+
+                </div>
+
+                <!-- Phone -->
+
+                <div class="form-group">
+
+                    <label>
+
+                        Phone Number *
+
+                    </label>
+
+                    <input
+                        type="text"
+                        formControlName="phone">
+
+                </div>
+
+                <!-- Course -->
+
+                <div class="form-group">
+
+                    <label>
+
+                        Course *
+
+                    </label>
+
+                    <select formControlName="course">
+
+                        <option value="">
+                            Select Course
+                        </option>
+
+                        <option>BCA</option>
+
+                        <option>BBA</option>
+
+                        <option>B.Com</option>
+
+                        <option>MCA</option>
+
+                    </select>
+
+                </div>
+
+                <!-- Semester -->
+
+                <div class="form-group">
+
+                    <label>
+
+                        Semester *
+
+                    </label>
+
+                    <select formControlName="semester">
+
+                        <option value="">
+                            Select Semester
+                        </option>
+
+                        <option>1</option>
+
+                        <option>2</option>
+
+                        <option>3</option>
+
+                        <option>4</option>
+
+                        <option>5</option>
+
+                        <option>6</option>
+
+                        <option>7</option>
+
+                        <option>8</option>
+
+                    </select>
+
+                </div>
+
+                <!-- Roll Number -->
+
+                <div class="form-group">
+
+                    <label>
+
+                        Roll Number *
+
+                    </label>
+
+                    <input
+                        type="text"
+                        formControlName="rollNumber">
+
+                </div>
+
+                <!-- Status -->
+
+                <div class="form-group">
+
+                    <label>
+
+                        Status *
+
+                    </label>
+
+                    <select formControlName="status">
+
+                        <option>
+
+                            Active
+
+                        </option>
+
+                        <option>
+
+                            Inactive
+
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <!-- Address -->
+
+                <div class="form-group full-width">
+
+                    <label>
+
+                        Address
+
+                    </label>
+
+                    <textarea
+                        rows="4"
+                        formControlName="address">
+
+                    </textarea>
+
+                </div>
+
+            </div>
+
+            <!-- Footer -->
+
+            <div class="form-footer">
+
+                <button
+                    type="button"
+                    class="secondary-btn"
+                    (click)="closeModal()">
+
+                    Cancel
+
+                </button>
+
+                <button
+                    type="submit"
+                    class="primary-btn">
+
+                    {{ isEditMode ? 'Update Student' : 'Save Student' }}
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>

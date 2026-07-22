@@ -1,0 +1,1377 @@
+/*==========================================================
+    KAYDUCATE ADMIN
+    COURSES PAGE
+    PART 1
+==========================================================*/
+
+/*==========================================================
+    PAGE LAYOUT
+==========================================================*/
+
+.admin-courses{
+
+    display:flex;
+    flex-direction:column;
+    gap:28px;
+    width:100%;
+
+}
+
+/*==========================================================
+    PAGE HEADER
+==========================================================*/
+
+.page-header{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:24px;
+    flex-wrap:wrap;
+
+}
+
+.header-content{
+
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+
+}
+
+.page-label{
+
+    display:inline-flex;
+    align-items:center;
+    width:max-content;
+
+    padding:5px 12px;
+
+    background:#EEF2FF;
+    color:#5B5BD6;
+
+    font-size:12px;
+    font-weight:600;
+    letter-spacing:.4px;
+    text-transform:uppercase;
+
+}
+
+.header-content h1{
+
+    margin:0;
+
+    font-size:30px;
+    font-weight:600;
+    color:#1F2937;
+
+}
+
+.header-content p{
+
+    margin:0;
+
+    max-width:620px;
+
+    font-size:14px;
+    line-height:1.7;
+
+    color:#6B7280;
+
+}
+
+/*==========================================================
+    HEADER ACTIONS
+==========================================================*/
+
+.header-actions{
+
+    display:flex;
+    align-items:center;
+    gap:12px;
+
+}
+
+/*==========================================================
+    BUTTONS
+==========================================================*/
+
+.primary-btn,
+.secondary-btn{
+
+    height:44px;
+
+    padding:0 18px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+
+    cursor:pointer;
+
+    font-size:14px;
+    font-weight:500;
+
+    transition:.25s ease;
+
+}
+
+.primary-btn{
+
+    background:#6366F1;
+    color:#FFFFFF;
+
+    border:none;
+
+}
+
+.primary-btn:hover{
+
+    background:#5458E8;
+
+}
+
+.secondary-btn{
+
+    background:#FFFFFF;
+
+    color:#374151;
+
+    border:1px solid #E5E7EB;
+
+}
+
+.secondary-btn:hover{
+
+    background:#F8FAFC;
+
+}
+
+.primary-btn i,
+.secondary-btn i{
+
+    font-size:13px;
+
+}
+
+/*==========================================================
+    TOOLBAR
+==========================================================*/
+
+.toolbar{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+
+    padding:18px 22px;
+
+    background:#FFFFFF;
+
+    border:1px solid #E5E7EB;
+
+}
+
+.toolbar-right{
+
+    display:flex;
+    align-items:center;
+    gap:14px;
+
+}
+
+/*==========================================================
+    SEARCH
+==========================================================*/
+
+.search-box{
+
+    width:360px;
+    max-width:100%;
+
+    height:46px;
+
+    display:flex;
+    align-items:center;
+    gap:12px;
+
+    padding:0 16px;
+
+    border:1px solid #E5E7EB;
+
+    background:#FFFFFF;
+
+    transition:.25s;
+
+}
+
+.search-box:hover{
+
+    border-color:#CBD5E1;
+
+}
+
+.search-box:focus-within{
+
+    border-color:#6366F1;
+
+}
+
+.search-box i{
+
+    color:#94A3B8;
+
+    font-size:14px;
+
+}
+
+.search-box input{
+
+    flex:1;
+
+    border:none;
+
+    outline:none;
+
+    background:transparent;
+
+    font-size:14px;
+
+    color:#111827;
+
+}
+
+.search-box input::placeholder{
+
+    color:#9CA3AF;
+
+}
+
+/*==========================================================
+    SELECT
+==========================================================*/
+
+.toolbar select{
+
+    height:46px;
+
+    min-width:180px;
+
+    padding:0 14px;
+
+    border:1px solid #E5E7EB;
+
+    background:#FFFFFF;
+
+    color:#374151;
+
+    font-size:14px;
+
+    outline:none;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.toolbar select:hover{
+
+    border-color:#CBD5E1;
+
+}
+
+.toolbar select:focus{
+
+    border-color:#6366F1;
+
+}
+
+/*==========================================================
+    STATS
+==========================================================*/
+
+.stats-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:20px;
+
+}
+
+.stat-card{
+
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+
+    padding:22px;
+
+    background:#FFFFFF;
+
+    border:1px solid #E5E7EB;
+
+    transition:.25s ease;
+
+}
+
+.stat-card:hover{
+
+    border-color:#D1D5DB;
+
+    transform:translateY(-2px);
+
+}
+
+.stat-card i{
+
+    width:48px;
+    height:48px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:#EEF2FF;
+
+    color:#6366F1;
+
+    font-size:18px;
+
+}
+
+.stat-card h2{
+
+    margin:0;
+
+    font-size:32px;
+
+    font-weight:600;
+
+    color:#111827;
+
+}
+
+.stat-card span{
+
+    color:#6B7280;
+
+    font-size:14px;
+
+}
+/*==========================================================
+    KAYDUCATE ADMIN
+    COURSES PAGE
+    PART 2
+    COURSE GRID + CARDS
+==========================================================*/
+
+/*==========================================================
+    COURSE GRID
+==========================================================*/
+
+.course-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fill,minmax(340px,1fr));
+
+    gap:24px;
+
+}
+
+/*==========================================================
+    COURSE CARD
+==========================================================*/
+
+.course-card{
+
+    display:flex;
+    flex-direction:column;
+
+    background:#FFFFFF;
+
+    border:1px solid #E5E7EB;
+
+    transition:.25s ease;
+
+}
+
+.course-card:hover{
+
+    border-color:#D1D5DB;
+
+    transform:translateY(-3px);
+
+    box-shadow:0 12px 28px rgba(15,23,42,.06);
+
+}
+
+/*==========================================================
+    CARD HEADER
+==========================================================*/
+
+.course-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-start;
+
+    gap:16px;
+
+    padding:24px;
+
+    border-bottom:1px solid #F1F5F9;
+
+}
+
+.course-header h3{
+
+    margin:0;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    color:#111827;
+
+}
+
+.course-header small{
+
+    display:block;
+
+    margin-top:6px;
+
+    color:#6B7280;
+
+    font-size:13px;
+
+}
+
+/*==========================================================
+    STATUS
+==========================================================*/
+
+.status{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    min-width:82px;
+
+    padding:6px 14px;
+
+    font-size:12px;
+
+    font-weight:600;
+
+    white-space:nowrap;
+
+}
+
+.status.active{
+
+    background:#ECFDF3;
+
+    color:#15803D;
+
+}
+
+.status.inactive{
+
+    background:#FEF2F2;
+
+    color:#DC2626;
+
+}
+
+/*==========================================================
+    DESCRIPTION
+==========================================================*/
+
+.course-card p{
+
+    margin:0;
+
+    padding:20px 24px;
+
+    color:#6B7280;
+
+    font-size:14px;
+
+    line-height:1.8;
+
+    border-bottom:1px solid #F1F5F9;
+
+}
+
+/*==========================================================
+    COURSE INFORMATION
+==========================================================*/
+
+.course-info{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    border-bottom:1px solid #F1F5F9;
+
+}
+
+.course-info div{
+
+    padding:22px 12px;
+
+    text-align:center;
+
+}
+
+.course-info div:not(:last-child){
+
+    border-right:1px solid #F1F5F9;
+
+}
+
+.course-info strong{
+
+    display:block;
+
+    margin-bottom:6px;
+
+    font-size:24px;
+
+    font-weight:600;
+
+    color:#111827;
+
+}
+
+.course-info span{
+
+    font-size:13px;
+
+    color:#6B7280;
+
+}
+
+/*==========================================================
+    COURSE FOOTER
+==========================================================*/
+
+.course-footer{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    align-items:center;
+
+    gap:12px;
+
+    padding:20px 24px;
+
+}
+
+.course-footer .primary-btn,
+.course-footer .secondary-btn{
+
+    min-width:100px;
+
+}
+
+/*==========================================================
+    EMPTY STATE
+==========================================================*/
+
+.empty-state{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:18px;
+
+    padding:80px 20px;
+
+    background:#FFFFFF;
+
+    border:1px solid #E5E7EB;
+
+    text-align:center;
+
+}
+
+.empty-state i{
+
+    font-size:52px;
+
+    color:#CBD5E1;
+
+}
+
+.empty-state h3{
+
+    margin:0;
+
+    font-size:22px;
+
+    font-weight:600;
+
+    color:#111827;
+
+}
+
+.empty-state p{
+
+    max-width:420px;
+
+    margin:0;
+
+    color:#6B7280;
+
+    line-height:1.7;
+
+}
+
+.empty-state .primary-btn{
+
+    margin-top:8px;
+
+}
+/*==========================================================
+    KAYDUCATE ADMIN
+    COURSES PAGE
+    PART 3
+    PAGINATION + INTERACTIONS + UTILITIES
+==========================================================*/
+
+/*==========================================================
+    PAGINATION
+==========================================================*/
+
+.pagination{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:10px;
+
+    margin-top:10px;
+
+}
+
+.pagination button{
+
+    min-width:42px;
+
+    height:42px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:#FFFFFF;
+
+    border:1px solid #E5E7EB;
+
+    cursor:pointer;
+
+    color:#4B5563;
+
+    font-size:14px;
+
+    font-weight:500;
+
+    transition:.25s ease;
+
+}
+
+.pagination button:hover{
+
+    border-color:#6366F1;
+
+    color:#6366F1;
+
+    background:#F8FAFC;
+
+}
+
+.pagination button.active{
+
+    background:#6366F1;
+
+    border-color:#6366F1;
+
+    color:#FFFFFF;
+
+}
+
+/*==========================================================
+    CARD MICRO INTERACTIONS
+==========================================================*/
+
+.course-card,
+.stat-card,
+.primary-btn,
+.secondary-btn{
+
+    transition:
+        background .25s ease,
+        color .25s ease,
+        border-color .25s ease,
+        transform .25s ease,
+        box-shadow .25s ease;
+
+}
+
+.course-card:hover{
+
+    box-shadow:0 14px 30px rgba(15,23,42,.06);
+
+}
+
+.stat-card:hover{
+
+    box-shadow:0 10px 22px rgba(15,23,42,.05);
+
+}
+
+/*==========================================================
+    ICON ANIMATION
+==========================================================*/
+
+.course-card:hover .course-header h3{
+
+    color:#6366F1;
+
+}
+
+.course-card:hover .status{
+
+    transform:scale(1.03);
+
+}
+
+.stat-card:hover i{
+
+    transform:rotate(-8deg);
+
+}
+
+/*==========================================================
+    BUTTON EFFECTS
+==========================================================*/
+
+.primary-btn:active,
+.secondary-btn:active{
+
+    transform:scale(.98);
+
+}
+
+button:focus{
+
+    outline:none;
+
+    box-shadow:0 0 0 3px rgba(99,102,241,.18);
+
+}
+
+/*==========================================================
+    INPUT STATES
+==========================================================*/
+
+input:disabled,
+select:disabled{
+
+    background:#F8FAFC;
+
+    cursor:not-allowed;
+
+    color:#9CA3AF;
+
+}
+
+/*==========================================================
+    GLOBAL BOX SIZING
+==========================================================*/
+
+*{
+
+    box-sizing:border-box;
+
+}
+
+/*==========================================================
+    SCROLLBAR
+==========================================================*/
+
+::-webkit-scrollbar{
+
+    width:8px;
+
+    height:8px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#F1F5F9;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#CBD5E1;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#94A3B8;
+
+}
+
+/*==========================================================
+    TEXT SELECTION
+==========================================================*/
+
+::selection{
+
+    background:#6366F1;
+
+    color:#FFFFFF;
+
+}
+
+/*==========================================================
+    PAGE LOAD ANIMATION
+==========================================================*/
+
+.page-header{
+
+    animation:fadeUp .35s ease;
+
+}
+
+.toolbar{
+
+    animation:fadeUp .45s ease;
+
+}
+
+.stats-grid{
+
+    animation:fadeUp .55s ease;
+
+}
+
+.course-grid{
+
+    animation:fadeUp .7s ease;
+
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(18px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/*==========================================================
+    COURSE CARD TOP BORDER
+==========================================================*/
+
+.course-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.course-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    top:0;
+
+    width:100%;
+
+    height:3px;
+
+    background:#6366F1;
+
+    transform:scaleX(0);
+
+    transform-origin:left;
+
+    transition:.3s ease;
+
+}
+
+.course-card:hover::before{
+
+    transform:scaleX(1);
+
+}
+
+/*==========================================================
+    LARGE DESKTOP
+==========================================================*/
+
+@media(min-width:1600px){
+
+    .admin-courses{
+
+        max-width:1600px;
+
+        margin:auto;
+
+    }
+
+}
+/* ==========================================================
+   COURSE MODAL
+========================================================== */
+
+.course-modal{
+
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 32px;
+
+    background: rgba(17,24,39,.45);
+    backdrop-filter: blur(6px);
+
+    z-index: 1000;
+
+}
+
+/* ==========================================================
+   MODAL CARD
+========================================================== */
+
+.modal-card{
+
+    width: 100%;
+    max-width: 760px;
+
+    background: #FFFFFF;
+
+    border: 1px solid #E5E7EB;
+
+    box-shadow: 0 20px 50px rgba(15,23,42,.12);
+
+    overflow: hidden;
+
+    animation: modalFade .25s ease;
+
+}
+
+@keyframes modalFade{
+
+    from{
+
+        opacity:0;
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ==========================================================
+   MODAL HEADER
+========================================================== */
+
+.modal-header{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:22px 28px;
+
+    border-bottom:1px solid #E5E7EB;
+
+}
+
+.modal-header h2{
+
+    margin:0;
+
+    font-size:22px;
+    font-weight:600;
+
+    color:#111827;
+
+}
+
+.close-btn{
+
+    width:42px;
+    height:42px;
+
+    border:none;
+
+    background:#F8FAFC;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.close-btn:hover{
+
+    background:#EEF2FF;
+
+    color:#7567F8;
+
+}
+
+/* ==========================================================
+   FORM
+========================================================== */
+
+.modal-card form{
+
+    padding:28px;
+
+}
+
+.form-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:22px;
+
+}
+
+.form-group{
+
+    display:flex;
+    flex-direction:column;
+
+    gap:8px;
+
+}
+
+.full-width{
+
+    grid-column:1/-1;
+
+}
+
+.form-group label{
+
+    font-size:13px;
+
+    font-weight:600;
+
+    color:#374151;
+
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select{
+
+    width:100%;
+
+    padding:13px 15px;
+
+    border:1px solid #D1D5DB;
+
+    background:#FFFFFF;
+
+    font-size:14px;
+
+    outline:none;
+
+    transition:.25s;
+
+    box-sizing:border-box;
+
+}
+
+.form-group textarea{
+
+    resize:vertical;
+
+    min-height:120px;
+
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus{
+
+    border-color:#7567F8;
+
+    box-shadow:0 0 0 3px rgba(117,103,248,.12);
+
+}
+
+/* ==========================================================
+   INVALID
+========================================================== */
+
+input.ng-invalid.ng-touched,
+textarea.ng-invalid.ng-touched,
+select.ng-invalid.ng-touched{
+
+    border-color:#EF4444;
+
+}
+
+.error{
+
+    margin-top:4px;
+
+    font-size:12px;
+
+    color:#DC2626;
+
+}
+
+/* ==========================================================
+   MODAL FOOTER
+========================================================== */
+
+.form-footer{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    gap:14px;
+
+    margin-top:26px;
+
+    padding-top:22px;
+
+    border-top:1px solid #E5E7EB;
+
+}
+
+/* ==========================================================
+   BUTTON STATES
+========================================================== */
+
+button{
+
+    transition:
+    background .25s,
+    border-color .25s,
+    color .25s,
+    transform .25s;
+
+}
+
+button:hover{
+
+    transform:translateY(-1px);
+
+}
+
+button:active{
+
+    transform:scale(.98);
+
+}
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media(max-width:992px){
+
+.course-grid{
+
+    grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+@media(max-width:768px){
+
+.page-header{
+
+    flex-direction:column;
+    align-items:flex-start;
+
+}
+
+.header-actions{
+
+    width:100%;
+    flex-direction:column;
+
+}
+
+.primary-btn,
+.secondary-btn{
+
+    width:100%;
+
+}
+
+.toolbar{
+
+    flex-direction:column;
+
+    align-items:stretch;
+
+}
+
+.toolbar-right{
+
+    flex-direction:column;
+
+}
+
+.search-box{
+
+    width:100%;
+
+}
+
+.toolbar select{
+
+    width:100%;
+
+}
+
+.course-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+.form-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+.course-modal{
+
+    padding:16px;
+
+    align-items:flex-start;
+
+    overflow:auto;
+
+}
+
+.modal-card{
+
+    margin:20px 0;
+
+}
+
+.form-footer{
+
+    flex-direction:column-reverse;
+
+}
+
+.form-footer button{
+
+    width:100%;
+
+}
+
+}
+
+@media(max-width:480px){
+
+.page-title h1{
+
+    font-size:24px;
+
+}
+
+.page-title p{
+
+    font-size:13px;
+
+}
+
+.course-card{
+
+    padding:18px;
+
+}
+
+.course-header{
+
+    flex-direction:column;
+    align-items:flex-start;
+
+}
+
+.course-footer{
+
+    flex-direction:column;
+    align-items:flex-start;
+
+    gap:12px;
+
+}
+
+}

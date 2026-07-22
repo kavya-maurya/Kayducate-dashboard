@@ -6,6 +6,8 @@ import { About } from './features/public/about/about';
 import { PublicLayout } from './layouts/public-layout/public-layout';
 import { AuthLayout } from './layouts/auth-layout/auth-layout';
 import { UserLayout } from './layouts/user-layout/user-layout';
+import { AuthGuard } from './guards/auth-guard-guard';
+import { AdminLayout } from './layouts/admin-layout/admin-layout';
 
 
 
@@ -42,9 +44,18 @@ const routes: Routes = [
   {
     path: 'student',
     component: UserLayout,
+    canActivate:[AuthGuard],
     loadChildren: () =>
       import('./features/user/user-module')
         .then(m => m.UserModule)
+  },
+  {
+    path: 'admin',
+    component: AdminLayout,
+
+    loadChildren: () =>
+      import('./features/admin/admin-module')
+        .then(m => m.AdminModule)
   },
 
   {

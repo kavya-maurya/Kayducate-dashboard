@@ -1,0 +1,1223 @@
+/* ==========================================================
+   KAYDUCATE ADMIN
+   ATTENDANCE PAGE
+   PART 1
+   Header + Toolbar + Summary Cards
+========================================================== */
+
+/* ==========================================================
+   PAGE LAYOUT
+========================================================== */
+
+.admin-attendance{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:28px;
+
+    width:100%;
+
+}
+
+/* ==========================================================
+   PAGE HEADER
+========================================================== */
+
+.page-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-start;
+
+    gap:24px;
+
+}
+
+.page-title{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+
+}
+
+.page-label{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    width:max-content;
+
+    padding:5px 14px;
+
+    font-size:12px;
+
+    font-weight:600;
+
+    letter-spacing:.6px;
+
+    text-transform:uppercase;
+
+    color:#5B5BD6;
+
+    background:#EEF2FF;
+
+}
+
+.page-title h1{
+
+    margin:0;
+
+    font-size:30px;
+
+    font-weight:600;
+
+    color:#111827;
+
+    line-height:1.3;
+
+}
+
+.page-title p{
+
+    margin:0;
+
+    max-width:620px;
+
+    color:#6B7280;
+
+    font-size:14px;
+
+    line-height:1.7;
+
+}
+
+/* ==========================================================
+   HEADER ACTIONS
+========================================================== */
+
+.header-actions{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+}
+
+.primary-btn,
+.secondary-btn{
+
+    height:44px;
+
+    padding:0 20px;
+
+    border:1px solid transparent;
+
+    background:#FFFFFF;
+
+    cursor:pointer;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+    font-size:14px;
+
+    font-weight:500;
+
+    transition:.25s ease;
+
+}
+
+.primary-btn{
+
+    background:#5B5BD6;
+
+    color:#FFFFFF;
+
+}
+
+.primary-btn:hover{
+
+    background:#4A4AC4;
+
+}
+
+.secondary-btn{
+
+    border-color:#DDE2E8;
+
+    color:#374151;
+
+}
+
+.secondary-btn:hover{
+
+    background:#F8FAFC;
+
+}
+
+/* ==========================================================
+   TOOLBAR
+========================================================== */
+
+.toolbar{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:20px;
+
+    padding:18px 22px;
+
+    border:1px solid #E5E7EB;
+
+    background:#FFFFFF;
+
+}
+
+.toolbar-right{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
+}
+
+/* ==========================================================
+   SEARCH
+========================================================== */
+
+.search-box{
+
+    width:360px;
+
+    height:46px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    padding:0 16px;
+
+    border:1px solid #DDE2E8;
+
+    background:#FAFBFC;
+
+}
+
+.search-box i{
+
+    color:#94A3B8;
+
+}
+
+.search-box input{
+
+    flex:1;
+
+    border:none;
+
+    outline:none;
+
+    background:transparent;
+
+    font-size:14px;
+
+}
+
+.search-box input::placeholder{
+
+    color:#94A3B8;
+
+}
+
+/* ==========================================================
+   SELECT
+========================================================== */
+
+.toolbar select{
+
+    min-width:170px;
+
+    height:46px;
+
+    padding:0 14px;
+
+    border:1px solid #DDE2E8;
+
+    background:#FFFFFF;
+
+    font-size:14px;
+
+    color:#374151;
+
+    outline:none;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.toolbar select:focus{
+
+    border-color:#5B5BD6;
+
+}
+
+/* ==========================================================
+   SUMMARY GRID
+========================================================== */
+
+.summary-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:20px;
+
+}
+
+/* ==========================================================
+   SUMMARY CARD
+========================================================== */
+
+.summary-card{
+
+    padding:24px;
+
+    background:#FFFFFF;
+
+    border:1px solid #E5E7EB;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:16px;
+
+    transition:.25s;
+
+}
+
+.summary-card:hover{
+
+    border-color:#C7D2FE;
+
+    transform:translateY(-2px);
+
+}
+
+.summary-card i{
+
+    width:48px;
+
+    height:48px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:#EEF2FF;
+
+    color:#5B5BD6;
+
+    font-size:18px;
+
+}
+
+.summary-card h2{
+
+    margin:0;
+
+    font-size:34px;
+
+    font-weight:600;
+
+    color:#111827;
+
+}
+
+.summary-card span{
+
+    color:#6B7280;
+
+    font-size:14px;
+
+}
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media(max-width:992px){
+
+.page-header{
+
+    flex-direction:column;
+
+}
+
+.header-actions{
+
+    width:100%;
+
+}
+
+.summary-grid{
+
+    grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+@media(max-width:768px){
+
+.toolbar{
+
+    flex-direction:column;
+
+    align-items:stretch;
+
+}
+
+.toolbar-right{
+
+    flex-direction:column;
+
+}
+
+.search-box{
+
+    width:100%;
+
+}
+
+.toolbar select{
+
+    width:100%;
+
+}
+
+.header-actions{
+
+    width:100%;
+
+    flex-direction:column;
+
+}
+
+.primary-btn,
+.secondary-btn{
+
+    width:100%;
+
+}
+
+.summary-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+}
+
+@media(max-width:480px){
+
+.page-title h1{
+
+    font-size:24px;
+
+}
+
+.page-title p{
+
+    font-size:13px;
+
+}
+
+.summary-card{
+
+    padding:18px;
+
+}
+
+.summary-card h2{
+
+    font-size:28px;
+
+}
+
+}/* ==========================================================
+   TABLE CARD
+========================================================== */
+
+.table-card{
+
+    background:#FFFFFF;
+
+    border:1px solid #E5E7EB;
+
+    overflow-x:auto;
+
+}
+
+/* ==========================================================
+   TABLE
+========================================================== */
+
+.table-card table{
+
+    width:100%;
+
+    min-width:980px;
+
+    border-collapse:collapse;
+
+}
+
+.table-card thead{
+
+    background:#F8FAFC;
+
+}
+
+.table-card th{
+
+    padding:18px 22px;
+
+    text-align:left;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    color:#6B7280;
+
+    text-transform:uppercase;
+
+    letter-spacing:.4px;
+
+    border-bottom:1px solid #E5E7EB;
+
+}
+
+.table-card td{
+
+    padding:18px 22px;
+
+    font-size:14px;
+
+    color:#374151;
+
+    border-bottom:1px solid #F1F5F9;
+
+    vertical-align:middle;
+
+}
+
+.table-card tbody tr{
+
+    transition:.25s;
+
+}
+
+.table-card tbody tr:hover{
+
+    background:#FAFBFC;
+
+}
+
+.table-card tbody tr:last-child td{
+
+    border-bottom:none;
+
+}
+
+/* ==========================================================
+   STUDENT INFO
+========================================================== */
+
+.student-info{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+}
+
+.avatar{
+
+    width:46px;
+
+    height:46px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:#EEF2FF;
+
+    color:#5B5BD6;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    flex-shrink:0;
+
+}
+
+.student-info h4{
+
+    margin:0;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    color:#111827;
+
+}
+
+.student-info small{
+
+    display:block;
+
+    margin-top:4px;
+
+    font-size:12px;
+
+    color:#9CA3AF;
+
+}
+
+/* ==========================================================
+   STATUS BADGES
+========================================================== */
+
+.status{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    min-width:90px;
+
+    padding:6px 14px;
+
+    font-size:12px;
+
+    font-weight:600;
+
+}
+
+.status.present{
+
+    background:#ECFDF3;
+
+    color:#15803D;
+
+}
+
+.status.absent{
+
+    background:#FEF2F2;
+
+    color:#DC2626;
+
+}
+
+.status.late{
+
+    background:#FEF3C7;
+
+    color:#B45309;
+
+}
+
+/* ==========================================================
+   ACTION BUTTONS
+========================================================== */
+
+.action-buttons{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+}
+
+.action-buttons button{
+
+    width:38px;
+
+    height:38px;
+
+    border:none;
+
+    background:#F8FAFC;
+
+    color:#6B7280;
+
+    cursor:pointer;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    transition:.25s;
+
+}
+
+.action-buttons button:hover{
+
+    background:#EEF2FF;
+
+    color:#5B5BD6;
+
+}
+
+.action-buttons button:last-child:hover{
+
+    background:#FEF2F2;
+
+    color:#DC2626;
+
+}
+
+/* ==========================================================
+   TABLE SCROLLBAR
+========================================================== */
+
+.table-card::-webkit-scrollbar{
+
+    height:8px;
+
+}
+
+.table-card::-webkit-scrollbar-track{
+
+    background:#F1F5F9;
+
+}
+
+.table-card::-webkit-scrollbar-thumb{
+
+    background:#CBD5E1;
+
+}
+
+.table-card::-webkit-scrollbar-thumb:hover{
+
+    background:#94A3B8;
+
+}
+
+/* ==========================================================
+   EMPTY STATE
+========================================================== */
+
+.empty-state{
+
+    padding:80px 20px;
+
+    text-align:center;
+
+}
+
+.empty-state i{
+
+    font-size:48px;
+
+    color:#CBD5E1;
+
+    margin-bottom:18px;
+
+}
+
+.empty-state h3{
+
+    margin:0;
+
+    font-size:20px;
+
+    color:#111827;
+
+}
+
+.empty-state p{
+
+    margin:10px 0 24px;
+
+    color:#6B7280;
+
+    font-size:14px;
+
+}
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media(max-width:768px){
+
+.table-card th,
+.table-card td{
+
+    padding:16px;
+
+}
+
+.avatar{
+
+    width:40px;
+
+    height:40px;
+
+    font-size:14px;
+
+}
+
+.student-info{
+
+    gap:10px;
+
+}
+
+.action-buttons{
+
+    gap:6px;
+
+}
+
+.action-buttons button{
+
+    width:34px;
+
+    height:34px;
+
+}
+
+}
+/* ==========================================================
+   ATTENDANCE MODAL
+========================================================== */
+
+.attendance-modal{
+
+    position:fixed;
+
+    inset:0;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:32px;
+
+    background:rgba(15,23,42,.45);
+
+    backdrop-filter:blur(6px);
+
+    z-index:1000;
+
+}
+
+/* ==========================================================
+   MODAL CARD
+========================================================== */
+
+.modal-card{
+
+    width:100%;
+
+    max-width:760px;
+
+    background:#FFFFFF;
+
+    border:1px solid #E5E7EB;
+
+    box-shadow:0 24px 60px rgba(15,23,42,.14);
+
+    animation:modalFade .25s ease;
+
+    overflow:hidden;
+
+}
+
+@keyframes modalFade{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(18px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ==========================================================
+   MODAL HEADER
+========================================================== */
+
+.modal-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:22px 28px;
+
+    border-bottom:1px solid #E5E7EB;
+
+}
+
+.modal-header h2{
+
+    margin:0;
+
+    font-size:22px;
+
+    font-weight:600;
+
+    color:#111827;
+
+}
+
+.close-btn{
+
+    width:42px;
+
+    height:42px;
+
+    border:none;
+
+    background:#F8FAFC;
+
+    color:#6B7280;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.close-btn:hover{
+
+    background:#EEF2FF;
+
+    color:#5B5BD6;
+
+}
+
+/* ==========================================================
+   FORM
+========================================================== */
+
+.modal-card form{
+
+    padding:28px;
+
+}
+
+.form-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:22px;
+
+}
+
+.form-group{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:8px;
+
+}
+
+.form-group.full-width{
+
+    grid-column:1/-1;
+
+}
+
+.form-group label{
+
+    font-size:13px;
+
+    font-weight:600;
+
+    color:#374151;
+
+}
+
+/* ==========================================================
+   INPUTS
+========================================================== */
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+
+    width:100%;
+
+    padding:13px 15px;
+
+    border:1px solid #D1D5DB;
+
+    background:#FFFFFF;
+
+    font-size:14px;
+
+    color:#111827;
+
+    outline:none;
+
+    transition:.25s;
+
+    box-sizing:border-box;
+
+}
+
+.form-group textarea{
+
+    min-height:120px;
+
+    resize:vertical;
+
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder{
+
+    color:#9CA3AF;
+
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{
+
+    border-color:#5B5BD6;
+
+    box-shadow:0 0 0 3px rgba(91,91,214,.12);
+
+}
+
+/* ==========================================================
+   INVALID STATE
+========================================================== */
+
+input.ng-invalid.ng-touched,
+select.ng-invalid.ng-touched,
+textarea.ng-invalid.ng-touched{
+
+    border-color:#EF4444;
+
+}
+
+.error{
+
+    margin-top:4px;
+
+    font-size:12px;
+
+    color:#DC2626;
+
+}
+
+/* ==========================================================
+   FOOTER
+========================================================== */
+
+.form-footer{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    gap:14px;
+
+    margin-top:28px;
+
+    padding-top:24px;
+
+    border-top:1px solid #E5E7EB;
+
+}
+
+/* ==========================================================
+   BUTTON EFFECTS
+========================================================== */
+
+button{
+
+    transition:
+        background .25s,
+        color .25s,
+        border-color .25s,
+        transform .25s;
+
+}
+
+button:hover{
+
+    transform:translateY(-1px);
+
+}
+
+button:active{
+
+    transform:scale(.98);
+
+}
+
+/* ==========================================================
+   SCROLLBAR
+========================================================== */
+
+::-webkit-scrollbar{
+
+    width:8px;
+
+    height:8px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#F3F4F6;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#CBD5E1;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#94A3B8;
+
+}
+
+/* ==========================================================
+   TEXT SELECTION
+========================================================== */
+
+::selection{
+
+    background:#5B5BD6;
+
+    color:#FFFFFF;
+
+}
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media(max-width:768px){
+
+    .attendance-modal{
+
+        padding:16px;
+
+        align-items:flex-start;
+
+        overflow:auto;
+
+    }
+
+    .modal-card{
+
+        margin:20px 0;
+
+    }
+
+    .form-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .modal-card form{
+
+        padding:20px;
+
+    }
+
+    .modal-header{
+
+        padding:18px 20px;
+
+    }
+
+    .form-footer{
+
+        flex-direction:column-reverse;
+
+    }
+
+    .form-footer button{
+
+        width:100%;
+
+    }
+
+}

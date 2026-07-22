@@ -1,0 +1,1400 @@
+/* ==========================================================
+   KAYDUCATE ADMIN
+   STUDENTS PAGE
+   PART 1
+========================================================== */
+
+ .admin-students{
+
+    display:flex;
+    flex-direction:column;
+    gap:28px;
+    width:100%;
+
+}
+
+/* ==========================================================
+   PAGE HEADER
+========================================================== */
+
+ .page-header{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:24px;
+
+}
+
+ .page-label{
+
+    display:inline-flex;
+    align-items:center;
+
+    padding:6px 14px;
+
+    border-radius:999px;
+
+    background:#EEF2FF;
+
+    color:#7567F8;
+
+    font-size:12px;
+
+    font-weight:600;
+
+    text-transform:uppercase;
+
+    letter-spacing:.5px;
+
+}
+
+ .header-content{
+
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+
+}
+
+ .header-content h1{
+
+    margin:0;
+
+    font-size:28px;
+
+    font-weight:600;
+
+    color:#111827;
+
+}
+
+ .header-content p{
+
+    margin:0;
+
+    max-width:600px;
+
+    color:#6B7280;
+
+    font-size:14px;
+
+    line-height:1.7;
+
+}
+
+ .header-actions{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+}
+
+/* ==========================================================
+   BUTTONS
+========================================================== */
+
+ .primary-btn,
+ .secondary-btn{
+
+    height:44px;
+
+    padding:0 18px;
+
+    border-radius:12px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+    cursor:pointer;
+
+    font-size:14px;
+
+    font-weight:500;
+
+    transition:.25s ease;
+
+}
+
+ .primary-btn{
+
+    background:#7567F8;
+
+    color:#fff;
+
+    border:none;
+
+}
+
+ .primary-btn:hover{
+
+    background:#6455F2;
+
+    transform:translateY(-2px);
+
+    box-shadow:0 10px 24px rgba(117,103,248,.18);
+
+}
+
+ .secondary-btn{
+
+    background:#fff;
+
+    border:1px solid #E5E7EB;
+
+    color:#4B5563;
+
+}
+
+ .secondary-btn:hover{
+
+    background:#F8FAFC;
+
+}
+
+/* ==========================================================
+   TOOLBAR
+========================================================== */
+
+ .toolbar{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:20px;
+
+    background:#FFFFFF;
+
+    border:1px solid #E5E7EB;
+
+    border-radius:18px;
+
+    padding:18px 22px;
+
+}
+
+ .toolbar-right{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
+}
+
+/* ==========================================================
+   SEARCH
+========================================================== */
+
+ .search-box{
+
+    width:360px;
+
+    height:46px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    padding:0 16px;
+
+    border:1px solid #E5E7EB;
+
+    border-radius:12px;
+
+    background:#FAFBFC;
+
+}
+
+ .search-box i{
+
+    color:#9CA3AF;
+
+    font-size:14px;
+
+}
+
+ .search-box input{
+
+    flex:1;
+
+    border:none;
+
+    outline:none;
+
+    background:transparent;
+
+    font-size:14px;
+
+    color:#111827;
+
+}
+
+ .search-box input::placeholder{
+
+    color:#9CA3AF;
+
+}
+
+/* ==========================================================
+   SELECT
+========================================================== */
+
+ .toolbar select{
+
+    height:46px;
+
+    min-width:170px;
+
+    padding:0 16px;
+
+    border-radius:12px;
+
+    border:1px solid #E5E7EB;
+
+    background:#FFFFFF;
+
+    color:#374151;
+
+    font-size:14px;
+
+    outline:none;
+
+    cursor:pointer;
+
+}
+
+ .toolbar select:focus{
+
+    border-color:#7567F8;
+
+}
+
+/* ==========================================================
+   TOTAL STUDENTS
+========================================================== */
+
+ .student-count{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    height:40px;
+
+    padding:0 16px;
+
+    border-radius:999px;
+
+    background:#F3F4F6;
+
+    color:#4B5563;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media(max-width:992px){
+
+ .page-header{
+
+    flex-direction:column;
+
+}
+
+ .header-actions{
+
+    width:100%;
+
+}
+
+}
+
+@media(max-width:768px){
+
+ .toolbar{
+
+    flex-direction:column;
+
+    align-items:stretch;
+
+}
+
+ .toolbar-right{
+
+    flex-direction:column;
+
+    align-items:stretch;
+
+}
+
+ .search-box{
+
+    width:100%;
+
+}
+
+ .toolbar select{
+
+    width:100%;
+
+}
+
+ .student-count{
+
+    width:100%;
+
+}
+
+ .header-actions{
+
+    flex-direction:column;
+
+}
+
+ .primary-btn,
+ .secondary-btn{
+
+    width:100%;
+
+}
+
+}
+
+@media(max-width:576px){
+
+ .header-content h1{
+
+    font-size:24px;
+
+}
+
+}
+/* ==========================================================
+   TABLE CARD
+========================================================== */
+
+ .table-card{
+
+    background:#FFFFFF;
+
+    border:1px solid #E5E7EB;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    box-shadow:0 4px 18px rgba(15,23,42,.03);
+
+}
+
+/* ==========================================================
+   TABLE
+========================================================== */
+
+ .table-card table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    min-width:900px;
+
+}
+
+ .table-card thead{
+
+    background:#F8FAFC;
+
+}
+
+ .table-card th{
+
+    padding:18px 22px;
+
+    text-align:left;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    color:#6B7280;
+
+    letter-spacing:.3px;
+
+    text-transform:uppercase;
+
+    border-bottom:1px solid #E5E7EB;
+
+}
+
+ .table-card td{
+
+    padding:18px 22px;
+
+    font-size:14px;
+
+    color:#374151;
+
+    border-bottom:1px solid #F1F5F9;
+
+    vertical-align:middle;
+
+}
+
+ .table-card tbody tr{
+
+    transition:.25s ease;
+
+}
+
+ .table-card tbody tr:hover{
+
+    background:#FAFBFF;
+
+}
+
+ .table-card tbody tr:last-child td{
+
+    border-bottom:none;
+
+}
+
+/* ==========================================================
+   STUDENT INFO
+========================================================== */
+
+ .student-info{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+}
+
+ .avatar{
+
+    width:46px;
+
+    height:46px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:#EEF2FF;
+
+    color:#7567F8;
+
+    font-weight:700;
+
+    font-size:16px;
+
+    flex-shrink:0;
+
+}
+
+ .student-info h4{
+
+    margin:0;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    color:#111827;
+
+}
+
+ .student-info small{
+
+    display:block;
+
+    margin-top:4px;
+
+    font-size:12px;
+
+    color:#9CA3AF;
+
+}
+
+/* ==========================================================
+   STATUS BADGES
+========================================================== */
+
+ .status{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:6px 14px;
+
+    border-radius:999px;
+
+    font-size:12px;
+
+    font-weight:600;
+
+}
+
+ .status.active{
+
+    background:#ECFDF3;
+
+    color:#15803D;
+
+}
+
+ .status.inactive{
+
+    background:#F3F4F6;
+
+    color:#6B7280;
+
+}
+
+ .status.suspended{
+
+    background:#FEF2F2;
+
+    color:#DC2626;
+
+}
+
+/* ==========================================================
+   ACTION BUTTONS
+========================================================== */
+
+ .action-buttons{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+}
+
+ .action-buttons button{
+
+    width:38px;
+
+    height:38px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#F8FAFC;
+
+    color:#6B7280;
+
+    cursor:pointer;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    transition:.25s ease;
+
+}
+
+ .action-buttons button:hover{
+
+    background:#EEF2FF;
+
+    color:#7567F8;
+
+    transform:translateY(-2px);
+
+}
+
+ .action-buttons button:last-child:hover{
+
+    background:#FEF2F2;
+
+    color:#DC2626;
+
+}
+
+/* ==========================================================
+   TABLE SCROLL
+========================================================== */
+
+ .table-card{
+
+    overflow-x:auto;
+
+}
+
+ .table-card::-webkit-scrollbar{
+
+    height:8px;
+
+}
+
+ .table-card::-webkit-scrollbar-track{
+
+    background:#F1F5F9;
+
+}
+
+ .table-card::-webkit-scrollbar-thumb{
+
+    background:#CBD5E1;
+
+    border-radius:20px;
+
+}
+
+ .table-card::-webkit-scrollbar-thumb:hover{
+
+    background:#94A3B8;
+
+}
+
+/* ==========================================================
+   EMPTY STATE
+========================================================== */
+
+ .empty-state{
+
+    padding:70px 20px;
+
+    text-align:center;
+
+}
+
+ .empty-state i{
+
+    font-size:42px;
+
+    color:#CBD5E1;
+
+    margin-bottom:18px;
+
+}
+
+ .empty-state h3{
+
+    margin:0;
+
+    font-size:20px;
+
+    color:#1F2937;
+
+}
+
+ .empty-state p{
+
+    margin:12px 0 24px;
+
+    color:#6B7280;
+
+    font-size:14px;
+
+}
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media(max-width:992px){
+
+ .table-card{
+
+    overflow-x:auto;
+
+}
+
+}
+
+@media(max-width:768px){
+
+ .table-card th,
+ .table-card td{
+
+    padding:16px;
+
+}
+
+ .avatar{
+
+    width:40px;
+
+    height:40px;
+
+    font-size:14px;
+
+}
+
+}
+/* ==========================================================
+   STUDENT MODAL
+========================================================== */
+
+ .student-modal{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(15,23,42,.45);
+
+    backdrop-filter:blur(6px);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:30px;
+
+    z-index:999;
+
+}
+
+/* ==========================================================
+   MODAL CARD
+========================================================== */
+
+ .modal-card{
+
+    width:100%;
+
+    max-width:760px;
+
+    background:#FFFFFF;
+
+    border-radius:22px;
+
+    border:1px solid #E5E7EB;
+
+    box-shadow:0 30px 60px rgba(15,23,42,.18);
+
+    overflow:hidden;
+
+    animation:modalOpen .25s ease;
+
+}
+
+@keyframes modalOpen{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px) scale(.98);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0) scale(1);
+
+    }
+
+}
+
+/* ==========================================================
+   MODAL HEADER
+========================================================== */
+
+ .modal-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:22px 28px;
+
+    border-bottom:1px solid #E5E7EB;
+
+}
+
+ .modal-header h2{
+
+    margin:0;
+
+    font-size:20px;
+
+    font-weight:600;
+
+    color:#111827;
+
+}
+
+ .close-btn{
+
+    width:42px;
+
+    height:42px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#F8FAFC;
+
+    cursor:pointer;
+
+    color:#6B7280;
+
+    transition:.25s ease;
+
+}
+
+ .close-btn:hover{
+
+    background:#EEF2FF;
+
+    color:#7567F8;
+
+}
+
+/* ==========================================================
+   FORM
+========================================================== */
+
+ .modal-card form{
+
+    padding:8px;
+
+}
+
+ .form-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:12px;
+
+}
+
+/* ==========================================================
+   FORM GROUP
+========================================================== */
+
+ .form-group{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:8px;
+
+}
+
+ .form-group.full-width{
+
+    grid-column:1/-1;
+
+}
+
+ .form-group label{
+
+    font-size:13px;
+
+    font-weight:600;
+
+    color:#374151;
+
+}
+
+/* ==========================================================
+   INPUTS
+========================================================== */
+
+ .form-group input,
+ .form-group select,
+ .form-group textarea{
+
+    width:100%;
+
+    padding:13px 15px;
+
+    border:1px solid #D1D5DB;
+
+    border-radius:12px;
+
+    background:#FFFFFF;
+
+    color:#111827;
+
+    font-size:14px;
+
+    outline:none;
+
+    transition:.25s ease;
+
+    box-sizing:border-box;
+
+}
+
+ .form-group textarea{
+
+    resize:vertical;
+
+    min-height:110px;
+
+}
+
+ .form-group input::placeholder,
+ .form-group textarea::placeholder{
+
+    color:#9CA3AF;
+
+}
+
+/* Focus */
+
+ .form-group input:focus,
+ .form-group select:focus,
+ .form-group textarea:focus{
+
+    border-color:#7567F8;
+
+    box-shadow:0 0 0 4px rgba(117,103,248,.12);
+
+}
+
+/* ==========================================================
+   INVALID STATE
+========================================================== */
+
+ input.ng-invalid.ng-touched,
+ select.ng-invalid.ng-touched,
+ textarea.ng-invalid.ng-touched{
+
+    border-color:#EF4444;
+
+}
+
+ input.ng-invalid.ng-touched:focus,
+ select.ng-invalid.ng-touched:focus,
+ textarea.ng-invalid.ng-touched:focus{
+
+    box-shadow:0 0 0 4px rgba(239,68,68,.12);
+
+}
+
+/* ==========================================================
+   FORM FOOTER
+========================================================== */
+
+ .form-footer{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    gap:14px;
+
+    margin-top:2px;
+
+    padding-top:2px;
+
+    border-top:1px solid #E5E7EB;
+
+}
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media(max-width:768px){
+
+ .student-modal{
+
+    padding:16px;
+
+    align-items:flex-start;
+
+    overflow:auto;
+
+}
+
+ .modal-card{
+
+    margin:20px 0;
+
+}
+
+ .form-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+ .form-footer{
+
+    flex-direction:column-reverse;
+
+}
+
+ .form-footer button{
+
+    width:100%;
+
+}
+
+}
+/* ==========================================================
+   PART 4
+   POLISH + RESPONSIVE + ANIMATIONS
+========================================================== */
+
+/* ==========================================
+   Card Hover
+========================================== */
+
+ .table-card,
+ .modal-card{
+
+    transition:
+    transform .25s ease,
+    box-shadow .25s ease,
+    border-color .25s ease;
+
+}
+
+ .table-card:hover{
+
+    box-shadow:0 14px 32px rgba(15,23,42,.05);
+
+}
+
+/* ==========================================
+   Row Hover
+========================================== */
+
+ tbody tr{
+
+    transition:.25s ease;
+
+}
+
+ tbody tr:hover{
+
+    background:#FAFBFC;
+
+}
+
+/* ==========================================
+   Search Hover
+========================================== */
+
+ .search-box{
+
+    transition:.25s ease;
+
+}
+
+ .search-box:hover{
+
+    border-color:#CBD5E1;
+
+}
+
+/* ==========================================
+   Select Hover
+========================================== */
+
+ select{
+
+    transition:.25s ease;
+
+}
+
+ select:hover{
+
+    border-color:#CBD5E1;
+
+}
+
+/* ==========================================
+   Button Focus
+========================================== */
+
+ button:focus{
+
+    outline:none;
+
+    box-shadow:0 0 0 4px rgba(117,103,248,.14);
+
+}
+
+/* ==========================================
+   Input Disabled
+========================================== */
+
+ input:disabled,
+ select:disabled,
+ textarea:disabled{
+
+    background:#F8FAFC;
+
+    color:#9CA3AF;
+
+    cursor:not-allowed;
+
+}
+
+/* ==========================================
+   Smooth Transition
+========================================== */
+
+ *{
+
+    box-sizing:border-box;
+
+}
+
+/* ==========================================
+   Scrollbar
+========================================== */
+
+ ::-webkit-scrollbar{
+
+    width:8px;
+
+    height:8px;
+
+}
+
+ ::-webkit-scrollbar-track{
+
+    background:#F3F4F6;
+
+}
+
+ ::-webkit-scrollbar-thumb{
+
+    background:#CBD5E1;
+
+    border-radius:20px;
+
+}
+
+ ::-webkit-scrollbar-thumb:hover{
+
+    background:#94A3B8;
+
+}
+
+/* ==========================================
+   Text Selection
+========================================== */
+
+ ::selection{
+
+    background:#7567F8;
+
+    color:#FFFFFF;
+
+}
+
+/* ==========================================
+   Fade Animation
+========================================== */
+
+ .page-header{
+
+    animation:fadeUp .45s ease;
+
+}
+
+ .toolbar{
+
+    animation:fadeUp .55s ease;
+
+}
+
+ .table-card{
+
+    animation:fadeUp .7s ease;
+
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(18px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ==========================================
+   Large Desktop
+========================================== */
+
+@media(min-width:1600px){
+
+ .admin-students{
+
+    max-width:1600px;
+
+    margin:auto;
+
+}
+
+}
+
+/* ==========================================
+   Tablet
+========================================== */
+
+@media(max-width:992px){
+
+ .admin-students{
+
+    gap:24px;
+
+}
+
+}
+
+/* ==========================================
+   Mobile
+========================================== */
+
+@media(max-width:768px){
+
+ .page-header{
+
+    gap:18px;
+
+}
+
+ .toolbar{
+
+    padding:18px;
+
+}
+
+ .table-card{
+
+    border-radius:16px;
+
+}
+
+ .modal-header{
+
+    padding:18px 20px;
+
+}
+
+ .modal-card form{
+
+    padding:20px;
+
+}
+
+}
+
+/* ==========================================
+   Small Mobile
+========================================== */
+
+@media(max-width:480px){
+
+ .page-label{
+
+    font-size:11px;
+
+}
+
+ .header-content h1{
+
+    font-size:22px;
+
+}
+
+ .header-content p{
+
+    font-size:13px;
+
+}
+
+ .student-info{
+
+    gap:10px;
+
+}
+
+ .avatar{
+
+    width:36px;
+
+    height:36px;
+
+    font-size:13px;
+
+}
+
+ .action-buttons{
+
+    gap:6px;
+
+}
+
+ .action-buttons button{
+
+    width:34px;
+
+    height:34px;
+
+}
+
+}

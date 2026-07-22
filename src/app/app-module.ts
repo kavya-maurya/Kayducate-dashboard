@@ -15,8 +15,12 @@ import { Sidebar } from './layouts/user-layout/sidebar/sidebar';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { AuthInterceptor} from './interceptor/auth-interceptor';
-
+import { AuthInterceptor } from './interceptor/auth-interceptor';
+import { AdminLayout } from './layouts/admin-layout/admin-layout';
+import { FooterAdmin } from './layouts/admin-layout/footer-admin/footer-admin';
+import { NavbarAdmin } from './layouts/admin-layout/navbar-admin/navbar-admin';
+import { SidebarAdmin } from './layouts/admin-layout/sidebar-admin/sidebar-admin';
+import { AdminModule } from './features/admin/admin-module';
 
 @NgModule({
   declarations: [
@@ -28,15 +32,28 @@ import { AuthInterceptor} from './interceptor/auth-interceptor';
     UserLayout,
     Navbar,
     Sidebar,
-   
-
+    AdminLayout,
+    FooterAdmin,
+    NavbarAdmin,
+    SidebarAdmin,
   ],
-  imports: [BrowserModule, AppRoutingModule, LoadingBarRouterModule, FormsModule,ReactiveFormsModule,HttpClientModule],
-  providers: [provideBrowserGlobalErrorListeners(),  {
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    LoadingBarRouterModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    AdminModule
+  ],
+  providers: [
+    provideBrowserGlobalErrorListeners(),
+    {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
-      multi: true
-    }],
+      multi: true,
+    },
+  ],
   bootstrap: [App],
 })
 export class AppModule {}

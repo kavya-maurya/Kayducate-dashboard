@@ -71,6 +71,40 @@ tasks: any[] = [];
     
 
   }
+  loadTasks(): void {
+
+  
+
+  this.http.get<any[]>('https://studententry-api.onrender.com/api/tasks').subscribe({next: (res) => {
+      console.log('Tasks:', res);
+
+      this.tasks = res;
+
+      this.totalTasks = this.tasks.length;
+
+      this.pendingTasks = this.tasks.filter(
+        t => t.status === 'Pending'
+      ).length;
+
+      this.completedTasks = this.tasks.filter(
+        t => t.status === 'Completed'
+      ).length;
+
+      this.highPriorityTasks = this.tasks.filter(
+        t => t.priority === 'High'
+      ).length;
+
+    },
+
+    error: (err) => {
+
+      console.log(err);
+
+    }
+
+  });
+
+}
   get filteredTasks() {
 
   return this.tasks.filter(task =>
@@ -87,8 +121,7 @@ tasks: any[] = [];
 
   // Create payload with student id
   const payload = {
-    ...this.taskForm.value,
-    student: user?.user?._id
+    ...this.taskForm.value
   };
 
     if (this.taskForm.invalid) {
@@ -110,7 +143,7 @@ if (this.editIndex === null) {
 
     console.log(res);
 
-    this.tasks.push(res.task);
+    this.loadTasks();
 
     this.taskForm.reset();
 
@@ -143,12 +176,7 @@ if (this.editIndex === null) {
 
     next: (res: any) => {
 
-      const id = this.filteredTasks[this.editIndex]._id;
-
-this.tasks = this.tasks.map(task =>
-  task._id === id ? res.task : task
-);
-
+      this.loadTasks();
       this.editIndex = null;
 
       this.taskForm.reset();
@@ -199,8 +227,7 @@ deleteTask(index: number): void {
 
     next: () => {
 
-      this.tasks = this.tasks.filter(t => t._id !== task._id);
-
+     this.loadTasks();
     },
 
     error: (err) => {

@@ -1,0 +1,116 @@
+/* ==========================================================
+   KAYDUCATE ADMIN
+   FOOTER
+========================================================== */
+
+:host{
+
+    display:block;
+
+}
+
+/* ==========================================================
+   FOOTER
+========================================================== */
+
+.admin-footer{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:18px 32px;
+
+    margin-top:40px;
+
+    background:transparent;
+
+    border-top:1px solid var(--admin-border);
+
+}
+
+/* ==========================================================
+   LEFT
+========================================================== */
+
+.footer-left{
+
+    font-size:13px;
+
+    color:var(--admin-muted);
+
+}
+
+/* ==========================================================
+   RIGHT
+========================================================== */
+
+.footer-right{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:22px;
+
+}
+
+.footer-right a{
+
+    text-decoration:none;
+
+    color:var(--admin-muted);
+
+    font-size:13px;
+
+    transition:.25s ease;
+
+}
+
+.footer-right a:hover{
+
+    color:var(--admin-primary);
+
+}
+
+.footer-right span{
+
+    font-size:13px;
+
+    color:#9CA3AF;
+
+}
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media(max-width:768px){
+
+.admin-footer{
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    gap:14px;
+
+    text-align:center;
+
+    padding:20px;
+
+}
+
+.footer-right{
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:16px;
+
+}
+
+}

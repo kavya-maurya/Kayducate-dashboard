@@ -5,6 +5,8 @@ import { Profile} from './profile/profile';
 import { Courses } from './courses/courses';
 import { Attendance } from './attendance/attendance';
 import { Task } from './task/task';
+import { AuthGuard } from '../../guards/auth-guard-guard';
+
 
 
 
@@ -18,7 +20,8 @@ const routes: Routes = [
 
   {
     path: 'dashboard',
-    component: DashboardComponent
+    component: DashboardComponent,
+    canActivate:[ AuthGuard ]
   },
 
   {

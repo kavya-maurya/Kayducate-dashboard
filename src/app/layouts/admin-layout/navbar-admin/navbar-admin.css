@@ -1,0 +1,436 @@
+/* ==========================================================
+   KAYDUCATE ADMIN
+   NAVBAR
+========================================================== */
+
+:host{
+
+    display:block;
+
+}
+
+/* ==========================================================
+   NAVBAR
+========================================================== */
+
+.admin-navbar{
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1000;
+
+    height:72px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:0 28px;
+
+    background:#FFFFFF;
+
+    border-bottom:1px solid #E5E7EB;
+
+}
+
+/* ==========================================================
+   LEFT
+========================================================== */
+
+.navbar-left{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+}
+
+.menu-btn{
+
+    width:42px;
+
+    height:42px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#F8FAFC;
+
+    color:#475569;
+
+    cursor:pointer;
+
+    transition:.25s ease;
+
+}
+
+.menu-btn:hover{
+
+    background:#EEF2FF;
+
+    color:#7567F8;
+
+}
+
+.brand{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+.brand-logo{
+
+    width:42px;
+
+    height:42px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:12px;
+
+    background:#7567F8;
+
+    color:#FFFFFF;
+
+    font-size:17px;
+
+    font-weight:700;
+
+}
+
+.brand-text{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.brand-text h2{
+
+    margin:0;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    color:#111827;
+
+}
+
+.brand-text small{
+
+    font-size:12px;
+
+    color:#6B7280;
+
+}
+
+/* ==========================================================
+   SEARCH
+========================================================== */
+
+.navbar-search{
+
+    width:420px;
+
+    max-width:100%;
+
+    height:46px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    padding:0 18px;
+
+    background:#F8FAFC;
+
+    border:1px solid #E5E7EB;
+
+    border-radius:14px;
+
+}
+
+.navbar-search i{
+
+    color:#94A3B8;
+
+    font-size:14px;
+
+}
+
+.navbar-search input{
+
+    flex:1;
+
+    border:none;
+
+    outline:none;
+
+    background:transparent;
+
+    color:#111827;
+
+    font-size:14px;
+
+}
+
+.navbar-search input::placeholder{
+
+    color:#9CA3AF;
+
+}
+
+/* ==========================================================
+   RIGHT
+========================================================== */
+
+.navbar-right{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+}
+
+/* ==========================================================
+   ICON BUTTONS
+========================================================== */
+
+.icon-btn{
+
+    position:relative;
+
+    width:42px;
+
+    height:42px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#F8FAFC;
+
+    color:#475569;
+
+    cursor:pointer;
+
+    transition:.25s ease;
+
+}
+
+.icon-btn:hover{
+
+    background:#EEF2FF;
+
+    color:#7567F8;
+
+}
+
+.notification-dot{
+
+    position:absolute;
+
+    top:10px;
+
+    right:11px;
+
+    width:8px;
+
+    height:8px;
+
+    border-radius:50%;
+
+    background:#EF4444;
+
+}
+
+/* ==========================================================
+   PROFILE
+========================================================== */
+
+.profile{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    padding:8px 12px;
+
+    border-radius:14px;
+
+    cursor:pointer;
+
+    transition:.25s ease;
+
+}
+
+.profile:hover{
+
+    background:#F8FAFC;
+
+}
+
+.profile-avatar{
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:#7567F8;
+
+    color:#FFFFFF;
+
+    font-size:15px;
+
+    font-weight:600;
+
+}
+
+.profile-info{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.profile-info h4{
+
+    margin:0;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    color:#111827;
+
+}
+
+.profile-info small{
+
+    font-size:12px;
+
+    color:#6B7280;
+
+}
+
+.profile i{
+
+    font-size:12px;
+
+    color:#94A3B8;
+
+}
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media(max-width:992px){
+
+.navbar-search{
+
+    width:260px;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.admin-navbar{
+
+    padding:0 16px;
+
+    gap:14px;
+
+}
+
+.brand-text{
+
+    display:none;
+
+}
+
+.navbar-search{
+
+    display:none;
+
+}
+
+.profile-info{
+
+    display:none;
+
+}
+
+}
+
+@media(max-width:480px){
+
+.admin-navbar{
+
+    height:64px;
+
+}
+
+.navbar-right{
+
+    gap:8px;
+
+}
+
+.menu-btn,
+
+.icon-btn{
+
+    width:38px;
+
+    height:38px;
+
+}
+
+.profile{
+
+    padding:4px;
+
+}
+
+}

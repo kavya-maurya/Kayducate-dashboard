@@ -1,0 +1,393 @@
+<div class="admin-tasks">
+
+  <!-- ========================= -->
+  <!-- PAGE HEADER -->
+  <!-- ========================= -->
+
+  <div class="page-header">
+
+    <div class="header-content">
+
+      <span class="page-label">
+        Task Management
+      </span>
+
+      <h1>Manage Student Tasks</h1>
+
+      <p>
+        Create, assign and monitor academic tasks across all students from one dashboard.
+      </p>
+
+    </div>
+
+    <div class="header-actions">
+
+      <button
+        class="secondary-btn"
+        type="button">
+
+        <i class="fa-solid fa-download"></i>
+        Export
+
+      </button>
+
+      <button
+        class="primary-btn"
+        type="button"
+        (click)="showTaskForm=true">
+
+        <i class="fa-solid fa-plus"></i>
+        Create Task
+
+      </button>
+
+    </div>
+
+  </div>
+
+  <!-- ========================= -->
+  <!-- TOOLBAR -->
+  <!-- ========================= -->
+
+  <div class="toolbar">
+
+    <div class="search-box">
+
+      <i class="fa-solid fa-magnifying-glass"></i>
+
+      <input
+        type="text"
+        placeholder="Search tasks..."
+        [(ngModel)]="searchText">
+
+    </div>
+
+    <div class="toolbar-right">
+
+      <select [(ngModel)]="statusFilter">
+
+        <option value="">All Status</option>
+
+        <option value="Pending">
+          Pending
+        </option>
+
+        <option value="In Progress">
+          In Progress
+        </option>
+
+        <option value="Completed">
+          Completed
+        </option>
+
+      </select>
+
+      <select [(ngModel)]="priorityFilter">
+
+        <option value="">All Priority</option>
+
+        <option value="Low">
+          Low
+        </option>
+
+        <option value="Medium">
+          Medium
+        </option>
+
+        <option value="High">
+          High
+        </option>
+
+      </select>
+
+      <div class="task-count">
+
+        {{tasks.length}} Tasks
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- ========================= -->
+  <!-- TASK TABLE -->
+  <!-- ========================= -->
+
+  <div class="table-card">
+
+    <table>
+
+      <thead>
+
+        <tr>
+
+          <th>Task</th>
+
+          <th>Subject</th>
+
+          <th>Priority</th>
+
+          <th>Status</th>
+
+          <th>Due Date</th>
+
+          <th>Actions</th>
+
+        </tr>
+
+      </thead>
+
+      <tbody>
+
+        <tr *ngFor="let task of tasks">
+
+          <td>
+
+            <div class="task-info">
+
+              <div class="task-icon">
+
+                <i class="fa-solid fa-list-check"></i>
+
+              </div>
+
+              <div>
+
+                <h4>{{task.title}}</h4>
+
+                <small>{{task.description}}</small>
+
+              </div>
+
+            </div>
+
+          </td>
+
+          <td>{{task.subject}}</td>
+                    <td>
+
+            <span
+              class="priority"
+              [ngClass]="task.priority.toLowerCase()">
+
+              {{task.priority}}
+
+            </span>
+
+          </td>
+
+          <td>
+
+            <span
+              class="status"
+              [ngClass]="task.status.toLowerCase().replace(' ','-')">
+
+              {{task.status}}
+
+            </span>
+
+          </td>
+
+          <td>
+
+            {{task.dueDate | date:'dd MMM yyyy'}}
+
+          </td>
+
+          <td>
+
+            <div class="action-buttons">
+
+              <button
+                type="button"
+                (click)="editTask(task)">
+
+                <i class="fa-solid fa-pen"></i>
+
+              </button>
+
+              <button
+                type="button"
+                (click)="deleteTask(task)">
+
+                <i class="fa-solid fa-trash"></i>
+
+              </button>
+
+            </div>
+
+          </td>
+
+        </tr>
+
+      </tbody>
+
+    </table>
+
+    <div
+      class="empty-state"
+      *ngIf="tasks.length===0">
+
+      <i class="fa-solid fa-list-check"></i>
+
+      <h3>No Tasks Found</h3>
+
+      <p>
+        Create your first task to begin managing student assignments.
+      </p>
+
+      <button
+        class="primary-btn"
+        type="button"
+        (click)="showTaskForm=true">
+
+        Create Task
+
+      </button>
+
+    </div>
+
+  </div>
+
+  <!-- ========================= -->
+  <!-- TASK MODAL -->
+  <!-- ========================= -->
+
+  <div
+    class="task-modal"
+    *ngIf="showTaskForm">
+
+    <div class="modal-card">
+
+      <div class="modal-header">
+
+        <h2>Task Details</h2>
+
+        <button
+          class="close-btn"
+          type="button"
+          (click)="showTaskForm=false">
+
+          <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+      </div>
+
+      <form
+        [formGroup]="taskForm"
+        (ngSubmit)="saveTask()">
+
+        <div class="form-grid">
+
+          <div class="form-group">
+
+            <label>Task Title</label>
+
+            <input
+              type="text"
+              formControlName="title"
+              placeholder="Enter task title">
+
+          </div>
+
+          <div class="form-group">
+
+            <label>Subject</label>
+
+            <input
+              type="text"
+              formControlName="subject"
+              placeholder="Subject">
+
+          </div>
+
+          <div class="form-group full-width">
+
+            <label>Description</label>
+
+            <textarea
+              rows="4"
+              formControlName="description"
+              placeholder="Task description"></textarea>
+
+          </div>
+                    <div class="form-group">
+
+            <label>Priority</label>
+
+            <select formControlName="priority">
+
+              <option value="">Select Priority</option>
+
+              <option value="Low">Low</option>
+
+              <option value="Medium">Medium</option>
+
+              <option value="High">High</option>
+
+            </select>
+
+          </div>
+
+          <div class="form-group">
+
+            <label>Status</label>
+
+            <select formControlName="status">
+
+              <option value="">Select Status</option>
+
+              <option value="Pending">Pending</option>
+
+              <option value="In Progress">In Progress</option>
+
+              <option value="Completed">Completed</option>
+
+            </select>
+
+          </div>
+
+          <div class="form-group full-width">
+
+            <label>Due Date</label>
+
+            <input
+              type="date"
+              formControlName="dueDate">
+
+          </div>
+
+        </div>
+
+        <div class="form-footer">
+
+          <button
+            class="secondary-btn"
+            type="button"
+            (click)="showTaskForm=false">
+
+            Cancel
+
+          </button>
+
+          <button
+            class="primary-btn"
+            type="submit">
+
+            <i class="fa-solid fa-floppy-disk"></i>
+
+            Save Task
+
+          </button>
+
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</div>

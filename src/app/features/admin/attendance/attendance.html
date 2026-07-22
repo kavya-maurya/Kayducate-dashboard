@@ -1,0 +1,304 @@
+<div class="admin-attendance">
+
+  <div class="page-header">
+
+    <div class="page-title">
+      <span class="page-label">Attendance</span>
+      <h1>Attendance Management</h1>
+      <p>Track daily attendance records and manage student attendance efficiently.</p>
+    </div>
+
+    <div class="header-actions">
+      <button class="secondary-btn">
+        <i class="fa-solid fa-file-export"></i>
+        Export
+      </button>
+
+      <button
+        class="primary-btn"
+        type="button"
+        (click)="openModal()">
+        <i class="fa-solid fa-plus"></i>
+        Mark Attendance
+      </button>
+    </div>
+
+  </div>
+
+  <div class="toolbar">
+
+    <div class="search-box">
+      <i class="fa-solid fa-search"></i>
+      <input
+        type="text"
+        placeholder="Search student...">
+    </div>
+
+    <div class="toolbar-right">
+
+      <select>
+        <option>Today</option>
+        <option>This Week</option>
+        <option>This Month</option>
+      </select>
+
+      <select>
+        <option>All Courses</option>
+        <option>Angular</option>
+        <option>Java</option>
+        <option>Python</option>
+      </select>
+
+    </div>
+
+  </div>
+
+  <div class="summary-grid">
+
+    <div class="summary-card">
+      <i class="fa-solid fa-users"></i>
+      <h2>320</h2>
+      <span>Total Students</span>
+    </div>
+
+    <div class="summary-card">
+      <i class="fa-solid fa-user-check"></i>
+      <h2>290</h2>
+      <span>Present</span>
+    </div>
+
+    <div class="summary-card">
+      <i class="fa-solid fa-user-xmark"></i>
+      <h2>22</h2>
+      <span>Absent</span>
+    </div>
+
+    <div class="summary-card">
+      <i class="fa-solid fa-clock"></i>
+      <h2>8</h2>
+      <span>Late</span>
+    </div>
+
+  </div>
+    <div class="table-card">
+
+    <table>
+
+      <thead>
+
+        <tr>
+          <th>Student</th>
+          <th>Course</th>
+          <th>Date</th>
+          <th>Status</th>
+          <th>Remarks</th>
+          <th>Actions</th>
+        </tr>
+
+      </thead>
+
+      <tbody>
+
+        <tr *ngFor="let item of attendance; let i = index">
+
+          <td>
+
+            <div class="student-info">
+
+              <div class="avatar">
+                {{ item.student.charAt(0) }}
+              </div>
+
+              <div>
+                <h4>{{ item.student }}</h4>
+                <small>{{ item.studentId }}</small>
+              </div>
+
+            </div>
+
+          </td>
+
+          <td>{{ item.course }}</td>
+
+          <td>{{ item.date }}</td>
+
+          <td>
+
+            <span
+              class="status"
+              [ngClass]="{
+                'present': item.status === 'Present',
+                'absent': item.status === 'Absent',
+                'late': item.status === 'Late'
+              }">
+
+              {{ item.status }}
+
+            </span>
+
+          </td>
+
+          <td>{{ item.remarks }}</td>
+
+          <td>
+
+            <div class="action-buttons">
+
+              <button
+                type="button"
+                (click)="editAttendance(i)">
+
+                <i class="fa-solid fa-pen"></i>
+
+              </button>
+
+              <button
+                type="button"
+                (click)="deleteAttendance(i)">
+
+                <i class="fa-solid fa-trash"></i>
+
+              </button>
+
+            </div>
+
+          </td>
+
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+    <div
+    class="attendance-modal"
+    *ngIf="showModal">
+
+    <div class="modal-card">
+
+      <div class="modal-header">
+
+        <h2>Mark Attendance</h2>
+
+        <button
+          type="button"
+          class="close-btn"
+          (click)="closeModal()">
+
+          <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+      </div>
+
+      <form
+        [formGroup]="attendanceForm"
+        (ngSubmit)="saveAttendance()">
+
+        <div class="form-grid">
+
+          <div class="form-group">
+            <label>Student *</label>
+
+            <input
+              type="text"
+              formControlName="student"
+              placeholder="Enter student name">
+
+            <small
+              class="error"
+              *ngIf="attendanceForm.get('student')?.touched && attendanceForm.get('student')?.invalid">
+              Student is required.
+            </small>
+          </div>
+
+          <div class="form-group">
+            <label>Course *</label>
+
+            <input
+              type="text"
+              formControlName="course"
+              placeholder="Enter course">
+
+            <small
+              class="error"
+              *ngIf="attendanceForm.get('course')?.touched && attendanceForm.get('course')?.invalid">
+              Course is required.
+            </small>
+          </div>
+
+          <div class="form-group">
+            <label>Date *</label>
+
+            <input
+              type="date"
+              formControlName="date">
+
+            <small
+              class="error"
+              *ngIf="attendanceForm.get('date')?.touched && attendanceForm.get('date')?.invalid">
+              Date is required.
+            </small>
+          </div>
+
+          <div class="form-group">
+            <label>Status *</label>
+
+            <select formControlName="status">
+
+              <option value="">Select Status</option>
+              <option value="Present">Present</option>
+              <option value="Absent">Absent</option>
+              <option value="Late">Late</option>
+
+            </select>
+
+            <small
+              class="error"
+              *ngIf="attendanceForm.get('status')?.touched && attendanceForm.get('status')?.invalid">
+              Status is required.
+            </small>
+          </div>
+
+          <div class="form-group full-width">
+
+            <label>Remarks</label>
+
+            <textarea
+              rows="4"
+              formControlName="remarks"
+              placeholder="Enter remarks..."></textarea>
+
+          </div>
+
+        </div>
+
+        <div class="form-footer">
+
+          <button
+            type="button"
+            class="secondary-btn"
+            (click)="closeModal()">
+
+            Cancel
+
+          </button>
+
+          <button
+            type="submit"
+            class="primary-btn">
+
+            Save Attendance
+
+          </button>
+
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</div>
