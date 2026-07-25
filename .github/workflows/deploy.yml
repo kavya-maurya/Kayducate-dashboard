@@ -22,7 +22,7 @@ jobs:
 
             cd /var/www/html/Kayducate-dashboard/dist/frontend1/browser
 
-            git pull origin main
+            git pull origin master
 
             systemctl reload nginx
             systemctl restart nginx
