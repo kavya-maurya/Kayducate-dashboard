@@ -1,5 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-tasks',
@@ -9,7 +11,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class Tasks {
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private http: HttpClient) {
 
     this.taskForm = this.fb.group({
 
@@ -70,21 +72,26 @@ export class Tasks {
 
     }
 
-    if (this.editIndex !== null) {
+    const taskPayload = this.taskForm.value;
 
-      this.tasks[this.editIndex] = this.taskForm.value;
+    this.http.post(`${environment.apiBaseUrl}/API/tasks`, taskPayload).subscribe({
+      next: (res) => {
+        console.log(res);
 
-      this.editIndex = null;
+        if (this.editIndex !== null) {
+          this.tasks[this.editIndex] = taskPayload;
+          this.editIndex = null;
+        } else {
+          this.tasks.push(taskPayload);
+        }
 
-    } else {
-
-      this.tasks.push(this.taskForm.value);
-
-    }
-
-    this.taskForm.reset();
-
-    this.showTaskForm = false;
+        this.taskForm.reset();
+        this.showTaskForm = false;
+      },
+      error: (err) => {
+        console.error(err);
+      },
+    });
 
   }
 

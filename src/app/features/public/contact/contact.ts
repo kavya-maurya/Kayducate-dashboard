@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-contact',
@@ -8,26 +9,22 @@ import { Component } from '@angular/core';
   styleUrl: './contact.css',
 })
 export class Contact {
-   
-      constructor(private http: HttpClient){
-        
-      }
-   onSubmit(contactForm: any) {
+  constructor(private http: HttpClient) {}
 
-    if(contactForm.valid) {
-      //Post request to the server with the form data
-     console.log(contactForm.value);
-      
-     this.http.post('https://kayducate-api.kaylynk.tech/API/contact/contact',contactForm.value).subscribe(res=>{
-      console.log(res)
-      alert(res["status"]);
-      contactForm.reset();
+  onSubmit(contactForm: any) {
+    if (contactForm.valid) {
+      console.log(contactForm.value);
 
-    })
+      this.http.post(`${environment.apiBaseUrl}/API/contact/contact`, contactForm.value).subscribe({
+        next: (res: any) => {
+          console.log(res);
+          alert(res.status ?? 'Message sent successfully');
+          contactForm.reset();
+        },
+        error: (err) => {
+          console.error(err);
+        },
+      });
     }
-
-    else{
-      // send error message
-    }
-}
+  }
 }

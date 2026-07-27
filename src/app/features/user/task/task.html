@@ -285,6 +285,7 @@
                     <th>#</th>
                     <th>Title</th>
                     <th>Subject</th>
+                    <th>description</th>
                     <th>Priority</th>
                     <th>Status</th>
                     <th>Due Date</th>
@@ -300,11 +301,13 @@
 
                     <td>{{ i + 1 }}</td>
 
-                    <td>{{ task.title }}</td>
+                    <td>{{ task.title |titlecase}}</td>
 
-                    <td>{{ task.subject }}</td>
+                    <td>{{ task.subject |titlecase}}</td>
+                    <td>{{ task.description | slice:0:10 }}...</td>
 
-                    <td>
+
+                    <td> 
 
                         <span
                             class="priority"
