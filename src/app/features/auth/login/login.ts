@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-login',
@@ -27,13 +28,13 @@ export class Login implements OnInit {
   }
 
   onSubmit(form: FormGroup) {
-      this.isLoading=true;
-     this.http.post('https://kayducate-api.kaylynk.tech/API/auth/login', this.loginForm.value).subscribe(res => {
+    this.isLoading = true;
+    this.http.post(`${environment.apiBaseUrl}/API/auth/login`, this.loginForm.value).subscribe(res => {
       console.log(res);
-          localStorage.setItem('user', JSON.stringify(res));
+      localStorage.setItem('user', JSON.stringify(res));
       this.loginForm.reset();
-       this.isLoading=false;
-      this.isSuccess=true;
+      this.isLoading = false;
+      this.isSuccess = true;
       this.router.navigate(['/student/dashboard']);
     });
   }
