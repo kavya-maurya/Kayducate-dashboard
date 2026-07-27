@@ -57,7 +57,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
     console.log(this.registerForm.value);
 
     this.isLoading=true;
-    this.http.post('https://studententry-api.onrender.com/API/auth/register', this.registerForm.value).subscribe(res => {
+    this.http.post('https://kayducate-api.kaylynk.tech/API/auth/register', this.registerForm.value).subscribe(res => {
       console.log(res);
       this.registerForm.reset();
       this.isLoading=false;

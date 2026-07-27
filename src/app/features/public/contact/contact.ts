@@ -18,7 +18,7 @@ export class Contact {
       //Post request to the server with the form data
      console.log(contactForm.value);
       
-     this.http.post('https://studententry-api.onrender.com/API/contact/contact',contactForm.value).subscribe(res=>{
+     this.http.post('https://kayducate-api.kaylynk.tech/API/contact/contact',contactForm.value).subscribe(res=>{
       console.log(res)
       alert(res["status"]);
       contactForm.reset();

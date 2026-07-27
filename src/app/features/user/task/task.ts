@@ -137,7 +137,7 @@ tasks: any[] = [];
 if (this.editIndex === null) {
 
     this.http.post(
-      'https://studententry-api.onrender.com/api/tasks',payload ).subscribe({
+      'https://kayducate-api.kaylynk.tech/api/tasks',payload ).subscribe({
 
   next: (res: any) => {
 
