@@ -1,4 +1,6 @@
-/* HEADER */
+/* =========================================
+                HEADER
+========================================= */
 
 .nav-header{
     max-width:1200px;
@@ -9,152 +11,307 @@
     justify-content:space-between;
     align-items:center;
 
-    background:#ffffff;
+    background:#fff;
     border:1px solid #e5e7eb;
     border-radius:12px;
 
     box-shadow:0 4px 20px rgba(0,0,0,.05);
+
+    position:relative;
 }
 
-/* LOGO */
+/* =========================================
+                LOGO
+========================================= */
 
 .logo{
-    text-decoration:none;
-    font-size:1.35rem;
+    font-size:1.4rem;
     font-weight:700;
     color:#7c3aed;
+    margin:0;
 }
 
-/* NAVIGATION */
+/* =========================================
+            NAVIGATION
+========================================= */
 
 .nav-links{
     display:flex;
     align-items:center;
-    gap:8px;
+    gap:10px;
 }
 
 .nav-links a{
+
     text-decoration:none;
     color:#4b5563;
+
     font-size:15px;
     font-weight:500;
 
     padding:9px 14px;
     border-radius:8px;
 
-    transition:0.25s ease;
+    transition:.25s;
 }
 
-/* Home */
+/* Hover */
 
-.nav-links a:nth-child(1):hover{
-    background:#eff6ff;
-    color:#2563eb;
-}
-
-/* About */
-
-.nav-links a:nth-child(2):hover{
-    background:#ecfdf5;
-    color:#059669;
-}
-
-/* Contact */
-
-.nav-links a:nth-child(3):hover{
-    background:#fff7ed;
-    color:#ea580c;
+.nav-links a:hover{
+    background:#f3f4f6;
+    color:#111827;
 }
 
 /* Login */
 
 .login-btn{
-    margin-left:12px;
+
+    margin-left:8px;
 
     background:#ede9fe;
     color:#7c3aed !important;
 
     font-weight:600;
+
 }
 
 .login-btn:hover{
+
     background:#ddd6fe;
-}
-
-/* ===========================
-      TABLET
-=========================== */
-
-@media(max-width:768px){
-
-    .nav-header{
-        padding:14px 18px;
-    }
-
-    .nav-links{
-        gap:4px;
-    }
-
-    .nav-links a{
-        padding:8px 10px;
-        font-size:14px;
-    }
 
 }
 
-/* ===========================
-        MOBILE
-=========================== */
+/* =========================================
+        HAMBURGER BUTTON
+========================================= */
 
-@media(max-width:600px){
+.menu-toggle{
 
-    .nav-header{
-        flex-direction:column;
-        align-items:flex-start;
-        gap:15px;
-    }
+    display:none;
 
-    .logo{
-        font-size:1.2rem;
-    }
+    border:none;
+    background:none;
 
-    .nav-links{
-        width:100%;
-        display:flex;
-        justify-content:space-between;
-        flex-wrap:wrap;
-    }
+    cursor:pointer;
 
-    .nav-links a{
-        padding:8px 10px;
-        font-size:14px;
-    }
+    color:#7c3aed;
 
-    .login-btn{
-        margin-left:0;
-    }
+    font-size:24px;
 
 }
 
-/* ===========================
-    SMALL PHONES
-=========================== */
+.menu-toggle i{
 
-@media(max-width:420px){
+    transition:.3s;
 
-    .nav-links{
-        display:grid;
-        grid-template-columns:repeat(2,1fr);
-        gap:8px;
-        width:100%;
-    }
+}
 
-    .nav-links a{
-        text-align:center;
-    }
+/* =========================================
+            MOBILE
+========================================= */
+/* =========================================
+        HAMBURGER BUTTON
+========================================= */
 
-    .login-btn{
-        grid-column:span 2;
-    }
+.menu-toggle{
+    display:none;
+    background:none;
+    border:none;
+    cursor:pointer;
+    color:#7c3aed;
+    font-size:28px;
+    z-index:1101;
+}
+
+/* =========================================
+            MOBILE
+========================================= */
+
+@media (max-width:768px){
+
+.nav-header{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:16px 20px;
+
+}
+
+.menu-toggle{
+
+    display:block;
+
+}
+
+/* Right Sidebar */
+
+.nav-links{
+
+    position:fixed;
+
+    top:0;
+    right:-280px;
+
+    width:260px;
+    height:100vh;
+
+    background:#ffffff;
+
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+
+    padding:90px 25px 25px;
+
+    gap:10px;
+
+    box-shadow:-8px 0 25px rgba(0,0,0,.12);
+
+    transition:right .35s ease;
+
+    z-index:1100;
+
+}
+
+/* Open */
+
+.nav-links.active{
+
+    right:0;
+
+}
+
+.nav-links a{
+
+    width:100%;
+
+    padding:14px 16px;
+
+    text-decoration:none;
+
+    color:#4b5563;
+
+    border-radius:10px;
+
+    transition:.25s;
+
+}
+
+.nav-links a:hover{
+
+    background:#f5f3ff;
+    color:#7c3aed;
+
+}
+
+.login-btn{
+
+    margin-left:0;
+    margin-top:15px;
+
+    text-align:center;
+
+    background:#ede9fe;
+
+}
+
+}
+
+/* =========================================
+            DESKTOP
+========================================= */
+
+@media (min-width:769px){
+
+.menu-toggle{
+
+    display:none;
+
+}
+
+.nav-links{
+
+    position:static;
+
+    width:auto;
+    height:auto;
+
+    display:flex !important;
+    flex-direction:row;
+    align-items:center;
+
+    background:transparent;
+
+    padding:0;
+
+    box-shadow:none;
+
+}
+
+}
+/*======
+            DESKTOP
+========================================= */
+
+@media(min-width:769px){
+
+.menu-toggle{
+
+    display:none;
+
+}
+
+.nav-links{
+
+    display:flex !important;
+
+    position:static;
+
+    flex-direction:row;
+
+    background:transparent;
+
+    border:none;
+
+    box-shadow:none;
+
+    padding:0;
+
+}
+
+}
+.menu-overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.35);
+
+    opacity:0;
+    visibility:hidden;
+
+    transition:.3s;
+
+    z-index:1099;
+
+}
+
+.menu-overlay.active{
+
+    opacity:1;
+    visibility:visible;
+
+}
+
+@media(min-width:769px){
+
+.menu-overlay{
+
+    display:none;
+
+}
 
 }

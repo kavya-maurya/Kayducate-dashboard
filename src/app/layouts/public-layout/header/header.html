@@ -1,15 +1,35 @@
 <header class="nav-header">
   <h2  class="logo">Kayducate</h2>
-  
-  <nav class="nav-links">
-    <a routerLink="/">Home</a>
-    <a routerLink="/about">About</a>
-    <a routerLink="/contact">Contact</a>
-  
+   <button
+        class="menu-toggle"
+        (click)="isMenuOpen = !isMenuOpen">
 
-    <a routerLink="/auth/login" class="cta-login" class="login-btn">Login</a>
+        ☰
 
-  </nav>
+    </button>
+    
+    
+  <nav class="nav-links" [class.active]="isMenuOpen">
+
+  <a routerLink="/" (click)="isMenuOpen=false">Home</a>
+
+  <a routerLink="/about" (click)="isMenuOpen=false">About</a>
+
+  <a routerLink="/contact" (click)="isMenuOpen=false">Contact</a>
+
+  <a
+    routerLink="/auth/login"
+    class="login-btn"
+    (click)="isMenuOpen=false">
+    Login
+  </a>
+
+</nav>
 </header>
+<div
+  class="menu-overlay"
+  [class.active]="isMenuOpen"
+  (click)="isMenuOpen=false">
+</div>
 
 <hr class="divider">

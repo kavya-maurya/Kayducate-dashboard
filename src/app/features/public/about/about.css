@@ -1,3 +1,6 @@
+.bi{
+    color:#B8A4F7;
+}
 *{
     margin:0;
     padding:0;
@@ -9,7 +12,7 @@
 
     background:#FCFBFF;
 
-    padding:100px 8%;
+    padding:30px 8%;
 
     position:relative;
 
@@ -38,6 +41,7 @@
     right:-120px;
 
 }
+
 
 .about-container{
 
@@ -185,9 +189,9 @@ button:hover{
 
     border:1px solid rgba(184,164,247,.15);
 
-    border-radius:28px;
+    border-radius:18px;
 
-    padding:40px;
+    padding:10px;
 
     box-shadow:0 20px 50px rgba(184,164,247,.10);
 
@@ -315,7 +319,7 @@ flex-direction:column;
 
 .glass-card{
 
-padding:30px;
+padding:10px;
 
 }
 

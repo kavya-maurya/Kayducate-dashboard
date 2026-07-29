@@ -2,7 +2,9 @@
         KAYDUCATE CONTACT PAGE CSS
         White + Lavender + Glassmorphism
 ========================================= */
-
+.bi{
+    color:#B8A4F7;
+}
 *{
     margin:0;
     padding:0;
@@ -21,7 +23,7 @@ body{
     width:100%;
     min-height:100vh;
 
-    padding:90px 8%;
+    padding:20px 8%;
 
     background:
     radial-gradient(circle at top right,rgba(186,167,255,.18),transparent 30%),
@@ -96,7 +98,7 @@ body{
 
     border-radius:20px;
 
-    padding:32px;
+    padding:12px;
 
     box-shadow:0 12px 35px rgba(109,94,245,.08);
 
@@ -114,11 +116,12 @@ body{
 
 .contact-box h2{
 
-    color:#6D5EF5;
+    color:#9e9bc8;
 
     font-size:24px;
 
     margin-bottom:28px;
+    text-align:center;
 
 }
 
@@ -231,7 +234,7 @@ textarea{
 
 textarea{
 
-    min-height:170px;
+    min-height:70px;
 
     resize:none;
 
