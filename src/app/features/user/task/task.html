@@ -3,209 +3,184 @@
     <!-- ================= HEADER ================= -->
 
     <section class="task-header">
-<form
-    [formGroup]="taskForm" (ngSubmit)="saveTask()">
+        <form [formGroup]="taskForm" (ngSubmit)="saveTask()">
 
-    <!-- Title -->
+            <!-- Title -->
 
-    <div class="input-box">
+            <div class="input-box">
 
-        <label>Task Title</label>
+                <label>Task Title</label>
 
-        <div class="input-field">
+                <div class="input-field">
 
-            <i class="fa-solid fa-list-check"></i>
+                    <i class="fa-solid fa-list-check"></i>
 
-            <input
-                type="text"
-                formControlName="title"
-                placeholder="Enter task title">
+                    <input type="text" formControlName="title" placeholder="Enter task title">
 
-        </div>
+                </div>
 
-        <small
-            *ngIf="taskForm.get('title')?.invalid &&
+                <small *ngIf="taskForm.get('title')?.invalid &&
                    taskForm.get('title')?.touched">
 
-            Task title is required.
+                    Task title is required.
 
-        </small>
+                </small>
 
-    </div>
+            </div>
 
-    <!-- Description -->
+            <!-- Description -->
 
-    <div class="input-box">
+            <div class="input-box">
 
-        <label>Description</label>
+                <label>Description</label>
 
-        <div class="input-field textarea-field">
+                <div class="input-field textarea-field">
 
-            <i class="fa-solid fa-align-left"></i>
+                    <i class="fa-solid fa-align-left"></i>
 
-            <textarea
-                rows="4"
-                formControlName="description"
-                placeholder="Enter task description"></textarea>
+                    <textarea rows="4" formControlName="description" placeholder="Enter task description"></textarea>
 
-        </div>
+                </div>
 
-        <small
-            *ngIf="taskForm.get('description')?.invalid &&
+                <small *ngIf="taskForm.get('description')?.invalid &&
                    taskForm.get('description')?.touched">
 
-            Description is required.
+                    Description is required.
 
-        </small>
-
-    </div>
-
-    <!-- Subject & Priority -->
-
-    <div class="form-row">
-
-        <div class="input-box">
-
-            <label>Subject</label>
-
-            <div class="input-field">
-
-                <i class="fa-solid fa-book"></i>
-
-                <input
-                    type="text"
-                    formControlName="subject"
-                    placeholder="Subject">
+                </small>
 
             </div>
 
-            <small
-                *ngIf="taskForm.get('subject')?.invalid &&
+            <!-- Subject & Priority -->
+
+            <div class="form-row">
+
+                <div class="input-box">
+
+                    <label>Subject</label>
+
+                    <div class="input-field">
+
+                        <i class="fa-solid fa-book"></i>
+
+                        <input type="text" formControlName="subject" placeholder="Subject">
+
+                    </div>
+
+                    <small *ngIf="taskForm.get('subject')?.invalid &&
                        taskForm.get('subject')?.touched">
 
-                Subject is required.
+                        Subject is required.
 
-            </small>
+                    </small>
 
-        </div>
+                </div>
 
-        <div class="input-box">
+                <div class="input-box">
 
-            <label>Priority</label>
+                    <label>Priority</label>
 
-            <div class="input-field">
+                    <div class="input-field">
 
-                <i class="fa-solid fa-flag"></i>
+                        <i class="fa-solid fa-flag"></i>
 
-                <select formControlName="priority">
+                        <select formControlName="priority">
 
-                    <option value="">Select Priority</option>
-                    <option value="High">High</option>
-                    <option value="Medium">Medium</option>
-                    <option value="Low">Low</option>
+                            <option value="">Select Priority</option>
+                            <option value="High">High</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Low">Low</option>
 
-                </select>
+                        </select>
 
-            </div>
+                    </div>
 
-            <small
-                *ngIf="taskForm.get('priority')?.invalid &&
+                    <small *ngIf="taskForm.get('priority')?.invalid &&
                        taskForm.get('priority')?.touched">
 
-                Please select a priority.
+                        Please select a priority.
 
-            </small>
+                    </small>
 
-        </div>
-
-    </div>
-
-    <!-- Status & Due Date -->
-
-    <div class="form-row">
-
-        <div class="input-box">
-
-            <label>Status</label>
-
-            <div class="input-field">
-
-                <i class="fa-solid fa-circle-check"></i>
-
-                <select formControlName="status">
-
-                    <option value="">Select Status</option>
-                    <option value="Pending">Pending</option>
-                    <option value="Completed">Completed</option>
-
-                </select>
+                </div>
 
             </div>
 
-            <small
-                *ngIf="taskForm.get('status')?.invalid &&
+            <!-- Status & Due Date -->
+
+            <div class="form-row">
+
+                <div class="input-box">
+
+                    <label>Status</label>
+
+                    <div class="input-field">
+
+                        <i class="fa-solid fa-circle-check"></i>
+
+                        <select formControlName="status">
+
+                            <option value="">Select Status</option>
+                            <option value="Pending">Pending</option>
+                            <option value="Completed">Completed</option>
+
+                        </select>
+
+                    </div>
+
+                    <small *ngIf="taskForm.get('status')?.invalid &&
                        taskForm.get('status')?.touched">
 
-                Please select a status.
+                        Please select a status.
 
-            </small>
+                    </small>
 
-        </div>
+                </div>
 
-        <div class="input-box">
+                <div class="input-box">
 
-            <label>Due Date</label>
+                    <label>Due Date</label>
 
-            <div class="input-field">
+                    <div class="input-field">
 
-                <i class="fa-solid fa-calendar-days"></i>
+                        <i class="fa-solid fa-calendar-days"></i>
 
-                <input
-                    type="date"
-                    formControlName="dueDate">
+                        <input type="date" formControlName="dueDate">
+
+                    </div>
+
+                    <small *ngIf="taskForm.get('dueDate')?.invalid &&
+                       taskForm.get('dueDate')?.touched">
+
+                        Due date is required.
+
+                    </small>
+
+                </div>
 
             </div>
 
-            <small
-                *ngIf="taskForm.get('dueDate')?.invalid &&
-                       taskForm.get('dueDate')?.touched">
+            <!-- Buttons -->
 
-                Due date is required.
+            <div class="form-buttons">
 
-            </small>
+                <button type="button" class="cancel-btn" (click)="clearForm()">
 
-        </div>
+                    Clear
 
-    </div>
+                </button>
 
-    <!-- Buttons -->
+                <button type="submit" class="save-btn" [disabled]="taskForm.invalid">
 
-    <div class="form-buttons">
+                    <span *ngIf="!isLoading">save</span>
 
-        <button
-            type="button"
-            class="cancel-btn"
-            (click)="clearForm()">
+                    <span *ngIf="isLoading">saving ...</span>
 
-            Clear
+                </button>
 
-        </button>
+            </div>
 
-        <button
-            type="submit"
-            class="save-btn"
-
-            [disabled]="taskForm.invalid">
-            
- <span *ngIf="!isLoading">save</span>
-                        
-                        <span *ngIf="isLoading">saving ...</span>
-
-        </button>
-
-    </div>
-
-</form>
+        </form>
 
     </section>
 
@@ -255,133 +230,130 @@
 
             <i class="fa-solid fa-magnifying-glass"></i>
 
-            <input
-    type="text"
-    placeholder="Search Tasks"
-    [(ngModel)]="searchText"
-    name="search">
+            <input type="text" placeholder="Search Tasks" [(ngModel)]="searchText" name="search">
         </div>
 
     </section>
 
     <!-- ================= TASK TABLE ================= -->
 
-<section class="table-section">
+    <section class="table-section">
 
-    <div class="table-card">
+        <div class="table-card">
 
-        <div class="table-header">
+            <div class="table-header">
 
-            <h2>Task Records</h2>
+                <h2>Task Records</h2>
 
-        </div>
+            </div>
 
-        <table>
+            <table>
 
-            <thead>
+                <thead>
 
-                <tr>
+                    <tr>
 
-                    <th>#</th>
-                    <th>Title</th>
-                    <th>Subject</th>
-                    <th>description</th>
-                    <th>Priority</th>
-                    <th>Status</th>
-                    <th>Due Date</th>
-                    <th>Actions</th>
+                        <th>#</th>
+                        <th>Title</th>
+                        <th>Subject</th>
+                        <th>description</th>
+                        <th>Priority</th>
+                        <th>Status</th>
+                        <th>Due Date</th>
+                        <th>Actions</th>
 
-                </tr>
+                    </tr>
 
-            </thead>
+                </thead>
 
-            <tbody>
+                <tbody>
 
-                <tr *ngFor="let task of filteredTasks; let i = index">
+                    <tr *ngFor="let task of filteredTasks; let i = index">
 
-                    <td>{{ i + 1 }}</td>
+                        <td>{{ i + 1 }}</td>
 
-                    <td>{{ task.title |titlecase}}</td>
+                        <td>{{ task.title |titlecase}}</td>
 
-                    <td>{{ task.subject |titlecase}}</td>
-                    <td>{{ task.description | slice:0:10 }}...</td>
+                        <td>{{ task.subject |titlecase}}</td>
+                        <td>{{ task.description | slice:0:10 }}...</td>
 
 
-                    <td> 
+                        <td>
 
-                        <span
-                            class="priority"
-                            [ngClass]="{
+                            <span class="priority" [ngClass]="{
                                 'high-priority': task.priority === 'High',
                                 'medium-priority': task.priority === 'Medium',
                                 'low-priority': task.priority === 'Low'
                             }">
 
-                            {{ task.priority }}
+                                {{ task.priority }}
 
-                        </span>
+                            </span>
 
-                    </td>
+                        </td>
 
-                    <td>
+                        <td>
 
-                        <span
-                            class="status"
-                            [ngClass]="{
+                            <span class="status" [ngClass]="{
                                 'pending': task.status === 'Pending',
                                 'completed': task.status === 'Completed'
                             }">
 
-                            {{ task.status }}
+                                {{ task.status }}
 
-                        </span>
+                            </span>
 
-                    </td>
+                        </td>
 
-                    <td>{{ task.dueDate | date:'dd MMM yyyy' }}</td>
+                        <td>{{ task.dueDate | date:'dd MMM yyyy' }}</td>
 
-                    <td>
+                        <td>
 
-                        <button
-                            class="edit"
-                            (click)="editTask(i)">
+                            <button class="edit" (click)="editTask(i)">
 
-                            <i class="fa-solid fa-pen">edit</i>
+                               
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-activity" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M6 2a.5.5 0 0 1 .47.33L10 12.036l1.53-4.208A.5.5 0 0 1 12 7.5h3.5a.5.5 0 0 1 0 1h-3.15l-1.88 5.17a.5.5 0 0 1-.94 0L6 3.964 4.47 8.171A.5.5 0 0 1 4 8.5H.5a.5.5 0 0 1 0-1h3.15l1.88-5.17A.5.5 0 0 1 6 2" />
+                                    </svg>
+                            
 
-                        </button>
+                            </button>
 
-                        <button
-                            class="delete"
-                            (click)="deleteTask(i)">
+                            <button class="delete" (click)="deleteTask(i)">
 
-                            <i class="fa-solid fa-trash">del</i>
+                                <i class="fa-solid fa-trash">del</i>
 
-                        </button>
+                            </button>
+                            <button [routerLink]="['/student/tasks', task._id]">
+                                View Task
+                            </button>
 
-                    </td>
+                        </td>
 
-                </tr>
+                    </tr>
 
-                <tr *ngIf="filteredTasks.length === 0">
+                    <tr *ngIf="filteredTasks.length === 0">
 
-                    <td colspan="7" class="no-data">
+                        <td colspan="7" class="no-data">
 
-                        No tasks found.
+                            No tasks found.
 
-                    </td>
+                        </td>
 
-                </tr>
+                    </tr>
 
-            </tbody>
+                </tbody>
 
-        </table>
+            </table>
 
-    </div>
+        </div>
 
-</section>
+    </section>
 
     <!-- ================= TASK LIST ================= -->
-<!-- 
+    <!-- 
     <section class="task-grid">
 
         <div

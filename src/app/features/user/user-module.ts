@@ -10,10 +10,11 @@ import { DashboardComponent } from './dashboard/dashboard';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Task } from './task/task';
+import { SingleTask } from './single-task/single-task';
 
 
 @NgModule({
-  declarations: [Profile, Courses, Attendance,Task],
+  declarations: [Profile, Courses, Attendance,Task, SingleTask],
   imports: [
     CommonModule,
     UserRoutingModule,

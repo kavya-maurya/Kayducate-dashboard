@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DashboardComponent} from './dashboard/dashboard';
-import { Profile} from './profile/profile';
+import { DashboardComponent } from './dashboard/dashboard';
+import { Profile } from './profile/profile';
 import { Courses } from './courses/courses';
 import { Attendance } from './attendance/attendance';
 import { Task } from './task/task';
 import { AuthGuard } from '../../guards/auth-guard-guard';
+import { SingleTask } from './single-task/single-task';
 
 
 
@@ -21,7 +22,7 @@ const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent,
-    canActivate:[ AuthGuard ]
+    canActivate: [AuthGuard]
   },
 
   {
@@ -38,17 +39,21 @@ const routes: Routes = [
     path: 'attendance',
     component: Attendance
   },
-   {
+  {
     path: 'task',
-    component:Task
-   }
+    component: Task
+  },
+
+  {
+    path: 'tasks/:id',
+    component: SingleTask
+  }
 
 
- 
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class UserRoutingModule {}
+export class UserRoutingModule { }
