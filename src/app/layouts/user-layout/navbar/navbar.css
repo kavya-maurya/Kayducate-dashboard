@@ -1,105 +1,88 @@
-.navbar{
-
-    height:72px;
-
-    background:rgba(255,255,255,.75);
-
-    backdrop-filter:blur(16px);
-
-    border-bottom:1px solid rgba(180,160,255,.2);
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    padding:0 30px;
-
+.navbar {
+    height: 72px;
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(180, 160, 255, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    box-sizing: border-box;
 }
 
-.left h2{
-
-    color:#444;
-
+.left h2 {
+    color: #6b2bbf;
+    margin: 0;
 }
 
-.right{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:20px;
-
+.right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }
 
-input{
-
-    width:240px;
-
-    padding:10px 16px;
-
-    border:none;
-
-    border-radius:12px;
-
-    background:#F4F1FF;
-
-    outline:none;
-
+input {
+    width: 240px;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 12px;
+    background: #F4F1FF;
+    outline: none;
 }
 
-button{
-
-    width:42px;
-
-    height:42px;
-
-    border:none;
-
-    border-radius:12px;
-
-    background:#F4F1FF;
-
-    cursor:pointer;
-
+button {
+    width: 42px;
+    height: 42px;
+    border: none;
+    border-radius: 12px;
+    background: #F4F1FF;
+    cursor: pointer;
 }
 
-.profile{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:10px;
-
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-.profile img{
-
-    width:42px;
-
-    height:42px;
-
-    border-radius:50%;
-
+.profile img {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
-.profile p{
-
-    color:#777;
-
-    font-size:13px;
-
+.profile h4 {
+    margin: 0;
+    font-size: 14px;
 }
 
-@media(max-width:768px){
+.profile p {
+    color: #777;
+    font-size: 13px;
+    margin: 0;
+}
 
-    input{
-
-        display:none;
-
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 0 16px; /* Tighter padding for mobile screens */
     }
 
+    .left h2 {
+        font-size: 1.25rem; /* Slightly smaller logo text */
+    }
+
+    .right {
+        gap: 12px; /* Reduce gap between search/profile elements */
+    }
+
+    input {
+        display: none; /* Hides search bar on mobile */
+    }
+
+    .profile div {
+        display: none; /* Hides name & role on mobile, keeping only the avatar */
+    }
 }

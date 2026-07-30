@@ -1,50 +1,105 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Inter,Segoe UI,sans-serif;
+/* ===========================
+   GLOBAL
+=========================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Inter, "Segoe UI", sans-serif;
 }
+
+/* ===========================
+   HAMBURGER
+=========================== */
+
+.menu-toggle {
+  display: none;
+  position: fixed;
+  top: 18px;
+  left: 18px;
+  width: 48px;
+  height: 48px;
+  border: none;
+  border-radius: 14px;
+  background: rgba(255,255,255,.92);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 10px 25px rgba(0,0,0,.12);
+  color: #5B4FCF;
+  font-size: 22px;
+  cursor: pointer;
+  z-index: 2002;
+  transition: .3s;
+}
+
+.menu-toggle:hover{
+    transform: scale(1.05);
+}
+
+/* ===========================
+   OVERLAY
+=========================== */
+
+.overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.35);
+    backdrop-filter:blur(3px);
+    z-index:2000;
+}
+
+/* ===========================
+   SIDEBAR
+=========================== */
 
 .sidebar{
 
-    width:260px;
+    width:270px;
     min-height:100vh;
 
     background:rgba(255,255,255,.72);
 
-    backdrop-filter:blur(18px);
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
 
     border-right:1px solid rgba(180,160,255,.25);
 
     display:flex;
     flex-direction:column;
-    justify-content:space-between;
 
-    padding:24px;
+    padding:28px 20px;
+
+    transition:.35s;
+
+    position:relative;
 
 }
+
+/* ===========================
+   LOGO
+=========================== */
 
 .logo{
 
-    margin-bottom:45px;
-
-}
-
-.logo h2{
-
-    color:#5B4FCF;
-
-    font-size:24px;
+    margin-bottom:40px;
 
 }
 
 .logo span{
 
-    color:#8b8b8b;
+    font-size:20px;
 
-    font-size:14px;
+    font-weight:700;
+
+    color:#5B4FCF;
+
+    letter-spacing:.5px;
 
 }
+
+/* ===========================
+   NAVIGATION
+=========================== */
 
 nav{
 
@@ -52,29 +107,49 @@ nav{
 
     flex-direction:column;
 
-    gap:12px;
+    gap:10px;
 
 }
 
 nav a{
 
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
     text-decoration:none;
 
-    color:#444;
+    color:#555;
 
     padding:14px 18px;
 
     border-radius:14px;
 
+    transition:.25s;
+
+    font-size:15px;
+
+    font-weight:500;
+
+}
+
+nav a span{
+
     display:flex;
 
     align-items:center;
 
-    gap:12px;
+    justify-content:center;
 
-    transition:.25s;
+}
 
-    font-weight:500;
+nav a svg{
+
+    width:20px;
+
+    height:20px;
 
 }
 
@@ -84,35 +159,51 @@ nav a:hover{
 
     color:#5B4FCF;
 
+    transform:translateX(4px);
+
 }
+
+/* ACTIVE */
 
 .active{
 
     background:#ECE8FF;
 
-    color:#5B4FCF;
+    color:#5B4FCF !important;
 
     font-weight:600;
 
+    box-shadow:0 8px 20px rgba(91,79,207,.08);
+
 }
+
+/* ===========================
+   LOGOUT
+=========================== */
 
 .logout{
 
     margin-top:auto;
 
+    padding-top:30px;
+
 }
 
 .logout a{
 
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
     text-decoration:none;
 
-    display:block;
+    color:#666;
 
     padding:14px 18px;
 
     border-radius:14px;
-
-    color:#555;
 
     transition:.25s;
 
@@ -120,58 +211,172 @@ nav a:hover{
 
 .logout a:hover{
 
-    background:#F4F1FF;
+    background:#FFF1F1;
 
-    color:#5B4FCF;
+    color:#E53935;
 
 }
 
-@media(max-width:768px){
+/* ===========================
+   TABLET
+=========================== */
 
-    .sidebar{
+@media (max-width:1024px) and (min-width:769px){
 
-        width:75px;
+.sidebar{
 
-        padding:16px;
+    width:220px;
 
-    }
+    padding:22px 16px;
 
-    .logo span{
+}
 
-        display:none;
+.logo span{
 
-    }
+    font-size:18px;
 
-    .logo h2{
+}
 
-        font-size:20px;
+nav a{
 
-    }
+    font-size:14px;
 
-    nav a{
+    padding:13px 15px;
 
-        justify-content:center;
+}
 
-    }
+}
 
-    nav a{
 
-        font-size:0;
+/* ===========================
+   MOBILE
+=========================== */
 
-    }
+@media (max-width:768px){
 
-    nav a span{
+/* Hamburger */
 
-        font-size:22px;
+.menu-toggle{
 
-    }
+    display:flex;
 
-    .logout a{
+    align-items:center;
 
-        font-size:0;
+    justify-content:center;
 
-        text-align:center;
+}
 
-    }
+/* Overlay hidden unless Angular renders it */
+
+.overlay{
+
+    display:block;
+
+}
+
+/* Sidebar */
+
+.sidebar{
+
+    position:fixed;
+
+    top:0;
+
+    left:-220px;
+
+    width:200px;
+
+    height:100vh;
+
+    padding:80px 16px 20px;
+
+    z-index:2500;
+
+    box-shadow:15px 0 40px rgba(0,0,0,.15);
+
+}
+
+/* Slide In */
+
+.sidebar.mobile-open{
+
+    left:0;
+
+}
+
+/* Logo */
+
+.logo{
+
+    margin-bottom:25px;
+
+}
+
+.logo span{
+
+    display:block;
+
+    font-size:17px;
+
+    text-align:center;
+
+}
+
+/* Navigation */
+
+nav{
+
+    gap:8px;
+
+}
+
+nav a{
+
+    justify-content:flex-start;
+
+    font-size:14px;
+
+    padding:12px 14px;
+
+    gap:12px;
+
+}
+
+nav a svg{
+
+    width:18px;
+
+    height:18px;
+
+}
+
+.logout{
+
+    padding-top:20px;
+
+}
+
+.logout a{
+
+    font-size:14px;
+
+    justify-content:flex-start;
+
+}
+
+}
+
+
+/* ===========================
+   LARGE DESKTOP
+=========================== */
+
+@media(min-width:1400px){
+
+.sidebar{
+
+width:290px;
+
+}
 
 }
