@@ -77,7 +77,7 @@ body{
 
     background:#F4F1FF;
 
-    color:#9F87F5;
+    color:#6e47fa;
 
     border-radius:50px;
 
@@ -105,7 +105,7 @@ body{
 
 .hero h1 span{
 
-    color:#B8A4F7;
+    color:#987cf7;
 
 }
 
@@ -141,7 +141,7 @@ body{
 
     border:none;
 
-    background:#B8A4F7;
+    background:#8a6cee;
 
     color:#fff;
 
@@ -161,7 +161,7 @@ body{
 
 .primary-btn:hover{
 
-    background:#9F87F5;
+    background:#604aaf;
 
     transform:translateY(-4px);
 

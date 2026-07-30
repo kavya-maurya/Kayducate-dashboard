@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule, DatePipe } from '@angular/common';
+import { CommonModule, DatePipe, UpperCasePipe } from '@angular/common';
 
 import { UserRoutingModule } from './user-routing-module';
 
@@ -21,7 +21,7 @@ import { SingleTask } from './single-task/single-task';
     FormsModule,
     ReactiveFormsModule,
     DashboardComponent,
-    
+    UpperCasePipe
   
   ],
 })

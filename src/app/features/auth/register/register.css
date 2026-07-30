@@ -1,21 +1,58 @@
-/*==========================================================
-                    GLOBAL
-==========================================================*/
+/* ==========================================================
+   KAYDUCATE REGISTER PAGE
+   Part 1 - Global, Layout & Left Panel
+========================================================== */
 
-*{
+/* ==========================================================
+   RESET
+========================================================== */
 
+*,
+*::before,
+*::after{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:'Segoe UI',sans-serif;
+}
 
+html{
+    scroll-behavior:smooth;
 }
 
 body{
 
-    background:#FCFBFF;
+    font-family:Inter,"Segoe UI",sans-serif;
+
+    background:#FAFBFF;
+
+    color:#1F2937;
 
 }
+
+img{
+
+    max-width:100%;
+
+    display:block;
+
+}
+
+a{
+
+    text-decoration:none;
+
+}
+
+button,
+input{
+
+    font-family:inherit;
+
+}
+
+/* ==========================================================
+   PAGE
+========================================================== */
 
 .register-page{
 
@@ -27,30 +64,29 @@ body{
 
     align-items:center;
 
-    padding:40px;
+    padding:32px;
 
     background:
-    radial-gradient(circle at top right,
-    rgba(184,164,247,.18),
-    transparent 30%),
 
-    radial-gradient(circle at bottom left,
-    rgba(184,164,247,.14),
-    transparent 35%),
+        radial-gradient(circle at top right,
+        rgba(184,164,247,.10),
+        transparent 30%),
 
-    #FCFBFF;
+        radial-gradient(circle at bottom left,
+        rgba(184,164,247,.08),
+        transparent 35%),
+
+        #FAFBFF;
 
 }
 
-/*==========================================================
-                MAIN CONTAINER
-==========================================================*/
+/* ==========================================================
+   CONTAINER
+========================================================== */
 
 .register-container{
 
-    width:1300px;
-
-    min-height:760px;
+    width:min(1180px,100%);
 
     display:grid;
 
@@ -58,25 +94,22 @@ body{
 
     overflow:hidden;
 
-    border-radius:30px;
+    background:#FFFFFF;
 
-    background:rgba(255,255,255,.60);
+    border:1px solid #ECEAF8;
 
-    backdrop-filter:blur(25px);
+    border-radius:14px;
 
-    border:1px solid rgba(184,164,247,.15);
-
-    box-shadow:0 30px 70px rgba(184,164,247,.10);
+    box-shadow:
+        0 15px 45px rgba(17,24,39,.06);
 
 }
 
-/*==========================================================
-                    LEFT PANEL
-==========================================================*/
+/* ==========================================================
+   LEFT PANEL
+========================================================== */
 
 .left-panel{
-
-    background:#F8F5FF;
 
     position:relative;
 
@@ -86,7 +119,9 @@ body{
 
     align-items:center;
 
-    padding:70px;
+    padding:64px;
+
+    background:#F7F5FF;
 
 }
 
@@ -97,9 +132,10 @@ body{
     inset:0;
 
     background:
-    radial-gradient(circle,
-    rgba(184,164,247,.12),
-    transparent 65%);
+
+        radial-gradient(circle,
+        rgba(184,164,247,.10),
+        transparent 70%);
 
 }
 
@@ -109,9 +145,15 @@ body{
 
     z-index:2;
 
-    max-width:520px;
+    width:100%;
+
+    max-width:500px;
 
 }
+
+/* ==========================================================
+   LOGO
+========================================================== */
 
 .logo{
 
@@ -119,17 +161,17 @@ body{
 
     align-items:center;
 
-    gap:15px;
+    gap:14px;
 
-    margin-bottom:35px;
+    margin-bottom:34px;
 
 }
 
 .logo i{
 
-    width:60px;
+    width:52px;
 
-    height:60px;
+    height:52px;
 
     display:flex;
 
@@ -137,121 +179,152 @@ body{
 
     align-items:center;
 
-    border-radius:18px;
+    border-radius:12px;
 
-    background:#B8A4F7;
+    background:#8F73FF;
 
-    color:white;
+    color:#FFFFFF;
 
-    font-size:25px;
+    font-size:22px;
 
 }
 
 .logo h1{
 
-    color:#222;
+    font-size:32px;
 
-    font-size:34px;
+    font-weight:700;
+
+    color:#111827;
 
 }
+
+/* ==========================================================
+   BADGE
+========================================================== */
 
 .badge{
 
-    display:inline-block;
+    display:inline-flex;
 
-    padding:10px 18px;
+    align-items:center;
 
-    background:white;
+    gap:8px;
 
-    color:#9F87F5;
+    padding:8px 16px;
 
-    border-radius:40px;
+    background:#EFEAFF;
 
-    font-size:14px;
+    color:#7A5EF8;
+
+    border-radius:999px;
+
+    font-size:13px;
 
     font-weight:600;
 
-    margin-bottom:25px;
+    margin-bottom:26px;
 
 }
 
+/* ==========================================================
+   TITLE
+========================================================== */
+
 .left-content h2{
 
-    font-size:54px;
+    font-size:48px;
 
-    color:#222;
+    font-weight:700;
 
-    line-height:1.2;
+    line-height:1.15;
 
-    margin-bottom:20px;
+    color:#111827;
+
+    margin-bottom:22px;
 
 }
 
 .left-content h2 span{
 
-    color:#B8A4F7;
+    color:#8F73FF;
 
 }
+
+/* ==========================================================
+   DESCRIPTION
+========================================================== */
 
 .left-content p{
 
-    color:#666;
+    color:#6B7280;
+
+    font-size:16px;
 
     line-height:1.8;
-
-    font-size:17px;
-
-    margin-bottom:45px;
-
-}
-
-.left-content img{
-
-    width:100%;
-
-    max-width:430px;
 
     margin-bottom:40px;
 
 }
 
-/*==========================================================
-                    FEATURES
-==========================================================*/
+/* ==========================================================
+   ILLUSTRATION
+========================================================== */
+
+.left-content img{
+
+    width:100%;
+
+    max-width:360px;
+
+    margin:0 auto 42px;
+
+}
+
+/* ==========================================================
+   FEATURES
+========================================================== */
 
 .features{
 
-    display:flex;
+    display:grid;
 
-    justify-content:space-between;
+    grid-template-columns:repeat(3,1fr);
 
-    gap:20px;
+    gap:14px;
 
 }
 
 .features div{
 
-    flex:1;
+    padding:18px;
+
+    background:#FFFFFF;
+
+    border:1px solid #ECEAF8;
+
+    border-radius:10px;
 
     text-align:center;
 
-    padding:22px;
+    transition:.25s ease;
 
-    border-radius:20px;
+}
 
-    background:rgba(255,255,255,.70);
+.features div:hover{
 
-    backdrop-filter:blur(15px);
+    transform:translateY(-3px);
 
-    border:1px solid rgba(184,164,247,.15);
+    box-shadow:
+        0 10px 22px rgba(143,115,255,.08);
 
 }
 
 .features h3{
 
-    color:#B8A4F7;
+    color:#8F73FF;
 
-    font-size:28px;
+    font-size:26px;
 
     margin-bottom:6px;
 
@@ -259,14 +332,14 @@ body{
 
 .features span{
 
-    color:#777;
+    color:#6B7280;
 
-    font-size:14px;
+    font-size:13px;
 
 }
-/*==========================================================
-                    RIGHT PANEL
-==========================================================*/
+/* ==========================================================
+   RIGHT PANEL
+========================================================== */
 
 .right-panel{
 
@@ -276,7 +349,7 @@ body{
 
     align-items:center;
 
-    padding:60px;
+    padding:56px;
 
 }
 
@@ -284,63 +357,67 @@ body{
 
     width:100%;
 
-    max-width:460px;
+    max-width:410px;
 
 }
 
 .login-card h2{
 
-    font-size:38px;
+    font-size:34px;
 
-    color:#222;
+    font-weight:700;
 
-    margin-bottom:10px;
+    color:#111827;
+
+    margin-bottom:8px;
 
 }
 
 .login-card p{
 
-    color:#777;
+    color:#6B7280;
 
-    margin-bottom:35px;
+    font-size:15px;
 
     line-height:1.7;
 
+    margin-bottom:28px;
+
 }
 
-/*==========================================================
-                    FORM
-==========================================================*/
+/* ==========================================================
+   FORM
+========================================================== */
 
 form{
 
-    display:flex;
-
-    flex-direction:column;
-
-    gap:22px;
+    width:100%;
 
 }
 
 .input-box{
 
-    display:flex;
-
-    flex-direction:column;
+    margin-bottom:22px;
 
 }
 
 .input-box label{
 
-    font-size:14px;
+    display:block;
 
-    color:#555;
+    margin-bottom:8px;
+
+    font-size:14px;
 
     font-weight:600;
 
-    margin-bottom:10px;
+    color:#374151;
 
 }
+
+/* ==========================================================
+   INPUT FIELD
+========================================================== */
 
 .input-field{
 
@@ -348,33 +425,39 @@ form{
 
     align-items:center;
 
-    gap:14px;
+    gap:12px;
 
-    background:white;
+    padding:14px 16px;
 
-    border:1px solid #E8E4F9;
+    border:1px solid #E5E7EB;
 
-    border-radius:18px;
+    border-radius:10px;
 
-    padding:15px 18px;
+    background:#FFFFFF;
 
-    transition:.3s;
+    transition:.25s ease;
+
+}
+
+.input-field:hover{
+
+    border-color:#D8CCFF;
 
 }
 
 .input-field:focus-within{
 
-    border-color:#B8A4F7;
+    border-color:#8F73FF;
 
-    box-shadow:0 0 0 5px rgba(184,164,247,.18);
+    box-shadow:0 0 0 4px rgba(143,115,255,.12);
 
 }
 
 .input-field i{
 
-    color:#B8A4F7;
+    color:#8F73FF;
 
-    font-size:18px;
+    font-size:16px;
 
 }
 
@@ -386,85 +469,136 @@ form{
 
     outline:none;
 
-    background:none;
+    background:transparent;
+
+    color:#111827;
 
     font-size:15px;
-
-    color:#333;
 
 }
 
 .input-field input::placeholder{
 
-    color:#AAA;
+    color:#9CA3AF;
 
 }
 
 .input-box small{
 
+    display:block;
+
     margin-top:8px;
 
-    color:#E74C3C;
+    color:#DC2626;
 
     font-size:13px;
 
 }
 
-/*==========================================================
-                    BUTTON
-==========================================================*/
+/* ==========================================================
+   BUTTON
+========================================================== */
 
 .login-btn{
 
-    margin-top:10px;
-
     width:100%;
+
+    margin-top:8px;
+
+    padding:14px;
 
     border:none;
 
-    border-radius:18px;
+    border-radius:10px;
 
-    padding:16px;
+    background:#8F73FF;
 
-    background:#B8A4F7;
+    color:#FFFFFF;
 
-    color:white;
-
-    font-size:16px;
+    font-size:15px;
 
     font-weight:600;
 
     cursor:pointer;
 
-    transition:.3s;
+    transition:background .25s ease,
+               box-shadow .25s ease;
 
 }
 
-.login-btn:hover{
+.login-btn:hover:not(:disabled){
 
-    background:#A68DF2;
+    background:#7B5CF6;
 
-    transform:translateY(-2px);
-
-    box-shadow:0 18px 35px rgba(184,164,247,.30);
+    box-shadow:0 10px 24px rgba(143,115,255,.25);
 
 }
 
 .login-btn:disabled{
 
-    background:#D9D2F6;
+    opacity:.65;
 
     cursor:not-allowed;
-
-    transform:none;
 
     box-shadow:none;
 
 }
 
-/*==========================================================
-                    DIVIDER
-==========================================================*/
+/* ==========================================================
+   SUCCESS MESSAGE
+========================================================== */
+
+.success-message{
+
+    display:block;
+
+    margin-top:14px;
+
+    margin-bottom:18px;
+
+    padding:12px;
+
+    text-align:center;
+
+    background:#ECFDF3;
+
+    color:#027A48;
+
+    border:1px solid #ABEFC6;
+
+    border-radius:10px;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    animation:fadeIn .35s ease;
+
+}
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(-6px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ==========================================================
+   DIVIDER
+========================================================== */
 
 .divider{
 
@@ -472,16 +606,17 @@ form{
 
     align-items:center;
 
-    margin:30px 0;
+    margin:28px 0;
 
-    color:#999;
+    color:#9CA3AF;
 
-    font-size:14px;
+    font-size:13px;
+
+    font-weight:600;
 
 }
 
 .divider::before,
-
 .divider::after{
 
     content:"";
@@ -490,81 +625,87 @@ form{
 
     height:1px;
 
-    background:#E6E6E6;
+    background:#E5E7EB;
 
 }
 
 .divider span{
 
-    margin:0 15px;
+    padding:0 14px;
 
 }
 
-/*==========================================================
-                SOCIAL BUTTONS
-==========================================================*/
+/* ==========================================================
+   SOCIAL BUTTONS
+========================================================== */
 
 .social-btn{
 
     width:100%;
 
-    border:1px solid #E8E4F9;
+    display:flex;
 
-    background:white;
+    justify-content:center;
 
-    border-radius:18px;
+    align-items:center;
 
-    padding:15px;
+    gap:10px;
 
-    margin-bottom:15px;
+    padding:14px;
 
-    cursor:pointer;
+    margin-bottom:14px;
+
+    border:1px solid #E5E7EB;
+
+    border-radius:10px;
+
+    background:#FFFFFF;
+
+    color:#374151;
 
     font-size:15px;
 
-    font-weight:500;
+    cursor:pointer;
 
-    transition:.3s;
+    transition:.25s ease;
 
 }
 
 .social-btn:hover{
 
-    background:#F8F5FF;
+    background:#F9FAFB;
 
-    border-color:#B8A4F7;
+    border-color:#D8CCFF;
 
 }
 
 .social-btn i{
 
-    margin-right:12px;
+    color:#8F73FF;
 
-    color:#B8A4F7;
+    font-size:18px;
 
 }
 
-/*==========================================================
-                    REGISTER
-==========================================================*/
+/* ==========================================================
+   LOGIN LINK
+========================================================== */
 
 .register{
 
+    margin-top:24px;
+
     text-align:center;
 
-    margin-top:25px;
+    color:#6B7280;
 
-    color:#666;
-
-    font-size:15px;
+    font-size:14px;
 
 }
 
 .register a{
 
-    color:#9F87F5;
-
-    text-decoration:none;
+    color:#8F73FF;
 
     font-weight:600;
 
@@ -574,28 +715,176 @@ form{
 
     text-decoration:underline;
 
-} 
-.success-message {
-  display: block;
-  margin-top: 10px;
-  padding: 10px 14px;
-  border-radius: 8px;
-  background-color: #d4edda;
-  color: #155724;
-  border: 1px solid #c3e6cb;
-  font-size: 14px;
-  font-weight: 500;
-  text-align: center;
-  animation: fadeIn 0.3s ease-in-out;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-5px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media (max-width:1200px){
+
+    .register-container{
+
+        width:95%;
+
+    }
+
+    .left-panel{
+
+        padding:52px;
+
+    }
+
+    .right-panel{
+
+        padding:44px;
+
+    }
+
+    .left-content h2{
+
+        font-size:42px;
+
+    }
+
+}
+
+@media (max-width:992px){
+
+    .register-container{
+
+        grid-template-columns:1fr;
+
+        max-width:560px;
+
+    }
+
+    .left-panel{
+
+        display:none;
+
+    }
+
+    .right-panel{
+
+        padding:42px 34px;
+
+    }
+
+}
+
+@media (max-width:768px){
+
+    .register-page{
+
+        padding:18px;
+
+    }
+
+    .register-container{
+
+        border-radius:12px;
+
+    }
+
+    .right-panel{
+
+        padding:30px 22px;
+
+    }
+
+    .login-card{
+
+        max-width:100%;
+
+    }
+
+    .login-card h2{
+
+        font-size:28px;
+
+        text-align:center;
+
+    }
+
+    .login-card p{
+
+        text-align:center;
+
+    }
+
+}
+
+@media (max-width:576px){
+
+    .register-page{
+
+        padding:12px;
+
+    }
+
+    .right-panel{
+
+        padding:22px 18px;
+
+    }
+
+    .login-card h2{
+
+        font-size:24px;
+
+    }
+
+    .input-field{
+
+        padding:12px 14px;
+
+    }
+
+    .login-btn{
+
+        padding:13px;
+
+    }
+
+    .social-btn{
+
+        padding:13px;
+
+    }
+
+}
+
+@media (max-width:360px){
+
+    .right-panel{
+
+        padding:18px 14px;
+
+    }
+
+    .login-card h2{
+
+        font-size:22px;
+
+    }
+
+    .input-field{
+
+        padding:11px 12px;
+
+    }
+
+    .input-field input{
+
+        font-size:14px;
+
+    }
+
+    .social-btn{
+
+        font-size:13px;
+
+    }
+
 }

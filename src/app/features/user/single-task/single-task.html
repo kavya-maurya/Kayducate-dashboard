@@ -1,1 +1,54 @@
-<p>single-task works!</p>
+<section class="single-task-page">
+  <div class="back-link">
+    <a routerLink="/student/task">← Back to tasks</a>
+  </div>
+
+  <div class="task-card loading-card" *ngIf="isLoading">
+    <div class="skeleton skeleton-title"></div>
+    <div class="skeleton skeleton-chip"></div>
+    <div class="skeleton-row">
+      <div class="skeleton skeleton-line"></div>
+      <div class="skeleton skeleton-line"></div>
+      <div class="skeleton skeleton-line"></div>
+    </div>
+    <div class="skeleton-block">
+      <div class="skeleton skeleton-line long"></div>
+      <div class="skeleton skeleton-line"></div>
+      <div class="skeleton skeleton-line"></div>
+    </div>
+  </div>
+
+  <div class="task-card" *ngIf="!isLoading && task">
+    <div class="task-card__header">
+      <div class="task-card__title">
+        <p class="eyebrow">Task details</p>
+        <h2>{{ task.title }}</h2>
+      </div>
+      <span class="badge" [ngClass]="task.priority?.toLowerCase()">{{ task.priority }}</span>
+    </div>
+
+    <div class="task-meta">
+      <div>
+        <span class="meta-label">Subject</span>
+        <p>{{ task.subject }}</p>
+      </div>
+      <div>
+        <span class="meta-label">Status</span>
+        <p>{{ task.status }}</p>
+      </div>
+      <div>
+        <span class="meta-label">Due date</span>
+        <p>{{ task.dueDate | date:'dd MMM yyyy' }}</p>
+      </div>
+    </div>
+
+    <div class="description-block">
+      <h3>Description</h3>
+      <p>{{ task.description }}</p>
+    </div>
+  </div>
+
+  <div class="task-card empty-state" *ngIf="!isLoading && !task && errorMessage">
+    <p>{{ errorMessage }}</p>
+  </div>
+</section>
