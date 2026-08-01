@@ -1,0 +1,183 @@
+<div class="syllabus-page">
+
+    <!-- ================= HEADER ================= -->
+
+    <div class="page-header">
+
+        <div>
+            <h1>Syllabus Tracker</h1>
+            <p>Track chapter completion for Tuition, School and Tests.</p>
+        </div>
+
+    </div>
+
+    <!-- ================= SUBJECTS ================= -->
+
+    <div class="subject-grid">
+
+        <div
+            class="subject-card"
+            *ngFor="let subject of subjects"
+            [class.active]="selectedSubject?._id === subject._id"
+            (click)="selectSubject(subject)">
+
+            <h3>{{subject.subject}}</h3>
+
+            <p>{{subject.chapters.length}} Chapters</p>
+
+        </div>
+
+    </div>
+
+    <!-- ================= ADD CHAPTER ================= -->
+
+    <div
+        class="add-chapter"
+        *ngIf="selectedSubject">
+
+        <div class="input-field">
+
+            <i class="fa-solid fa-book"></i>
+
+            <input
+                type="text"
+                placeholder="Enter Chapter Name"
+                [(ngModel)]="newChapter">
+
+        </div>
+
+        <button
+            class="add-btn"
+            (click)="addChapter()">
+
+            <i class="fa-solid fa-plus"></i>
+
+            Add Chapter
+
+        </button>
+
+    </div>
+
+    <!-- ================= TABLE ================= -->
+
+    <div
+        class="table-card"
+        *ngIf="selectedSubject">
+
+        <div class="table-header">
+
+            <h2>{{selectedSubject.subject}}</h2>
+
+            <span>
+
+                {{selectedSubject.chapters.length}}
+                Chapters
+
+            </span>
+
+        </div>
+
+        <div class="table-responsive">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>#</th>
+
+                        <th>Chapter Name</th>
+
+                        <th>Tuition</th>
+
+                        <th>School</th>
+
+                        <th>Test</th>
+
+                        <th>Action</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr
+                        *ngFor="let chapter of selectedSubject.chapters; let i=index">
+
+                        <td>
+
+                            {{i+1}}
+
+                        </td>
+
+                        <td>
+
+                            {{chapter.name}}
+
+                        </td>
+
+                        <td>
+
+                            <input
+                                type="checkbox"
+                                [(ngModel)]="chapter.tuitionCompleted"
+                                (change)="updateChapter(chapter,'tuitionCompleted')">
+
+                        </td>
+
+                        <td>
+
+                            <input
+                                type="checkbox"
+                                [(ngModel)]="chapter.schoolCompleted"
+                                (change)="updateChapter(chapter,'schoolCompleted')">
+
+                        </td>
+
+                        <td>
+
+                            <input
+                                type="checkbox"
+                                [(ngModel)]="chapter.testCompleted"
+                                (change)="updateChapter(chapter,'testCompleted')">
+
+                        </td>
+
+                        <td>
+
+                            <button
+                                class="delete-btn"
+                                (click)="deleteChapter(chapter._id)">
+
+                                <i class="fa-solid fa-trash"></i>
+
+                            </button>
+
+                        </td>
+
+                    </tr>
+
+                    <tr
+                        *ngIf="selectedSubject.chapters.length===0">
+
+                        <td
+                            colspan="6"
+                            class="empty">
+
+                            No Chapters Added Yet
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>

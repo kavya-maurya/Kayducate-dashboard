@@ -7,7 +7,7 @@ import { Attendance } from './attendance/attendance';
 import { Task } from './task/task';
 import { AuthGuard } from '../../guards/auth-guard-guard';
 import { SingleTask } from './single-task/single-task';
-
+import { SyllabusComponent } from '../user/syllabus/syllabus';
 
 
 
@@ -38,6 +38,10 @@ const routes: Routes = [
   {
     path: 'attendance',
     component: Attendance
+  },
+  {
+    path: 'syllabus',
+    component: SyllabusComponent
   },
   {
     path: 'task',

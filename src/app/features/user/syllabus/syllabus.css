@@ -1,0 +1,845 @@
+/*==========================================================
+                    CHAPTER TABLE
+==========================================================*/
+
+.chapter-table{
+    background:#fff;
+    border-radius:18px;
+    overflow:hidden;
+    border:1px solid rgba(184,164,247,.15);
+    box-shadow:0 10px 25px rgba(184,164,247,.08);
+}
+
+.chapter-table table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.chapter-table thead{
+    background:#F6F3FF;
+}
+
+.chapter-table th{
+    padding:16px;
+    font-size:14px;
+    color:#555;
+    font-weight:700;
+    text-align:center;
+}
+
+.chapter-table th:first-child{
+    text-align:left;
+}
+
+.chapter-table td{
+    padding:15px 16px;
+    border-top:1px solid #F0ECFF;
+    text-align:center;
+}
+
+.chapter-table td:first-child{
+    text-align:left;
+    color:#333;
+    font-weight:500;
+}
+
+.chapter-table tbody tr{
+    transition:.25s;
+}
+
+.chapter-table tbody tr:hover{
+    background:#FCFBFF;
+}
+
+/*==========================================================
+                    CHECKBOXES
+==========================================================*/
+
+.chapter-table input[type="checkbox"]{
+    width:18px;
+    height:18px;
+    cursor:pointer;
+    accent-color:#8B6EF7;
+    transform:scale(1.1);
+}
+
+/*==========================================================
+                    ADD CHAPTER
+==========================================================*/
+
+.add-chapter{
+    margin-top:20px;
+    display:flex;
+    gap:12px;
+}
+
+.add-chapter input{
+    flex:1;
+    border:1px solid #E8E2FF;
+    border-radius:14px;
+    padding:13px 16px;
+    outline:none;
+    font-size:15px;
+    transition:.3s;
+}
+
+.add-chapter input:focus{
+    border-color:#8B6EF7;
+    box-shadow:0 0 0 4px rgba(139,110,247,.15);
+}
+
+.add-chapter button{
+    border:none;
+    background:#8B6EF7;
+    color:#fff;
+    padding:13px 22px;
+    border-radius:14px;
+    cursor:pointer;
+    font-weight:600;
+    transition:.3s;
+}
+
+.add-chapter button:hover{
+    background:#7357ea;
+    transform:translateY(-2px);
+}
+
+/*==========================================================
+                    EMPTY STATE
+==========================================================*/
+
+.empty-state{
+    text-align:center;
+    padding:70px 20px;
+    color:#888;
+}
+
+.empty-state i{
+    font-size:60px;
+    color:#C8B7FF;
+    margin-bottom:18px;
+}
+
+.empty-state h3{
+    margin-bottom:10px;
+    color:#555;
+}
+
+.empty-state p{
+    font-size:14px;
+}
+
+/*==========================================================
+                    ANIMATION
+==========================================================*/
+
+.subject-card,
+.main-panel,
+.stats-card{
+    animation:fadeUp .45s ease;
+}
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(18px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+/*==========================================================
+                    RESPONSIVE
+==========================================================*/
+
+@media(max-width:1100px){
+
+.syllabus-layout{
+    grid-template-columns:1fr;
+}
+
+.sidebar{
+    order:2;
+}
+
+.main-panel{
+    order:1;
+}
+
+.subject-list{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:12px;
+}
+
+.subject-card{
+    margin-bottom:0;
+}
+
+}
+
+@media(max-width:768px){
+
+.syllabus-page{
+    padding:12px;
+}
+
+.page-header{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:14px;
+}
+
+.stats-grid{
+    grid-template-columns:repeat(2,1fr);
+}
+
+.chapter-table{
+    overflow-x:auto;
+}
+
+.chapter-table table{
+    min-width:650px;
+}
+
+.add-chapter{
+    flex-direction:column;
+}
+
+.add-chapter button{
+    width:100%;
+}
+
+}
+
+@media(max-width:500px){
+
+.stats-grid{
+    grid-template-columns:1fr;
+}
+
+.page-header h1{
+    font-size:24px;
+}
+
+.main-panel{
+    padding:18px;
+}
+
+.sidebar{
+    padding:18px;
+}
+
+.subject-card{
+    padding:14px;
+}
+
+.chapter-table th,
+.chapter-table td{
+    padding:12px 10px;
+    font-size:13px;
+}
+
+.chapter-table input[type="checkbox"]{
+    width:16px;
+    height:16px;
+}
+
+}
+/*==========================================================
+                    GLOBAL
+==========================================================*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#FCFBFF;
+    color:#333;
+}
+
+.syllabus-page{
+    width:min(100%,1500px);
+    margin:15px auto;
+    padding:0 14px;
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+
+/*==========================================================
+                    HEADER
+==========================================================*/
+
+.page-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:18px;
+
+    background:rgba(255,255,255,.75);
+    backdrop-filter:blur(22px);
+
+    border:1px solid rgba(184,164,247,.15);
+    border-radius:18px;
+
+    padding:22px 28px;
+
+    box-shadow:0 10px 28px rgba(184,164,247,.08);
+}
+
+.page-header h1{
+    font-size:30px;
+    color:#222;
+    margin-bottom:8px;
+}
+
+.page-header p{
+    color:#777;
+    font-size:15px;
+}
+
+.header-right{
+    display:flex;
+    gap:12px;
+    align-items:center;
+}
+
+/*==========================================================
+                    SEARCH
+==========================================================*/
+
+.search-box{
+    width:300px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+
+    background:white;
+
+    border:1px solid #E8E4F9;
+
+    border-radius:14px;
+
+    padding:12px 15px;
+
+    transition:.3s;
+}
+
+.search-box:focus-within{
+
+    border-color:#B8A4F7;
+
+    box-shadow:0 0 0 4px rgba(184,164,247,.18);
+
+}
+
+.search-box i{
+
+    color:#9F87F5;
+
+    font-size:16px;
+
+}
+
+.search-box input{
+
+    width:100%;
+
+    border:none;
+
+    outline:none;
+
+    background:transparent;
+
+    font-size:15px;
+
+}
+
+/*==========================================================
+                SUBJECT CARDS
+==========================================================*/
+
+.subject-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+
+    gap:18px;
+
+}
+
+.subject-card{
+
+    background:rgba(255,255,255,.75);
+
+    backdrop-filter:blur(25px);
+
+    border:1px solid rgba(184,164,247,.16);
+
+    border-radius:18px;
+
+    padding:22px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    box-shadow:0 8px 25px rgba(184,164,247,.08);
+
+}
+
+.subject-card:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:0 18px 40px rgba(184,164,247,.15);
+
+}
+
+.subject-card.active{
+
+    border:2px solid #B8A4F7;
+
+    background:#F7F4FF;
+
+}
+
+.subject-card h2{
+
+    font-size:22px;
+
+    color:#222;
+
+    margin-bottom:12px;
+
+}
+
+.subject-card p{
+
+    color:#666;
+
+    font-size:14px;
+
+    margin-bottom:16px;
+
+}
+
+.subject-progress{
+
+    width:100%;
+
+    height:8px;
+
+    background:#ECE7FD;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+}
+
+.subject-progress span{
+
+    display:block;
+
+    height:100%;
+
+    background:#B8A4F7;
+
+    border-radius:20px;
+
+    transition:.35s;
+
+}
+
+/*==========================================================
+                    SUMMARY
+==========================================================*/
+
+.summary-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:18px;
+
+}
+
+.summary-card{
+
+    background:rgba(255,255,255,.75);
+
+    backdrop-filter:blur(22px);
+
+    border-radius:16px;
+
+    border:1px solid rgba(184,164,247,.15);
+
+    padding:20px;
+
+    text-align:center;
+
+    transition:.3s;
+
+}
+
+.summary-card:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 14px 30px rgba(184,164,247,.12);
+
+}
+
+.summary-card h3{
+
+    font-size:30px;
+
+    color:#8B6EF7;
+
+    margin-bottom:8px;
+
+}
+
+.summary-card p{
+
+    color:#666;
+
+    font-size:14px;
+
+}
+
+/*==========================================================
+                    TABLE CARD
+==========================================================*/
+
+.table-card{
+
+    background:#fff;
+
+    border:1px solid #ECE7FF;
+
+    border-radius:16px;
+
+    padding:16px;
+
+    box-shadow:0 8px 24px rgba(184,164,247,.08);
+
+}
+
+.table-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:14px;
+
+    padding-bottom:10px;
+
+    border-bottom:1px solid #F0ECFF;
+
+}
+
+.table-header h2{
+
+    font-size:20px;
+
+    color:#333;
+
+    font-weight:700;
+
+}
+
+.table-header span{
+
+    background:#F4F1FF;
+
+    color:#8B6EF7;
+
+    padding:5px 12px;
+
+    border-radius:30px;
+
+    font-size:12px;
+
+    font-weight:600;
+
+}
+
+/*==========================================================
+                    TABLE
+==========================================================*/
+
+/*==========================================
+        HORIZONTAL SCROLL
+==========================================*/
+
+.table-responsive{
+
+    width:100%;
+    overflow-x:auto;
+    overflow-y:hidden;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:thin;
+    scrollbar-color:#B8A4F7 #F4F1FF;
+
+}
+
+.table-responsive::-webkit-scrollbar{
+
+    height:8px;
+
+}
+
+.table-responsive::-webkit-scrollbar-track{
+
+    background:#F4F1FF;
+    border-radius:20px;
+
+}
+
+.table-responsive::-webkit-scrollbar-thumb{
+
+    background:#B8A4F7;
+    border-radius:20px;
+
+}
+
+.table-responsive::-webkit-scrollbar-thumb:hover{
+
+    background:#9F87F5;
+
+}
+
+table{
+
+    width:100%;
+    min-width:760px;   /* Forces horizontal scroll on smaller screens */
+    border-collapse:collapse;
+
+}
+@media (max-width:768px){
+
+    table{
+
+        min-width:760px;
+
+    }
+
+}
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    font-size:14px;
+
+    min-width:620px;
+
+}
+
+thead{
+
+    background:#FAF8FF;
+
+}
+
+th{
+
+    padding:12px 10px;
+
+    color:#666;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    text-align:center;
+
+}
+
+th:nth-child(2){
+
+    text-align:left;
+
+}
+
+td{
+
+    padding:12px 10px;
+
+    border-top:1px solid #F2F2F2;
+
+    text-align:center;
+
+    vertical-align:middle;
+
+}
+
+td:nth-child(2){
+
+    text-align:left;
+
+    font-weight:500;
+
+    color:#444;
+
+}
+
+/*==========================================================
+                    CHECKBOX
+==========================================================*/
+
+input[type="checkbox"]{
+
+    width:18px;
+
+    height:18px;
+
+    accent-color:#8B6EF7;
+
+    cursor:pointer;
+
+}
+
+/*==========================================================
+                    DELETE BUTTON
+==========================================================*/
+
+.delete-btn{
+
+    width:34px;
+
+    height:34px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#FFF1F1;
+
+    color:#E74C3C;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.delete-btn:hover{
+
+    background:#E74C3C;
+
+    color:#fff;
+
+}
+
+/*==========================================================
+                    EMPTY ROW
+==========================================================*/
+
+.empty{
+
+    padding:35px;
+
+    text-align:center;
+
+    color:#999;
+
+    font-size:14px;
+
+}
+
+/*==========================================================
+                    ROW HOVER
+==========================================================*/
+
+tbody tr{
+
+    transition:.2s;
+
+}
+
+tbody tr:hover{
+
+    background:#FCFBFF;
+
+}
+
+/*==========================================================
+                    MOBILE
+==========================================================*/
+
+@media(max-width:768px){
+
+.table-card{
+
+    padding:12px;
+
+    border-radius:14px;
+
+}
+
+.table-header h2{
+
+    font-size:17px;
+
+}
+
+.table-header span{
+
+    font-size:11px;
+
+    padding:4px 10px;
+
+}
+
+table{
+
+    font-size:13px;
+
+    min-width:560px;
+
+}
+
+th,
+td{
+
+    padding:10px 8px;
+
+}
+
+input[type="checkbox"]{
+
+    width:16px;
+
+    height:16px;
+
+}
+
+.delete-btn{
+
+    width:30px;
+
+    height:30px;
+
+}
+
+}
