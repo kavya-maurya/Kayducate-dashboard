@@ -180,6 +180,13 @@
                     <span *ngIf="isLoading">saving ...</span>
 
                 </button>
+                <button type="button" class="viewList-btn" (dblclick)="viewTaskList()" title="Double-click to view task cards">
+
+                    View List
+
+                </button>
+
+                
 
             </div>
 
@@ -363,8 +370,7 @@
     </section>
 
     <!-- ================= TASK LIST ================= -->
-    <!-- 
-    <section class="task-grid">
+    <section class="task-grid" *ngIf="showTaskList">
 
         <div
             class="task-card"
@@ -458,4 +464,4 @@
 
     </section>
 
-</div> -->
+</div>

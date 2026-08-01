@@ -14,6 +14,7 @@ import { environment } from '../../../../environments/environment';
 
 export class Task implements OnInit {
 
+
   taskForm!: FormGroup;
 
   isLoading = false;
@@ -26,6 +27,7 @@ export class Task implements OnInit {
 
   editIndex: number | null = null;
 
+  showTaskList = false;
   tasks: any[] = [];
 
   constructor(
@@ -252,4 +254,10 @@ export class Task implements OnInit {
     this.editIndex = null;
 
   }
+
+  viewTaskList() {
+
+
+
+}
 }
