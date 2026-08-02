@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../../environments/environment';
 
 export interface Chapter {
   _id: string;
@@ -29,9 +30,8 @@ export class SyllabusComponent implements OnInit {
     return;
   }
 
-  this.http.delete(
-    `http://localhost:3000/api/syllabus/chapter/${chapterId}`
-  ).subscribe({
+  this.http.delete(`${environment.apiBaseUrl}/api/syllabus/chapter/${chapterId}`
+     ).subscribe({
 
     next: () => {
 
@@ -52,7 +52,7 @@ export class SyllabusComponent implements OnInit {
   // API
   // ==========================
 
-  apiUrl = 'http://localhost:3000/api/syllabus';
+  apiUrl = '/api/syllabus';
 
   // ==========================
   // DATA
