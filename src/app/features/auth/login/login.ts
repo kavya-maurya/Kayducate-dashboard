@@ -1,8 +1,7 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { environment } from '../../../../environments/environment';
+import { AuthService } from '../../../services/auth';
 
 @Component({
   selector: 'app-login',
@@ -12,31 +11,37 @@ import { environment } from '../../../../environments/environment';
 })
 export class Login implements OnInit {
   loginForm!: FormGroup;
-  isLoading=false;
-  isSuccess=false;
+  isLoading = false;
+  isSuccess = false;
 
-  
-
-  constructor(private fb: FormBuilder, private http:HttpClient, private router: Router) {}
+  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {}
 
   ngOnInit() {
     this.loginForm = this.fb.group({
-     
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
     });
   }
 
-  onSubmit(form: FormGroup) {
+  onSubmit(): void {
+    if (this.loginForm.invalid) {
+      return;
+    }
+
     this.isLoading = true;
-    this.http.post(`${environment.apiBaseUrl}/API/auth/login`, this.loginForm.value).subscribe(res => {
-      console.log(res);
-      localStorage.setItem('user', JSON.stringify(res));
-      this.loginForm.reset();
-      this.isLoading = false;
-      this.isSuccess = true;
-      this.router.navigate(['/student/dashboard']);
+    this.isSuccess = false;
+
+    this.authService.login(this.loginForm.value.email, this.loginForm.value.password).subscribe({
+      next: () => {
+        this.loginForm.reset();
+        this.isLoading = false;
+        this.isSuccess = true;
+        this.router.navigate(['/student/dashboard']);
+      },
+      error: (err) => {
+        console.error(err);
+        this.isLoading = false;
+      },
     });
   }
-
 }

@@ -1,7 +1,7 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { environment } from '../../../../environments/environment';
+import { Router } from '@angular/router';
+import { AuthService } from '../../../services/auth';
 
 @Component({
   selector: 'app-register',
@@ -12,52 +12,31 @@ import { environment } from '../../../../environments/environment';
 export class Register implements OnInit {
 
   registerForm!: FormGroup;
-  isLoading=false;
-  isSuccess=false;
+  isLoading = false;
+  isSuccess = false;
 
-  
-
-  constructor(private fb: FormBuilder, private http:HttpClient) {}
+  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {
-
     this.registerForm = this.fb.group({
-
-      name: [
-        '',
-        Validators.required
-      ],
-
-      email: [
-        '',
-        [
-          Validators.required,
-          Validators.email
-        ]
-      ],
-
-      password: [
-        '',
-        [
-          Validators.required,
-          Validators.minLength(6)
-        ]
-      ]
-
+      name: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
     });
-
   }
 
   onSubmit(): void {
-    console.log(this.registerForm.value);
+    if (this.registerForm.invalid) {
+      return;
+    }
 
     this.isLoading = true;
-    this.http.post(`${environment.apiBaseUrl}/API/auth/register`, this.registerForm.value).subscribe({
-      next: (res) => {
-        console.log(res);
+    this.authService.register(this.registerForm.value.name, this.registerForm.value.email, this.registerForm.value.password).subscribe({
+      next: () => {
         this.registerForm.reset();
         this.isLoading = false;
         this.isSuccess = true;
+        this.router.navigate(['/auth/login']);
       },
       error: (err) => {
         console.error(err);
@@ -65,7 +44,6 @@ export class Register implements OnInit {
       },
     });
   }
-
 }
 
 
