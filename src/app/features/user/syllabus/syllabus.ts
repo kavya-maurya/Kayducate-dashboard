@@ -78,7 +78,7 @@ export class SyllabusComponent implements OnInit {
 
   getSubjects() {
 
-    this.http.get<any>(this.apiUrl).subscribe({
+    this.http.get<any>(`${environment.apiBaseUrl}/api/syllabus`).subscribe({
 
       next: (res) => {
 
